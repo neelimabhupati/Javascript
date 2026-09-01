@@ -141,3 +141,66 @@ function logger(){
 
 
 //============================== onclick alternatives (onchange, onkeydown, etc.)===============================
+//Task 1:Create an input field with a user-defined ID.
+
+let UserField = document.createElement('input')
+
+UserField.id = 'Userinput';
+UserField.setAttribute('type', 'text');
+UserField.placeholder = 'Please enter your text..'
+
+document.body.appendChild(UserField);
+
+//========another
+
+let MyData = document.createElement('input');
+MyData.id = 'MyID';
+MyData.setAttribute('type', 'text');
+MyData.placeholder='Please enter your text here';
+
+document.body.appendChild(MyData);
+
+
+//=================function that logs the value of this input field=============================================================
+
+// Task 2: Create a function that logs the value of this input field.
+
+
+function logInputValue(inputId) {
+    let inputElement = document.getElementById(inputId);
+
+    if (inputElement) {
+        console.log(inputElement.value);
+    } else {
+        console.error('Input element dharaka ledu!');
+    }
+}
+
+
+logInputValue('myInput');
+
+
+//=======================================================================
+
+function Age_limit(input){
+
+    let Age = document.getElementById(input)
+
+    if(Age <18){
+
+        console.log('Du bist minderjährige');
+        return 0;
+
+    }else if(Age = 18){
+
+        console.log('Du bist gerade 18');
+        return 0;
+
+    }else{
+
+        console.log('Du bist volljährige');
+        return 0;
+    }
+}
+
+Age_limit('input');
