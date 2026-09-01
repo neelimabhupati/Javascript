@@ -15,7 +15,8 @@ Montag, 31. August 2026
     <script src="./strings_numbers.js"></script>
      <script src="./conditional_code.js"></script>
     <script src="./functions.js"></script> 
-    <script src="./object.js"></script> -->
+    <script src="./object.js"></script> 
+    <script src="./dom_manipulation.js"></script> -->
 
     <style>
         .green_bg{
@@ -40,7 +41,9 @@ Montag, 31. August 2026
     
 </head>
 
-<body>
+<!-- 
+//dom_manipulation.js
+<body onload = console.log(123)>
      <h1 id= "website_title" >Der Title der Website</h1>
     
      <div class= "green_bg" id="test_div"></div>
@@ -51,12 +54,27 @@ Montag, 31. August 2026
         </p>
     </div> 
     <div id="button_container"></div>  
-     
-
-    <p id = "our_p_tag">Ich bin in das Ptag</p>
+     <p id = "our_p_tag">Ich bin in das Ptag</p>
     <button onclick="toggleDNone('our_p_tag')"> Bitte ausführe </button>
     
+    <input type="text" onchange="console.log(5)"> 
+    // onload, onkeydown, up, onchange, onclick
+
+
+</body>  -->
+     
+
+<body onload="scopeTest()">
+    <h1 onclick="console.log(1)" id="website_title">Der Title</h1>
+
+    <p id = "debugger_log">0</p>
+
+    <button onclick="init()">Start Code</button>
+    
+    <script src="./scope.js"></script>
 </body>
 
-<script src="./dom_manipulation.js"></script>
+   
+
+
 </html>
