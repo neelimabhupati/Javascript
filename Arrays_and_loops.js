@@ -173,3 +173,31 @@ function initArrays() {
     }
 }
 
+//
+
+function initArrays() {
+
+    let contentRef = document.getElementById('my_content');
+    for (let indexFruits = 5; indexFruits < 7 ; indexFruits ++) {
+
+        contentRef.innerHTML += "asd";
+        console.log(indexFruits);
+    }
+}
+
+
+//===============================================================================================
+let singletestVar = "asd";
+
+function containsElement(array, element) {
+    return array.includes(element);
+}
+
+function initArrays() {
+    let contentRef = document.getElementById('my_content');
+    contentRef.innerHTML = "";
+
+    for (let indexFruits = 0; indexFruits < fruits.length; indexFruits++) {
+        contentRef.innerHTML += `<p> ${fruits[indexFruits]}</p>`;
+    }
+}
