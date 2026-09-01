@@ -100,3 +100,59 @@ function initArrays(){
     console.log(addElementToStart(Numbers_array, 1));
     console.log(addElementToStart(Alpha_array1, 'a'));
 }
+
+
+//=================================================================
+
+// Aufgabenstellung 5: slice
+// Implementiere eine Funktion namens getSubArray(array, start, end), die ein neues Array zurückgibt, das die Elemente von start bis end (nicht eingeschlossen) enthält.
+
+// Test:
+
+// console.log(getSubArray([1, 2, 3, 4, 5], 1, 4)); // [2, 3, 4]
+
+// console.log(getSubArray(['a', 'b', 'c', 'd', 'e'], 0, 3)); // ['a', 'b', 'c']
+
+
+let Slice_num_Array = [1, 2, 3, 4, 5];
+let Slice_Alpha_Array = ['a', 'b', 'c', 'd', 'e'];
+
+
+function getSubArray(array, start, end){
+    return array.slice(start, end);
+    
+}
+
+function initArrays(){
+
+    console.log(getSubArray(Slice_num_Array, 1,4));
+    console.log(getSubArray(Slice_Alpha_Array, 0,3));
+}
+
+
+//=====================================================================================================
+
+// Aufgabenstellung 6: join
+// Implementiere eine Funktion namens joinArray(array, separator), die eine Zeichenkette zurückgibt, die aus den Elementen des array besteht, getrennt durch den separator.
+
+// Test:
+
+// console.log(joinArray(['apple', 'banana', 'cherry'], ', ')); // "apple, banana, cherry"
+
+// console.log(joinArray([1, 2, 3, 4], ' - ')); // "1 - 2 - 3 - 4"
+
+
+let JoinFruit_Array = ['apple', 'banana', 'cherry'];
+let JoinNum_Array = [1, 2, 3, 4];
+let The_JoinArray;
+function joinArray(array, separator){
+
+    The_JoinArray = array.join(separator);
+    return The_JoinArray;
+}
+
+
+function initArrays(){
+    console.log(joinArray(JoinFruit_Array,','));
+    console.log(joinArray(JoinNum_Array,'-'));
+}
