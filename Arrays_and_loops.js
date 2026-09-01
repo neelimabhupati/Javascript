@@ -12,7 +12,7 @@ let fruits = ["Banana", "Orange", "Apple", "Mango"];
 
 
 function containsElement(array, element) {
-    return fruits.includes("Banana",0)
+    return fruits.includes("Banana", 0)
 }
 
 function initArrays() {
@@ -33,17 +33,17 @@ function initArrays() {
 // console.log(findElementIndex([10, 20, 30, 40], 50)); // -1
 
 
-let NumberList =[10, 20, 30, 40];
+let NumberList = [10, 20, 30, 40];
 
-function findElementIndex(array, element){
+function findElementIndex(array, element) {
 
     return NumberList.indexOf(element);
 
 }
 
-function initArrays(){
-    console.log(findElementIndex(NumberList,30));
-    console.log(findElementIndex(NumberList,50));
+function initArrays() {
+    console.log(findElementIndex(NumberList, 30));
+    console.log(findElementIndex(NumberList, 50));
 }
 
 
@@ -60,19 +60,19 @@ function initArrays(){
 // console.log(removeFirstElement(['a', 'b', 'c', 'd'])); // ['b', 'c', 'd']
 
 
-let Num_array= [10, 20, 30, 40];
+let Num_array = [10, 20, 30, 40];
 let Alpha_array = ['a', 'b', 'c', 'd'];
 let final_array;
-function removeFirstElement( array){
-    
-    final_array= array.shift();
+function removeFirstElement(array) {
+
+    final_array = array.shift();
     return array;
 }
 
-function initArrays(){
+function initArrays() {
     console.log(removeFirstElement(Num_array));
     console.log(removeFirstElement(Alpha_array));
-   
+
 }
 
 //=============================================================================================
@@ -90,13 +90,13 @@ function initArrays(){
 let Numbers_array = [2, 3, 4];
 let Alpha_array1 = ['b', 'c', 'd'];
 
-function addElementToStart(array, element){
+function addElementToStart(array, element) {
 
     array.unshift(element);
     return array;
 }
 
-function initArrays(){
+function initArrays() {
     console.log(addElementToStart(Numbers_array, 1));
     console.log(addElementToStart(Alpha_array1, 'a'));
 }
@@ -118,15 +118,15 @@ let Slice_num_Array = [1, 2, 3, 4, 5];
 let Slice_Alpha_Array = ['a', 'b', 'c', 'd', 'e'];
 
 
-function getSubArray(array, start, end){
+function getSubArray(array, start, end) {
     return array.slice(start, end);
-    
+
 }
 
-function initArrays(){
+function initArrays() {
 
-    console.log(getSubArray(Slice_num_Array, 1,4));
-    console.log(getSubArray(Slice_Alpha_Array, 0,3));
+    console.log(getSubArray(Slice_num_Array, 1, 4));
+    console.log(getSubArray(Slice_Alpha_Array, 0, 3));
 }
 
 
@@ -145,14 +145,31 @@ function initArrays(){
 let JoinFruit_Array = ['apple', 'banana', 'cherry'];
 let JoinNum_Array = [1, 2, 3, 4];
 let The_JoinArray;
-function joinArray(array, separator){
+function joinArray(array, separator) {
 
     The_JoinArray = array.join(separator);
     return The_JoinArray;
 }
 
 
-function initArrays(){
-    console.log(joinArray(JoinFruit_Array,','));
-    console.log(joinArray(JoinNum_Array,'-'));
+function initArrays() {
+    console.log(joinArray(JoinFruit_Array, ','));
+    console.log(joinArray(JoinNum_Array, '-'));
 }
+
+
+function initArrays() {
+
+    for (let indexFruits = 0; indexFruits < 6; indexFruits += 2) {
+        console.log(indexFruits);
+    }
+
+
+}
+
+function initArrays() {
+    for (let indexFruits = 5; indexFruits >= 0; indexFruits--) {
+        console.log(indexFruits);
+    }
+}
+
