@@ -1,4 +1,5 @@
-// alert("JS FILE LOADED");
+//alert("JS FILE LOADED");
+
 
 // Aufgabenstellung 1: includes
 // Implementiere eine Funktion namens containsElement(array, element), die true zurückgibt, wenn element im array enthalten ist, andernfalls false.
@@ -180,7 +181,7 @@ function initArrays() {
 function initArrays() {
 
     let contentRef = document.getElementById('my_content');
-    for (let indexFruits = 5; indexFruits < 7 ; indexFruits ++) {
+    for (let indexFruits = 5; indexFruits < 7; indexFruits++) {
 
         contentRef.innerHTML += "asd";
         console.log(indexFruits);
@@ -204,7 +205,8 @@ function initArrays() {
     }
 }
 
-//=================================================================
+//=========================================================================================
+
 
 function sumArray(array) {
     let sum = 0;
@@ -216,3 +218,5 @@ function sumArray(array) {
 
 
 console.log(sumArray([3,7,1,4]));
+
+
