@@ -206,6 +206,15 @@ function initArrays() {
 
 //=================================================================
 
+// Task 1: Sum of the elements of an array
+// Implement a for loop to calculate and return the sum of the elements in an array.
+
+// Test :
+
+// console.log(sumArray([3, 7, 1, 4])); // Expected output: 15 (3 + 7 + 1 + 4)
+
+// console.log(sumArray([1, 2, 3, 4, 5])); // Expected output: 15 (1 + 2 + 3 + 4 + 5)
+
 function sumArray(array) {
     let sum = 0;
     for (let index = 0; index < array.length; index++) {
@@ -216,3 +225,113 @@ function sumArray(array) {
 
 
 console.log(sumArray([3,7,1,4]));
+console.log(sumArray([1, 2, 3, 4, 4]));
+
+
+//===============================================================
+
+// Task 2: Output of a number sequence
+// Implement a for loop to output the numbers from 1 to n in ascending order.
+
+// Test :
+
+// printNumbers(5); // Expected output: 1, 2, 3, 4, 5
+
+// printNumbers(3); // Expected output: 1, 2, 3
+
+
+
+
+function outputnumber(number){
+    
+   let result = " ";
+    for(let i=1 ; i<= number ; i++)
+    {
+       
+        result = result + i ;
+    
+        if(i<number){
+            result = result + ' ,';
+        }
+
+    }
+
+    console.log(result);
+
+}
+
+outputnumber(8);
+
+
+
+//==============================================================
+
+// Task 3: Reverse for loop
+// Task :
+
+// Implement a for loop that outputs the numbers from the given number down to 1 in descending order.
+// Test :
+
+// printNumbersReverse(5);
+
+// // Expected issue: 5, 4, 3, 2, 1
+
+
+// printNumbersReverse(3);
+
+// // Expected issue: 3, 2, 1
+
+
+function printNumbersReverse(input){
+
+    let result = " ";
+
+    for(let i=input; i >= 1; i-- ){
+
+        result = result + i;
+
+        if( i > 1 ){
+            result = result + ' ,';
+        }
+    }
+
+    console.log(result);
+
+}
+
+printNumbersReverse(5);
+
+
+//===================================================================================
+
+// Task 4: Output only every third element
+// Implement a for loop that outputs every third element of the given array.
+
+// Test :
+
+// printEveryThirdElement([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+// // Expected issue: 1, 4, 7
+
+
+// printEveryThirdElement(['a', 'b', 'c', 'd', 'e', ​​'f']);
+
+// // Expected output: 'a', 'd'
+
+
+function printEveryThirdElement(array)
+{
+    let result = " ";
+    for(let i= 0; i< array.length ; i++)
+    {
+        result = result + i;
+
+        if( i > array.length){
+            result = array + ' ,';
+        }
+    }
+
+    return result;
+}
+
+printEveryThirdElement
