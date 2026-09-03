@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantischer Dialog</title>
+
+
+</head>
+<body>
+    <main>
+        <h1> Unser Dialog Test</h1>
+
+        <button onclick= "openDialog()"> Dialog öffnen </button>
+
+        <dialog id= "my_dialog">
+            <header> 
+            <h2>
+                Mein Dialog
+            </h2>
+        </header>
+
+
+        <section>
+            <p> Hier siehst du die Informationen die ich die banana... </p>
+        
+        </section>
+
+
+        <footer>
+            <button onclick = "closeDialog()"> Schließen</button>
+        </footer>
+
+
+        </dialog>
+    </main>
+
+    <script>
+
+        const dialogRef = document.getElementById("my_dialog");
+
+        function openDialog(){
+            dialogRef.showModal();
+        }
+
+        function closeDialog(){
+            dialogRef.close();
+        }
+
+    </script>
+</body>
+</html>
