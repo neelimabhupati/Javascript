@@ -250,7 +250,7 @@ function outputnumber(number){
        
         result = result + i ;
     
-        if(i<number){
+        if(i< number){
             result = result + ' ,';
         }
 
@@ -299,7 +299,7 @@ function printNumbersReverse(input){
 
 }
 
-printNumbersReverse(5);
+printNumbersReverse(6);
 
 
 //===================================================================================
@@ -322,16 +322,77 @@ printNumbersReverse(5);
 function printEveryThirdElement(array)
 {
     let result = " ";
-    for(let i= 0; i< array.length ; i++)
+    for(let i= 0; i< array.length ; i = i+3 )
     {
-        result = result + i;
+        result = result + array[i];
 
-        if( i > array.length){
-            result = array + ' ,';
+        if( i+3 < array.length){
+            result = result + ' ,';
         }
     }
 
-    return result;
+    console.log(result) ;
 }
 
-printEveryThirdElement
+printEveryThirdElement([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+
+//================================================================================
+
+// Bonus task: Checking for prime numbers
+// Implement a for loop to check if the given number is prime (i.e., divisible only by 1 and itself). Return true if it is prime, otherwise false .
+
+// Test :
+
+// console.log(isPrime(7)); // Expected output: true (7 is a prime number)
+
+// console.log(isPrime(4)); // Expected output: false (4 is not a prime number)
+
+function checkPrimenumber(input){
+
+    if(input <=1)
+    {
+        console.log("Please enter a number greater than 1")
+        return false;
+    }
+    if(input >1){
+        for(let i= 2 ; i< input; i++){
+            
+            if( input % i == 0 ){
+                console.log("given number not a prime")
+                return false;
+            }
+           
+        }
+         console.log("given number is a prime")
+         return true;
+    }
+
+}
+
+console.log(checkPrimenumber(1)); // false
+console.log(checkPrimenumber(8)); // true
+
+
+
+//===========================================================================================
+
+//Beispiel: getElementsByClassname
+//for-Schleife
+
+
+function initArrays(){
+
+    let refList = document.getElementsByClassName('red_box')
+
+    for( let index =0; index <refList.length ; index++){
+
+        const singleRef = refList[index];
+        singleRef.innerText = index;
+    }
+}
+
+
+//==============================================================================================
+
+
