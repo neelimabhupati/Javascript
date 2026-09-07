@@ -227,129 +227,7 @@ body {
     flex-direction: column;
 }
 
-/* footer content end */
 
-
-/* media query for 375px */
-
-/* @media(min-width:375px) and (max-width: 435px) {
-
-    #content {
-
-        width: 435px;
-        padding: 20px;
-    }
-
-    .header_content>nav {
-        justify-content: center;
-        width: 435px;
-    }
-
-    .footer_content {
-        justify-content: center;
-        width: 435px;
-    }
-
-    .main_class {
-        width: 435px;
-    }
-
-    .popup_container {
-        width: 100%;
-        height: 100%;
-    }
-
-    .popup-body img{
-        width: 300px;
-        height: 375px;
-    }
-
-}
-
-@media (min-width:436px) and (max-width: 630px) {
-
-    #content {
-
-        width: 630px;
-        padding: 10px;
-    }
-
-    .header_content {
-        width: 630px;
-
-    }
-
-    .header_content>nav {
-        justify-content: center;
-    }
-
-    .main_class {
-        width: 630px;
-    }
-
-    .footer_content {
-        width: 630px;
-    }
-
-    .popup_container {
-        width: 100%;
-        height: 100%;
-    }
-
-   
-    
-}
-
-@media (min-width: 631px)and (max-width: 1000px) {
-    .header_content>nav {
-        padding-left: 40px;
-    }
-
-    .main_class {
-        width: 1000px;
-    }
-
-    .header_content {
-        width: 1000px;
-
-    }
-
-    .footer_content {
-        width: 1000px;
-    }
-
-    .popup_container {
-        width: 100%;
-        height: 100%;
-    }
-
-}
-
-@media (min-width: 1001px)and (max-width: 1440px) {
-    .header_content>nav {
-        padding-left: 40px;
-    }
-
-    .main_class {
-        width: 1440px;
-    }
-
-    .header_content {
-        width: 1440px;
-
-    }
-
-    .footer_content {
-        width: 1440px;
-    }
-
-
-
-} */
-
-/* ==========================================
-   CLEAN RESPONSIVE MEDIA QUERIES
-   ========================================== */
 
 /* full screen for tab, laptop (below 1024px) */
 @media (max-width: 1024px) {
@@ -383,14 +261,14 @@ body {
     }
 }
 
-/* below 600px */
+/* below 600px for mobile*/
 @media (max-width: 600px) {
-    .header_content>nav {
+    .header_content > nav {
         padding: 0 15px;
         justify-content: center;
     }
 
-    .header_content>nav>h1 {
+    .header_content> nav > h1 {
         font-size: 24px;
     }
 
