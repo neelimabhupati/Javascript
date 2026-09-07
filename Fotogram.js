@@ -1,16 +1,14 @@
 let currentPhotoIndex = 0;
 
 function renderPhotos() {
-    // HTML lo unna #content div element ni select chestam
+    //select the #content div element in HTML
     let container = document.getElementById('content');
 
     //photo container ni clear chestam
     container.innerHTML = '';
 
     // loop for photoList in db.js
-
     for(let i=0; i< photoList.length ; i++){
-
         container.innerHTML += `<div id= "photo${i}" class= "photo-card" onClick= "openPhoto(${i})" style= "background-image: url('${photoList[i]}');"> </div>`;
     }
 }
@@ -24,7 +22,7 @@ function openPhoto(index){
     document.getElementById('popup').classList.remove('d-none');
 }
 
-//To update popup details function
+//To update current popup details function
 function updatedPopup(){
     let imgPath = photoList[currentPhotoIndex];
     let fileName = imgPath.split('/').pop();
