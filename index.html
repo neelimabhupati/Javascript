@@ -13,59 +13,59 @@
 </head>
 
 <body onload="renderPhotos()">
-    <h1>Baby photos album</h1>
 
-    <div id="content"></div>
+    <!-- header content -->
+    <header class="header_content">
+        <nav>
+            <img src="./assets/Icons/Icon_Fotogram.png" alt="Icon_Fotogram">
+            <h1>Fotogram</h1>
+        </nav>
+    </header>
+    <main class="main_class">
 
+        <h1>Baby photos album</h1>
+        <div id="content"></div>
 
+        <!-- Popu_card -->
+        <div id="popup" class="popup_container d-none">
 
-    <!-- Popu_card -->
-    <div id="popup" class="popup_container d-none">
+            <div class="popup_card">
 
-        <!-- header content -->
-        <header class="header_content">
-            <nav>
-                <img src="./assets/Icons/Icon_Fotogram.png" alt="Icon_Fotogram">
-                <h1>Fotogram</h1>
-            </nav>
-        </header>
-
-        <div class="popup_card">
-
-            <!-- header section -->
-            <div class="popup-header">
-                <span id="photo_title"></span>
-                <span class="close-btn" onclick="closePhoto()"> <img src="./assets/Icons/close.png" alt=""> </span>
-            </div>
-
-            <!-- image-display -->
-            <div class="popup-body">
-                <img id="popup_img" src="" alt="Selected Photo">
-            </div>
-
-            <!-- footer-section -->
-            <div class="popup-footer">
-                <button class="arraw-btn" onclick="prevPhoto()"> <img src="./assets/Icons/Arrow-Left.png"
-                        alt="Arrow-Left"> </button>
-                <span id="photo-counter">1/12</span>
-                <button class="arraw-btn" onclick="nextPhoto()"> <img src="./assets/Icons/Arrow-Right.png"
-                        alt="Arrow-Right"> </button>
-            </div>
-
-            <footer>
-                <div class="footer_content">
-                    <img src="./assets/Icons/Dev_Akademie_Logo.png" alt="Dev_Akademie_Logo">
-                    <p>Developer Akademie</p>
-                    <p>© 2023 Developer Akademie GmbH</p>
+                <!-- header section -->
+                <div class="popup-header">
+                    <span id="photo_title"></span>
+                    <span class="close-btn" onclick="closePhoto()"> <img src="./assets/Icons/close.png" alt=""> </span>
                 </div>
-            </footer>
+
+                <!-- image-display -->
+                <div class="popup-body">
+                    <img id="popup_img" src="" alt="Selected Photo">
+                </div>
+
+                <!-- footer-section -->
+                <div class="popup-footer">
+                    <button class="arraw-btn" onclick="prevPhoto()"> <img src="./assets/Icons/Arrow-Left.png"
+                            alt="Arrow-Left"> </button>
+                    <span id="photo-counter">1/12</span>
+                    <button class="arraw-btn" onclick="nextPhoto()"> <img src="./assets/Icons/Arrow-Right.png"
+                            alt="Arrow-Right"> </button>
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
+        
+        <script src="./Fotogram.js"></script>
+    </main>
 
-
-    <script src="./Fotogram.js"></script>
+    <footer>
+            <div class="footer_content">
+                <img src="./assets/Icons/Dev_Akademie_Logo.png" alt="Dev_Akademie_Logo">
+                <p>Developer Akademie</p>
+                <p>© 2023 Developer Akademie GmbH</p>
+            </div>
+        </footer>
 </body>
 
 </html>
