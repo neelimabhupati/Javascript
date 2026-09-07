@@ -16,7 +16,27 @@
     display: none !important;
 }
 
+/* Header content start*/
+.header_content >nav {
+    background-color: rgba(9, 33, 42, 1);
+    height: 80px;
 
+    display: flex;
+    align-items: center;
+   
+    gap: 15px;
+    
+}
+
+.header_content>nav>h1 {
+
+    color: rgba(255, 255, 255, 1);
+    font-size: 40px;
+}
+
+/* Header content end */
+
+/* popup container */
 .popup_container {
     position: fixed;
     top: 50%;
@@ -42,7 +62,7 @@
 }
 
 
-/* header section  */
+/* popup header section  */
 .popup-header {
     display: flex;
     justify-content: space-between;
@@ -149,3 +169,21 @@ body {
 .photo-card:hover {
     transform: scale(2.08);
 }
+
+/* footer content start */
+.footer_content {
+    background-color: rgba(9, 33, 42, 1);
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer_content>p {
+
+    color: rgba(255, 255, 255, 1);
+
+}
+
+/* footer content end */
