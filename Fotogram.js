@@ -20,6 +20,10 @@ function openPhoto(index) {
 
     updatedPopup(); // calling helper function.
     document.getElementById('popup').classList.remove('d-none');
+    // const dialoge = document.getElementById('popup');
+    // dialoge.showModal();
+    // dialoge.focus();
+
 }
 
 //To update current popup details function
@@ -62,6 +66,14 @@ document.addEventListener('keydown', function (event) {
         closePhoto();
     }
 });
+
+// document.addEventListener('keydown', function (event) {
+//     if (event.key === 'Tab') {
+
+//     }
+
+
+// })
 
 
 
