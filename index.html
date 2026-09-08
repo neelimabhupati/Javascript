@@ -24,7 +24,10 @@
         <h2>Baby photos album 👶 </h2>
         <div id="content"></div>
 
-        
+        <header inert>...</header>
+        <main inert>...</main>
+        <footer inert>...</footer>
+
         <!-- Popu_card -->
         <dialog id="popup" class="popup_container d-none">
 
@@ -33,7 +36,8 @@
                 <!-- header section -->
                 <div class="popup-header">
                     <span id="photo_title"></span>
-                    <button class="close-btn" onclick="closePhoto()" > <img src="./assets/Icons/close.png" alt="">  </button>
+                    <button class="close-btn" onclick="closePhoto()"> <img src="./assets/Icons/close.png" alt="">
+                    </button>
                 </div>
 
                 <!-- image-display -->
@@ -43,10 +47,10 @@
 
                 <!-- footer-section -->
                 <div class="popup-footer">
-                    <button class="arraw-btn" onclick="prevPhoto()" > <img src="./assets/Icons/Arrow-Left.png"
+                    <button class="arraw-btn" onclick="prevPhoto()"> <img src="./assets/Icons/Arrow-Left.png"
                             alt="Arrow-Left"> </button>
                     <span id="photo-counter">1/12</span>
-                    <button class="arraw-btn" onclick="nextPhoto()" > <img src="./assets/Icons/Arrow-Right.png"
+                    <button class="arraw-btn" onclick="nextPhoto()"> <img src="./assets/Icons/Arrow-Right.png"
                             alt="Arrow-Right"> </button>
                 </div>
 
