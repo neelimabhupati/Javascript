@@ -68,4 +68,11 @@ document.addEventListener('keydown', function (event) {
 });
 
 
-
+//Dark overlay click → close
+document.getElementById('popup').addEventListener('click', function (event)
+ {
+    if (event.target === this) 
+        {
+        closePhoto();
+    }
+});
