@@ -9,7 +9,7 @@ function renderPhotos() {
 
     // loop for photoList in db.js
     for (let i = 0; i < photoList.length; i++) {
-        container.innerHTML += `<div id= "photo${i}" class= "photo-card" onClick= "openPhoto(${i})" style= "background-image: url('${photoList[i]}');"> </div>`;
+        container.innerHTML += `<button id= "photo${i}" class= "photo-card"  tabindex="0" onClick= "openPhoto(${i})" style= "background-image: url('${photoList[i]}');"> </button>`;
     }
 }
 
@@ -33,7 +33,7 @@ function updatedPopup() {
 
     document.getElementById('popup_img').src = imgPath;
     document.getElementById('photo_title').innerHTML = fileName;
-    document.getElementById('photo-counter').innerText = `${currentPhotoIndex + 1}/ ${photoList.length}`;
+    document.getElementById('photo-counter').innerText = `${currentPhotoIndex + 1} / ${photoList.length}`;
 }
 
 //next photo function
@@ -68,4 +68,10 @@ document.addEventListener('keydown', function (event) {
 });
 
 
-
+// Dark overlay click → close
+document.getElementById('popup').addEventListener('click', function (event) {
+    // if click target is  "#popup" (this = overlay), then only we can close.
+    if (event.target === this) {
+        closePhoto();
+    }
+});

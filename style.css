@@ -4,15 +4,33 @@
     box-sizing: border-box;
 }
 
+.mainpage_container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+
 .main_class {
+    flex: 1; /*remaining empty place it will take, gives even space to page */
     max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
-    padding: 90px 0 180px 0;
+    /* padding: 90px 0 180px 0; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
 }
 
 .main_class>h2 {
 
-    padding-bottom: 65px;
+    margin-bottom: 160px;
+    padding-bottom: 0;
+    font-size: 40px;
 }
 
 /* Header content start*/
@@ -31,7 +49,6 @@
     pad: 40px;
     background-color: rgb(245, 5, 173);
     height: 80px;
-
     display: flex;
     align-items: center;
 
@@ -72,17 +89,31 @@
 .popup_card {
 
     /* width: 90vw; */
-    width: 650px;
-    height: 650px;
+    width: 70%;
+    height: 75vh;
+
+    max-width: 850px;
+
     opacity: 1;
-    gap: 48px;
+    gap: 20px;
     border-radius: 40px;
-    padding: 56px 64px;
+    padding: 32px 40px;
 
     background-color: rgb(245, 5, 173);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     /* within width and height : boxsizing borderbox */
     box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+
+/* Tab నొక్కినప్పుడు ఫోకస్ పర్ఫెక్ట్‌గా కనిపించడానికి */
+.photo-card:focus-visible {
+    outline: 6px solid rgb(245, 5, 173);
+    outline-offset: 7px;
 }
 
 
@@ -111,22 +142,24 @@
 
 
 .popup-body img {
-
-    /* max-width: 560px; */
-    width: 100%;
-    max-height: 375px;
-    object-fit: cover;
-    margin-top: 50px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin-top: 0;
 }
 
 .popup-footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 24px;
+    
     margin-top: 50px;
 }
 
+/* to not move the arrows */
+#photo-counter{
+    min-width: 60px;
+}
 .arraw-btn {
 
     background-color: black;
@@ -164,16 +197,16 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Album Photos flex format lo adjust avvadaniki */
+/* Album Photos container */
 #content {
-    /* max-width: 1170px; */
+
     width: 100%;
-    margin: 0 auto;
+
     gap: 16px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
+    padding: 0;
 }
 
 /* Prati Photo Card Styling */
@@ -198,7 +231,7 @@ body {
 /* footer content start */
 
 .footer_content {
-    /* max-width: 100%; */
+
     margin: 0 auto;
     background-color: rgb(245, 5, 173);
     height: 130px;
@@ -267,12 +300,12 @@ body {
 /* below 600px for mobile*/
 
 @media (max-width: 600px) {
-    .header_content > nav {
+    .header_content>nav {
         padding: 0 15px;
         justify-content: center;
     }
 
-    .header_content> nav > h1 {
+    .header_content>nav>h1 {
         font-size: 24px;
     }
 
@@ -304,5 +337,6 @@ body {
     }
 
 }
+
 
 /* responsive end */
