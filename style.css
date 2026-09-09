@@ -264,7 +264,6 @@ body {
 }
 
 /* mediaquery for responsive screen */
-
 @media (min-width: 767px) and (max-width: 1024px) {
 
     .popup_card {
@@ -306,7 +305,6 @@ body {
     }
 
 }
-
 
 @media (min-width:320px) and (max-width: 419px) {
     .popup_card {
