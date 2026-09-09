@@ -9,7 +9,7 @@ function renderPhotos() {
 
     // loop for photoList in db.js
     for (let i = 0; i < photoList.length; i++) {
-        container.innerHTML += `<button id= "photo${i}" class= "photo-card"  tabindex="0" onClick= "openPhoto(${i})" style= "background-image: url('${photoList[i]}');"> </button>`;
+        container.innerHTML += `<button id= "photo${i}" class= "photo-card"   onClick= "openPhoto(${i})" style= "background-image: url('${photoList[i]}');"> </button>`;
     }
 }
 
