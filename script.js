@@ -9,7 +9,7 @@
 
 //     contentref.innerHTML= notes
 // }
-let notes = ['banana', 'rasen mählen'];
+let notes = ['banana', 'rasen mählen', 'orange'];
 function renderNotes(){
     let contentref = document.getElementById('content')
 
@@ -17,14 +17,14 @@ function renderNotes(){
 
 
     for (let indexNote = 0; indexNote < notes.length; indexNote++) {
-        const note = notes[indexNote];
-        contentref.innerHTML += getNoteTemplate(note);
+       
+        contentref.innerHTML += getNoteTemplate(indexNote);
     }
 }
 
 
-function getNoteTemplate(note){
-    return `<p> + ${note}</p>`;
+function getNoteTemplate(indexNote){
+    return `<p>+ ${notes[indexNote]}<button onClick="deleteNote(${indexNote})">X </button></p>`;
 }
 
 
@@ -40,4 +40,13 @@ function addNote(){
 }
 
 //3.notizen löschen
+// welche notz muss gelöst werder
+// wann muss die notiz gelöst werden
+// anzeige update
+
+function deleteNote(indexNote){
+    notes.splice(indexNote, 1);
+
+    renderNotes();
+}
 //4. notizen archivieren
