@@ -26,6 +26,18 @@ function renderNotes(){
 function getNoteTemplate(note){
     return `<p> + ${note}</p>`;
 }
+
+
 //2.notizen hunzufügen
+function addNote(){
+    let noteInputRef = document.getElementById('note_input');
+    let noteInput = noteInputRef.value;
+
+    notes.push(noteInput);
+
+    renderNotes();
+
+}
+
 //3.notizen löschen
 //4. notizen archivieren
