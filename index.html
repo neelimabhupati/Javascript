@@ -14,23 +14,23 @@
 
 <body onload="inIt()">
     <h1>Notizblock</h1>
-    <div>
+    <div class="input-container">
         <label for="title_input">Title:</label><br>
-        <input for="title_input" type="text"></input><br><br>
+        <input id="title_input" type="text"><br><br>
 
         <label for="content_input">Content:</label><br>
-        <input for="content_input" type="text"></input><br><br>
+        <input id="content_input" type="text"><br><br>
         <button onclick="addNote()">Notiz speichern</button><br><br>
     </div>
 
 
-    <h2>notes</h2>
+    <h2>Notes</h2>
     <div id="content" class="notes-container"></div>
 
-    <h2>archieve</h2>
-    <div id="achieve_content" class="notes-container"></div>
-    
-    <h2>trashnotes</h2>
+    <h2>Archieve</h2>
+    <div id="archiev_content" class="notes-container"></div>
+
+    <h2>Trashnotes</h2>
     <div id="trash_content" class="notes-container"></div>
 
 </body>
