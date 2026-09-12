@@ -101,11 +101,4 @@ function getFromLocalStorage() {
     let storedTrashNotes = JSON.parse(localStorage.getItem("trashNotes"));
     let storedTrashTitles = JSON.parse(localStorage.getItem("trashNotesTitles"));
 
-    // // Data unteనే update chestundhi, lekapothe array default values (`['banana', 'rasen mählen']`) thone untundhi
-    // if (storedNotes) {
-    //     notes = storedNotes; // <-- 'let' లేదు! Direct Global Variable కి Assign చేసాం.
-    // }
-    // if (storedTitles) notesTitles = storedTitles;
-    // if (storedTrashNotes) trashNotes = storedTrashNotes;
-    // if (storedTrashTitles) trashNotesTitles = storedTrashTitles;
 }
