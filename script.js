@@ -107,21 +107,23 @@ function getTrashNoteTemplate(indexTrashNote) {
 //2.notizen hunzufügen
 function addNote() {
     // let noteInputRef = document.getElementById('note_input');
-      // let noteInput = noteInputRef.value;
+    // let noteInput = noteInputRef.value;
     let titleInputRef = document.getElementById('title_input');
     let titleInput = titleInputRef.value;
     let contentInputRef = document.getElementById('content_input');
     let contentInput = contentInputRef.value;
 
-    if (titleInputRef.value.trim() !== "" || contentInputRef.value.trim() !== "") {
-    notesTitles.push(titleInput);
-    notes.push(contentInput);
 
-    saveToLocalStorage();
-    renderNotes();
+    // if (titleInputRef.value.trim() !== "" || contentInputRef.value.trim() !== "") {
+    if (titleInput.trim() !== "" && contentInput.trim() !== "") {
+        notesTitles.push(titleInput);
+        notes.push(contentInput);
 
-    titleInputRef.value = "";
-    contentInputRef.value = "";
+        saveToLocalStorage();
+        renderNotes();
+
+        titleInputRef.value = "";
+        contentInputRef.value = "";
     }
 }
 
@@ -157,7 +159,7 @@ function notetoTrash(indexNote) {
 function notetoArchive(indexNote) {
     let archiveNote = notes.splice(indexNote, 1);
     archiveNotes.push(archiveNote[0]);
-    
+
     let archiveNoteTitle = notesTitles.splice(indexNote, 1);
     archiveNotesTitles.push(archiveNoteTitle[0]);
 
