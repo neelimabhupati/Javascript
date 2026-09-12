@@ -9,14 +9,45 @@
 
 //     contentref.innerHTML= notes
 // }
-let notes = ['banana', 'rasen mählen'];
-let notesTitles = ['1', '2'];
 
-let trashNotesTitles = [];
-let trashNotes = [];
+let allNotes = {
+    'notesTitles': ['1', '2'],
+    'notes': ['banana', 'rasen mählen'],
+    'archiveNotes': [],
+    'archiveNotesTitles': [],
+    'trashNotes': [],
+    'trashNotesTitles': []
+}
 
-let archiveNotes = [];
-let archiveNotesTitles = [];
+
+function moveNote(indexNote, startKey, destinationKey) {
+
+    let note = allNotes[startKey].splice(indexNote, 1);
+    allNotes[destinationKey].push(note[0]);
+    let notesTitle = allNotes[startKey + "Titles"].splice(indexNote, 1);
+    allNotes[destinationKey + "Titles"].push(notesTitle[0]);
+
+    renderAllNotes();
+}
+
+function renderAllNotes() {
+    renderNotes();
+    renderArchiveNotes();
+    renderTrashNotes();
+    saveToLocalStorage();
+
+}
+
+function renderTrashNotes() {
+    let trashContentref = document.getElementById('trash_content')
+
+    trashContentref.innerHTML = "";
+
+    for (let indexTrashNote = 0; indexTrashNote < allNotes.trashNotes.length; indexTrashNote++) {
+        trashContentref.innerHTML += getTrashNoteTemplate(indexTrashNote);
+    }
+}
+
 
 function inIt() {
     getFromLocalStorage();
@@ -32,34 +63,14 @@ function renderNotes() {
     contentref.innerHTML = "";
 
 
-    for (let indexNote = 0; indexNote < notes.length; indexNote++) {
+    for (let indexNote = 0; indexNote < allNotes.notes.length; indexNote++) {
         contentref.innerHTML += getNoteTemplate(indexNote);
     }
 }
-function getNoteTemplate(indexNote) {
-    //     return `<p>+ title: ${notesTitles[indexNote]} -> ${notes[indexNote]} <button onClick="notetoTrash(${indexNote})"> X </button></p>`;
-    return `
-        <div class="note-card">
-            <div class="note-title">${notesTitles[indexNote]}</div>
-            <div class="note-body">${notes[indexNote]}</div>
-            <div class="card-buttons">
-                <button class="card-btn" onclick="notetoTrash(${indexNote})">X</button>
-                <button class="card-btn" onclick="notetoArchive(${indexNote})">A</button>
-            </div>
-        </div>
-    `;
 
-}
 
-function renderTrashNotes() {
-    let trashContentref = document.getElementById('trash_content')
 
-    trashContentref.innerHTML = "";
-
-    for (let indexTrashNote = 0; indexTrashNote < trashNotes.length; indexTrashNote++) {
-        trashContentref.innerHTML += getTrashNoteTemplate(indexTrashNote);
-    }
-}
+// 3. Trash Card Template
 
 //display the output on HTML
 // function getTrashNoteTemplate(indexTrashNote) {
@@ -71,38 +82,14 @@ function renderArchiveNotes() {
     let archiveContentref = document.getElementById('archiev_content');
     archiveContentref.innerHTML = "";
 
-    for (let indexArchiveNote = 0; indexArchiveNote < archiveNotes.length; indexArchiveNote++) {
+    for (let indexArchiveNote = 0; indexArchiveNote < allNotes.archiveNotes.length; indexArchiveNote++) {
         archiveContentref.innerHTML += getArchiveNoteTemplate(indexArchiveNote);
     }
 }
 
-// 2. Archive Card Template
-function getArchiveNoteTemplate(indexArchiveNote) {
-    return `
-        <div class="note-card">
-            <div class="note-title">${archiveNotesTitles[indexArchiveNote]}</div>
-            <div class="note-body">${archiveNotes[indexArchiveNote]}</div>
-            <div class="card-buttons">
-                <button class="card-btn" onclick="archiveToTrash(${indexArchiveNote})">X</button>
-                <button class="card-btn" onclick="archiveToNotes(${indexArchiveNote})">N</button>
-            </div>
-        </div>
-    `;
-}
 
-// 3. Trash Card Template
-function getTrashNoteTemplate(indexTrashNote) {
-    return `
-        <div class="note-card">
-            <div class="note-title">${trashNotesTitles[indexTrashNote]}</div>
-            <div class="note-body">${trashNotes[indexTrashNote]}</div>
-            <div class="card-buttons">
-                <button class="card-btn" onclick="deleteNote(${indexTrashNote})">X</button>
-                <button class="card-btn" onclick="trashToNotes(${indexTrashNote})">N</button>
-            </div>
-        </div>
-    `;
-}
+
+
 
 //2.notizen hunzufügen
 function addNote() {
@@ -120,65 +107,12 @@ function addNote() {
         notes.push(contentInput);
 
         saveToLocalStorage();
-        renderNotes();
+        renderAllNotes();
 
         titleInputRef.value = "";
         contentInputRef.value = "";
     }
 }
-
-function archiveToNotes(indexArchiveNote) {
-    notes.push(archiveNotes.splice(indexArchiveNote, 1)[0]);
-    notesTitles.push(archiveNotesTitles.splice(indexArchiveNote, 1)[0]);
-
-    saveToLocalStorage();
-    renderArchiveNotes();
-    renderNotes();
-}
-
-function archiveToTrash(indexArchiveNote) {
-    trashNotes.push(archiveNotes.splice(indexArchiveNote, 1)[0]);
-    trashNotesTitles.push(archiveNotesTitles.splice(indexArchiveNote, 1)[0]);
-
-    saveToLocalStorage();
-    renderArchiveNotes();
-    renderTrashNotes();
-}
-
-function notetoTrash(indexNote) {
-    let trashNote = notes.splice(indexNote, 1);
-    trashNotes.push(trashNote[0]);
-    let trashNoteTitle = notesTitles.splice(indexNote, 1);
-    trashNotesTitles.push(trashNoteTitle[0]);
-
-    saveToLocalStorage();
-    renderNotes();
-    renderTrashNotes();
-}
-
-function notetoArchive(indexNote) {
-    let archiveNote = notes.splice(indexNote, 1);
-    archiveNotes.push(archiveNote[0]);
-
-    let archiveNoteTitle = notesTitles.splice(indexNote, 1);
-    archiveNotesTitles.push(archiveNoteTitle[0]);
-
-    saveToLocalStorage();
-    renderNotes();
-    renderArchiveNotes();
-}
-
-
-//   trashToNotes function
-function trashToNotes(indexTrashNote) {
-    notes.push(trashNotes.splice(indexTrashNote, 1)[0]);
-    notesTitles.push(trashNotesTitles.splice(indexTrashNote, 1)[0]);
-
-    saveToLocalStorage();
-    renderTrashNotes();
-    renderNotes();
-}
-
 //3.notizen löschen
 // welche notz muss gelöst werder
 // wann muss die notiz gelöst werden
@@ -194,11 +128,10 @@ function trashToNotes(indexTrashNote) {
 // }
 
 function deleteNote(indexTrashNote) {
-    trashNotes.splice(indexTrashNote, 1);
-    trashNotesTitles.splice(indexTrashNote, 1);
+    allNotes.trashNotes.splice(indexTrashNote, 1);
+    allNotes.trashNotesTitles.splice(indexTrashNote, 1);
 
-    saveToLocalStorage();
-    renderTrashNotes();
+    renderAllNotes();
 }
 
 //4. notizen archivieren
