@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/Icons/bookstore.png">
+    <title>Neelima_Bookstore</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./db.js"></script>
+    <script src="./template.js"></script>
+
+
+</head>
+
+<body onload="renderBooks()" class="Neelima-bookstore">
+
+    <!-- logo and navigation -->
+    <header>
+        <div class="logo">
+            <img src="./assets/Icons/bookstore.png" alt="Bookstorelogo">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Books</a></li>
+                <li><a href="">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Display my total booklist here -->
+    <main>
+        <h1> Welcome to Neelima's Bookstore</h1>
+        <!-- Booklist details will display here -->
+        <div id="book-container" class="books-grid"></div>
+    </main>
+
+    <!-- copyright info details -->
+    <footer>
+        <p>&copy; Neelima Bookstore App</p>
+    </footer>
+
+    <script src="./bookstore.js"></script>
+</body>
+
+</html>
