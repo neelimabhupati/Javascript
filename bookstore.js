@@ -11,8 +11,6 @@ function renderBooks(){
 console.log(renderBooks());
 renderBooks();
 
-
-
 function peopleLike(index){
     book[index].likes += 1;
     renderBooks();
@@ -24,38 +22,28 @@ function peopleComment(index){
 
     if(commentText.trim() !== ""){
         book[index].comments.push({ name: "User", comment: commentText.trim() });
+        displayComments(index);
     }
 
     inputComment.value = "";
-    displayComments(index);
+   
 }
 
 function displayComments(index){
 
     let displayComment = document.getElementById(`comment-display-${index}`);
-    commentList = displayComment
-    displayComment.innerHTML = "" ;
+    
+    if (!displayComment) return; // Element lekapothe error rakunda legapodaniki
+    
+    let commentsList = "";
+    let comments = book[index].comments;
 
+    for (let i = 0; i < comments.length; i++) {
+        commentsList += `<p><strong>${comments[i].name}:</strong> ${comments[i].comment}</p>`;
+    }
+
+    displayComment.innerHTML = commentsList;
 }
 
-// function displayComments(index) {
-//     let commentBox = document.getElementById(`comments-section-${index}`);
-//     commentBox.innerHTML = ""; // Patha comments clear chestham
 
-//     // Array unda mariyu dantlo comments unnaya ani check chestham
-//     if (book[index].comments && book[index].comments.length > 0) {
-
-//         // Standard for loop
-//         for (let i = 0; i < book[index].comments.length; i++) {
-//             let item = book[index].comments[i];
-
-//             commentBox.innerHTML += `
-//                 <div class="single-comment">
-//                     <strong>${item.name}:</strong> ${item.comment}
-//                 </div>
-//             `;
-//         }
-
-//     }
-// }
 
