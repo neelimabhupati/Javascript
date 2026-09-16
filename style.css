@@ -49,46 +49,188 @@ header {
     width: 80px;
 }
 
-nav ul {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    cursor: pointer;
-    text-decoration: underline;
 
-}
-
-nav ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 40px;
-
-}
-
-nav ul li a {
-
+h1 {
     display: inline-block;
-
     color: aliceblue;
     text-decoration: none;
-    cursor: pointer;
     font-weight: bold;
     font-size: 30px;
 }
 
-.books-grid{
-    display:flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
+.details-table {
+    display: grid;
+    grid-template-columns: 320px 15px 1fr;
+    /* 1st col: Label width, 2nd: Colon, 3rd: Value */
+    row-gap: 12px;
+    text-align: left;
+    width: 80%;
+    padding: 10px 0;
+    font-size: 26px;
+    color: white;
+   
 }
 
-.book-info{
+.detail-label {
+    text-align: left;
+}
+
+.detail-colon {
+    text-align: center;
+}
+
+.detail-value {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.book-info {
+    background-color: skyblue;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 30px 40px;
+}
+
+.book-info {
     display: flex;
     flex-direction: column;
 }
 
+
+/* style for the boof-Info */
+
+.book-info {
+    /* width: 60%; */
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    margin-bottom: 70px;
+
+}
+
+.book-image:hover {
+    transform: scale(1.05);
+}
+
+.book-image {
+    width: 30%;
+    height: 30%;
+    object-fit: cover;
+    border-radius: 20px;
+
+}
+
+.book-title {
+    margin: 20px 0;
+    font-size: 40px;
+    color: white;
+    font: 700;
+
+    padding-bottom: 20px;
+}
+
+/* Price & Like బటన్ ని ఒకే వరుసలో పక్కపక్కన ఉంచడానికి */
+.price-row {
+    display: flex;
+    justify-content: space-between; /* Price ఎడమవైపు, Like బటన్ కుడివైపుకి వెళ్తాయి */
+    align-items: center;
+    width: 100%;
+}
+
+.like-btn {
+    cursor: pointer;
+    user-select: none;
+}
+.price-like-container {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+    width: 100%; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    /* padding: 10px 40px; */
+    font-size: 26px;
+    color: white;
+}
+
+/* margin/padding అడ్జస్ట్ చేయడనికి */
+/* .price-like-container .book-price {
+    padding: 10px 0; 
+    
+} */
+
+
+.people-choice {
+    font-size: 26px;
+    line-height: 30px;
+    color: white;
+    width: 80%;
+}
+
+hr {
+    width: 100%;
+    border: 0;
+    height: 3px;
+    background-color: #ddd;
+    margin: 15px 0;
+}
+
+
+/* Comments Container */
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+
+    /* స్క్రోల్ బార్ కోసం ముఖ్యమైన లైన్లు */
+    max-height: 150px;       /* 150px దాటితే స్క్రోల్ బార్ వస్తుంది (మీకు కావాల్సినంత పెంచుకోవచ్చు/తగ్గించుకోవచ్చు) */
+    overflow-y: auto;        /* కంటెంట్ ఎక్కువైనప్పుడు స్క్రోల్ బార్ ని చూపిస్తుంది */
+    padding-right: 10px;     /* స్క్రోల్ బార్ టెక్స్ట్ ని కవర్ చేయకుండా ఖాళీ */
+    margin-bottom: 15px;
+}
+
+/* Even Alignment kosam details-table లాగే Grid Structure */
+.comment-row {
+    display: grid;
+    grid-template-columns: 320px 15px 1fr; /* Details Table width లోనే సమానంగా ఉంటుంది */
+    row-gap: 8px;
+    text-align: left;
+    width: 100%;
+    color: white;
+    
+}
+
+.comment-user {
+    text-align: left;
+    word-break: break-word;
+    
+}
+
+.comment-colon {
+    text-align: center;
+}
+
+.comment-text {
+    text-align: left;
+    word-break: break-word;
+    padding-left: 10px;
+}
 /* color: aliceblue;
     cursor: pointer; */
 
@@ -99,7 +241,7 @@ footer {
     text-align: center;
 }
 
-footer p{
+footer p {
     color: aliceblue;
     font-size: 30px;
 }

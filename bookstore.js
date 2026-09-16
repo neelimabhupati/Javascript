@@ -6,13 +6,20 @@ function renderBooks(){
        container.innerHTML += getbookdetails(index);
         
     }
+
+    for (let index = 0; index < book.length; index++) {
+        displayComments(index);
+        
+    }
 }
 
-console.log(renderBooks());
+
 renderBooks();
 
-function peopleLike(index){
+
+function peopleLike(index, element){
     book[index].likes += 1;
+    element.book.toggle('liked');
     renderBooks();
 }
 
@@ -39,7 +46,13 @@ function displayComments(index){
     let comments = book[index].comments;
 
     for (let i = 0; i < comments.length; i++) {
-        commentsList += `<p><strong>${comments[i].name}:</strong> ${comments[i].comment}</p>`;
+        commentsList += `
+        <div class = "comment-row">
+        <div  class="comment-user"><strong>[${comments[i].name}]</strong></div>
+        <div class="comment-colon">:</div>
+        <div class="comment-text"> ${comments[i].comment}</div>
+        </div>
+        `;
     }
 
     displayComment.innerHTML = commentsList;

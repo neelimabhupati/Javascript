@@ -1,5 +1,6 @@
 let book = [
     {
+        "image": 'assets/Images/Mee bramhanandam.jpg',
         "name": "Me Bramhanandam",
         "author": "Bramhanandam",
         "likes": 7900,
@@ -9,30 +10,31 @@ let book = [
         "comments": [
             {
                 "name": "ComedyFanatic",
-                "comment": "A laughter-filled journey! An incredible autobiography that gives a deeply personal look into the life of the comedy legend. Couldn't put it down!"
+                "comment": "A laughter-filled journey! "
             },
             {
                 "name": "TeluguCinemaLover",
-                "comment": "Heartwarming and inspiring. Beyond the comedy, his life struggles and wisdom really touched my heart. A truly motivational read."
+                "comment": "Heartwarming and inspiring."
             },
             {
                 "name": "Cinephile99",
-                "comment": "A must-read for movie lovers! Fantastic storytelling—reading about his iconic roles and behind-the-scenes experiences was pure nostalgia."
+                "comment": "A must-read for movie lovers!"
             },
             {
                 "name": "Bookworm_AP",
-                "comment": "Brilliant and witty. Written with the same warmth and charm he brings to the screen. Packed with valuable life lessons."
+                "comment": "Brilliant and witty. "
             },
             {
                 "name": "BrahmiFan",
-                "comment": "Pure magic from the King of Comedy! Full of surprising insights and heartfelt moments. Highly recommended for everyone!"
+                "comment": "Pure magic from the King of Comedy! "
             }
 
         ]
     },
 
     {
-        "name": "Amma dailry lo konni pageelu",
+        "image": 'assets/Images/Amma.jpg',
+        "name": "Amma dailry",
         "author": "Ravi",
         "likes": 3000,
         "price": 15.00,
@@ -56,6 +58,7 @@ let book = [
         ]
     },
     {
+        "image": 'assets/Images/Ayodhya.jpg',
         "name": "Ayodhya",
         "author": "Aanjaneya",
         "likes": 4000,
@@ -81,6 +84,7 @@ let book = [
     },
 
     {
+        "image": 'assets/Images/Krishnudu.jpg',
         "name": "Krishnudu",
         "author": "Mahesh",
         "likes": 4000,
@@ -90,4 +94,12 @@ let book = [
         "comments": []
     },
 
+]
+
+
+let photoList =[
+    
+    'assets/Images/Amma',
+    'assets/Images/Ayodhya',
+    'assets/Images/Krishnudu'
 ]
