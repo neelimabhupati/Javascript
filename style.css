@@ -68,7 +68,7 @@ h1 {
     padding: 10px 0;
     font-size: 26px;
     color: white;
-   
+
 }
 
 .detail-label {
@@ -109,13 +109,13 @@ h1 {
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-   
+
     display: flex;
     flex-direction: column;
     align-items: left;
     text-align: left;
     margin-bottom: 70px;
-
+    padding: 20px 30px 50px 30px;
 }
 
 .book-image:hover {
@@ -142,7 +142,8 @@ h1 {
 /* Price & Like బటన్ ని ఒకే వరుసలో పక్కపక్కన ఉంచడానికి */
 .price-row {
     display: flex;
-    justify-content: space-between; /* Price ఎడమవైపు, Like బటన్ కుడివైపుకి వెళ్తాయి */
+    justify-content: space-between;
+    /* Price ఎడమవైపు, Like బటన్ కుడివైపుకి వెళ్తాయి */
     align-items: center;
     width: 100%;
 }
@@ -151,6 +152,7 @@ h1 {
     cursor: pointer;
     user-select: none;
 }
+
 .price-like-container {
     /* display: flex;
     align-items: center;
@@ -181,6 +183,29 @@ h1 {
     width: 80%;
 }
 
+.add-comment-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+
+}
+
+.text-inputclass {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 1px solid #ccc;
+    outline: none;
+}
+
+.like-comment {
+    cursor: pointer;
+    font-size: 35px;
+    user-select: none;
+}
+
 hr {
     width: 100%;
     border: 0;
@@ -196,30 +221,32 @@ hr {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    margin-bottom: 15px;
-
     /* స్క్రోల్ బార్ కోసం ముఖ్యమైన లైన్లు */
-    max-height: 150px;       /* 150px దాటితే స్క్రోల్ బార్ వస్తుంది (మీకు కావాల్సినంత పెంచుకోవచ్చు/తగ్గించుకోవచ్చు) */
-    overflow-y: auto;        /* కంటెంట్ ఎక్కువైనప్పుడు స్క్రోల్ బార్ ని చూపిస్తుంది */
-    padding-right: 10px;     /* స్క్రోల్ బార్ టెక్స్ట్ ని కవర్ చేయకుండా ఖాళీ */
-    margin-bottom: 15px;
+    max-height: 150px;
+    /* 150px దాటితే స్క్రోల్ బార్ వస్తుంది (మీకు కావాల్సినంత పెంచుకోవచ్చు/తగ్గించుకోవచ్చు) */
+    overflow-y: auto;
+    /* కంటెంట్ ఎక్కువైనప్పుడు స్క్రోల్ బార్ ని చూపిస్తుంది */
+    padding-right: 10px;
+    /* స్క్రోల్ బార్ టెక్స్ట్ ని కవర్ చేయకుండా ఖాళీ */
+    margin-bottom: 45px;
 }
 
 /* Even Alignment kosam details-table లాగే Grid Structure */
 .comment-row {
     display: grid;
-    grid-template-columns: 320px 15px 1fr; /* Details Table width లోనే సమానంగా ఉంటుంది */
+    grid-template-columns: 320px 15px 1fr;
+    /* Details Table width లోనే సమానంగా ఉంటుంది */
     row-gap: 8px;
     text-align: left;
     width: 100%;
     color: white;
-    
+
 }
 
 .comment-user {
     text-align: left;
     word-break: break-word;
-    
+
 }
 
 .comment-colon {
@@ -231,8 +258,15 @@ hr {
     word-break: break-word;
     padding-left: 10px;
 }
+
 /* color: aliceblue;
     cursor: pointer; */
+
+.text-inputclass {
+    width: 90%;
+    height: 30px;
+    background-color: whitesmoke;
+}
 
 footer {
     background-color: skyblue;

@@ -88,7 +88,7 @@ let book = [
         "name": "Krishnudu",
         "author": "Mahesh",
         "likes": 4000,
-        "price": 70.00,
+        "price": 70.01,
         "publishedYear": 2000,
         "genre": "Devotional",
         "comments": []

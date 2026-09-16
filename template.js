@@ -29,8 +29,8 @@ function getbookdetails(index) {
     <div class="people-choice">
         <div id="comment-display-${index}" class="comment-section"></div>
             <div class = "add-comment-box">
-                <input type="text" id="comment-input-${index}" placeholder="Write a comment...">
-                <button class= "like-comment" onclick="peopleComment(${index})">➤</button>
+                <input type="text" class= "text-inputclass" id="comment-input-${index}" placeholder="Write a comment...">
+                <div class= "like-comment" onclick="peopleComment(${index})">➤</div>
             </div>
         </div>
     </div>
