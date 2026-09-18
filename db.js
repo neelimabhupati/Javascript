@@ -4,6 +4,7 @@ let book = [
         "name": "Me Bramhanandam",
         "author": "Bramhanandam",
         "likes": 7900,
+        "isLiked": false,
         "price": 19.99,
         "publishedYear": 2020,
         "genre": "Realitisch",
@@ -37,6 +38,7 @@ let book = [
         "name": "Amma dailry",
         "author": "Ravi",
         "likes": 3000,
+        "isLiked": false,
         "price": 15.00,
         "publishedYear": 2017,
         "genre": "Mother's Love",
@@ -62,6 +64,7 @@ let book = [
         "name": "Ayodhya",
         "author": "Aanjaneya",
         "likes": 4000,
+        "isLiked": false,
         "price": 30.00,
         "publishedYear": 2000,
         "genre": "Devotional",
@@ -88,6 +91,7 @@ let book = [
         "name": "Krishnudu",
         "author": "Mahesh",
         "likes": 4000,
+        "isLiked": false,
         "price": 70.01,
         "publishedYear": 2000,
         "genre": "Devotional",
@@ -98,7 +102,6 @@ let book = [
 
 
 let photoList =[
-    
     'assets/Images/Amma',
     'assets/Images/Ayodhya',
     'assets/Images/Krishnudu'

@@ -4,23 +4,34 @@ function renderBooks(){
 
     for (let index = 0; index < book.length; index++) {
        container.innerHTML += getbookdetails(index);
+
+       const commentsContainer = document.getElementById(`comment-display-${index}`);
+       
+       for (let Commindex = 0;Commindex < book[index].comments.length; Commindex++) {
+        commentsContainer.innerHTML += displayComments(index, Commindex);
         
+       }
     }
 
-    for (let index = 0; index < book.length; index++) {
-        displayComments(index);
-        
-    }
 }
 
 
-renderBooks();
-
-
 function peopleLike(index, element){
-    book[index].likes += 1;
-    element.book.toggle('liked');
-    renderBooks();
+
+    if (book[index].isLiked === undefined) {
+        book[index].isLiked = false;
+    }
+
+    if(book[index].isLiked === false){
+         book[index].likes += 1;
+         book[index].isLiked = true;
+         element.classList.add('liked')
+    }else{
+         book[index].likes -= 1;
+         book[index].isLiked = false;
+         element.classList.remove('liked');
+    }
+    document.getElementById(`like-count-${index}`).innerText = book[index].likes;
 }
 
 function peopleComment(index){
@@ -29,34 +40,24 @@ function peopleComment(index){
 
     if(commentText.trim() !== ""){
         book[index].comments.push({ name: "User", comment: commentText.trim() });
-        displayComments(index);
+        renderBooks();
     }
 
     inputComment.value = "";
    
 }
 
-function displayComments(index){
+function displayComments(index,Commindex){
 
-    let displayComment = document.getElementById(`comment-display-${index}`);
-    
-    if (!displayComment) return; // Element lekapothe error rakunda legapodaniki
-    
-    let commentsList = "";
-    let comments = book[index].comments;
-
-    for (let i = 0; i < comments.length; i++) {
-        commentsList += `
-        <div class = "comment-row">
-        <div  class="comment-user"><strong>[${comments[i].name}]</strong></div>
-        <div class="comment-colon">:</div>
-        <div class="comment-text"> ${comments[i].comment}</div>
-        </div>
-        `;
-    }
-
-    displayComment.innerHTML = commentsList;
+    const comment = book[index].comments[Commindex];
+    return /*html*/`
+    <div class = "comment-row">
+    <div class="comment-user"><strong>[${comment.name}]</strong></div>
+    <div class="comment-colon">:</div>
+    <div class="comment-text"> ${comment.comment}</div>
+    </div>
+    `;
 }
 
-
+renderBooks();
 
