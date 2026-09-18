@@ -100,9 +100,3 @@ let book = [
 
 ]
 
-
-let photoList =[
-    'assets/Images/Amma',
-    'assets/Images/Ayodhya',
-    'assets/Images/Krishnudu'
-]
