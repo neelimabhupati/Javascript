@@ -225,8 +225,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
 }
-
-/* Mouse hover chesinappudu slight zoom avvadaniki */
 .photo-card:hover {
     transform: scale(1.15);
 }
@@ -282,8 +280,6 @@ body {
         max-height: 100%;
 
     }
-
-
 }
 
 
@@ -293,8 +289,6 @@ body {
         height: 55vh;
         max-width: 550px
     }
-
-    /* 2 columns */
 }
 
 
@@ -305,7 +299,6 @@ body {
         max-width: 500px;
         /* min-height: 310px; */
     }
-
 }
 
 @media (min-width:320px) and (max-width: 419px) {
@@ -315,5 +308,4 @@ body {
         max-width: 320px;
         /* min-height: 310px; */
     }
-
 }

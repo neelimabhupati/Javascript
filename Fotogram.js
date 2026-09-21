@@ -1,13 +1,9 @@
 let currentPhotoIndex = 0;
 
 function renderPhotos() {
-    //select the #content div element in HTML
+
     let container = document.getElementById('content');
-
-    //photo container ni clear chestam
     container.innerHTML = '';
-
-    // loop for photoList in db.js
     for (let i = 0; i < photoList.length; i++) {
         container.innerHTML += 
         `<button id= "photo${i}" class= "photo-card"   onClick= "openPhoto(${i})" aria-label="View ${photoList[i].title}">
@@ -17,16 +13,10 @@ function renderPhotos() {
 }
 
 // To open photo function
-
 function openPhoto(index) {
     currentPhotoIndex = index;
-
-    updatedPopup(); // calling helper function.
+    updatedPopup();
     document.getElementById('popup').classList.remove('d-none');
-    // const dialoge = document.getElementById('popup');
-    // dialoge.showModal();
-    // dialoge.focus();
-
     document.getElementById('close-btn').focus();
 
 }
