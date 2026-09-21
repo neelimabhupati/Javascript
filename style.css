@@ -1,4 +1,4 @@
-/* Reset browser defaults and standardize box-sizing */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* max-width: 1440px; */
     margin: 0 auto;
     width: 100%;
 
@@ -19,7 +18,6 @@ header,
 main,
 footer {
     margin: 0 auto;
-    /* max-width: 1200px; */
     width: 100%;
 }
 
@@ -31,7 +29,6 @@ main {
 }
 
 header {
-
     background-color: skyblue;
     padding: 20px;
     /* min-height: 80px; */
@@ -39,7 +36,6 @@ header {
     gap: 50px;
     align-items: center;
     padding: 20px calc((100% - 1200px) / 2);
-    /* Ee line add cheyandi */
 }
 
 .logo img {
@@ -97,12 +93,7 @@ h1 {
     display: flex;
     flex-direction: column;
 }
-
-
-/* style for the boof-Info */
-
 .book-info {
-    /* width: 60%; */
     border-radius: 30px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -137,11 +128,9 @@ h1 {
     padding-bottom: 20px;
 }
 
-/* Price & Like same line*/
 .price-row {
     display: flex;
     justify-content: space-between;
-    /* Price ఎడమవైపు, Like బటన్ కుడివైపుకి వెళ్తాయి */
     align-items: center;
     width: 100%;
 }
@@ -152,12 +141,6 @@ h1 {
 }
 
 .price-like-container {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 15px;
-    width: 100%; */
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -230,7 +213,6 @@ hr {
     margin-bottom: 45px;
 }
 
-/* Even Alignment  */
 .comment-row {
     display: grid;
     grid-template-columns: 320px 15px 1fr;
@@ -278,14 +260,9 @@ footer p {
     font-size: 30px;
 }
 
-
-
-/* Mobile & Small Tablets (320px to 768px) */
-
 /* Mobile Devices (320px to 480px) */
 @media screen and (max-width: 480px) {
 
-    /* Main Container & Card Padding Fix */
     main {
         padding: 10px 5px;
     }
@@ -302,8 +279,6 @@ footer p {
         width: 80%;
         max-width: 180px;
     }
-
-    /* 1. Price & Heart Overlap Fix */
     .price-like-container {
         width: 80%;
         font-size: 16px;
@@ -314,7 +289,6 @@ footer p {
         flex-wrap: nowrap;
     }
 
-    /* 2. Table Details Grid Alignment */
     .details-table {
         grid-template-columns: 100px 10px 1fr;
         /* Label కి తక్కువ స్పేస్ */
@@ -323,9 +297,7 @@ footer p {
         width: 80%;
     }
 
-    /* 3. Comment Section & Wrap Fix */
     .comment-row {
-        /* Mobile లో Label, Colon, Text ని Flex గా లేదా విడివిడిగా పెడితే క్లీన్‌గా ఉంటుంది */
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -336,14 +308,12 @@ footer p {
 
     .comment-colon {
         display: none;
-        /* Mobile లో colon అవసరం లేదు */
     }
 
     .comment-user {
         font-weight: bold;
         color: #ffe;
         word-break: break-all;
-        /* మరీ పెద్దగా ఉండే యూజర్ నేమ్స్ సరిపోవడానికి */
     }
 
     .comment-text {
@@ -352,7 +322,6 @@ footer p {
         white-space: normal;
     }
 
-    /* Input Box Adjustments */
     .add-comment-box {
         gap: 5px;
     }
@@ -372,21 +341,20 @@ footer p {
     }
 }
 
-/* Medium Devices: Large Phones (Landscape) & Small Tablets (481px to 768px) */
+/* Medium Devices: Large Phones & Small Tablets (481px to 768px) */
 @media screen and (min-width: 481px) and (max-width: 768px) {
 
     main {
         padding: 15px 20px;
     }
 
-    /* Book Container Adjustments */
     .book-info {
         padding: 25px 30px;
         margin-bottom: 35px;
         border-radius: 20px;
     }
 
-    /* Image Sizing */
+    
     .book-image {
         width: 50%;
         max-width: 220px;
@@ -398,22 +366,19 @@ footer p {
         text-align: center;
     }
 
-    /* Price & Like Container */
     .price-like-container {
         width: 80%;
         font-size: 20px;
     }
 
-    /* Details Table Alignment */
     .details-table {
         grid-template-columns: 160px 15px 1fr;
-        /* Label width clear ga సరిపోతుంది */
         font-size: 18px;
         row-gap: 8px;
         width: 80%;
     }
 
-    /* Comment Section Grid */
+    
     .comment-section {
         max-height: 180px;
     }
@@ -421,7 +386,6 @@ footer p {
     .comment-row {
         display: grid;
         grid-template-columns: 160px 15px 1fr;
-        /* Table alignment తో సమానంగా ఉంటుంది */
         font-size: 16px;
         width: 100%;
     }
@@ -435,7 +399,6 @@ footer p {
         word-break: break-word;
     }
 
-    /* Add Comment Input */
     .text-inputclass {
         height: 38px;
         font-size: 15px;
@@ -446,9 +409,7 @@ footer p {
     }
 }
 
-/* ==========================================
-   1. LAPTOPS & TABLETS (768px to 1200px)
-   ========================================== */
+/* LAPTOPS & TABLETS (768px to 1200px)*/
 @media screen and (min-width: 769px) and (max-width: 1200px) {
 
     main {
@@ -472,15 +433,13 @@ footer p {
         text-align: center;
     }
 
-    /* Details Table & Comment Alignments */
+    
     .details-table {
         display: grid;
         grid-template-columns: 180px 15px 1fr;
-        /* 320px nunchi 180px ki marchamu */
         row-gap: 12px;
         text-align: left;
         width: 80%;
-        /* 80% nunchi 100% ki marchamu alignment kosam */
         padding: 10px 0;
         font-size: 22px;
         color: white;
@@ -489,7 +448,6 @@ footer p {
     .comment-row {
         display: grid;
         grid-template-columns: 180px 15px 1fr;
-        /* Details Table to same alignment */
         row-gap: 8px;
         text-align: left;
         width: 100%;
@@ -501,7 +459,6 @@ footer p {
         justify-content: space-between;
         align-items: center;
         width: 80%;
-        /* 80% nunchi 100% ki marchamu alignment miss avvakunda */
         font-size: 26px;
         color: white;
     }
@@ -518,9 +475,9 @@ footer p {
 }
 
 
-/* ==========================================
-   2. LARGE DESKTOPS & MONITORS (1400px and above)
-   ========================================== */
+
+/* LARGE DESKTOPS & MONITORS (1400px and above) */
+
 @media screen and (min-width: 1400px) {
 
     header {
@@ -549,7 +506,6 @@ footer p {
         text-align: left;
     }
 
-    /* Details Table & Comment Alignments for Large Displays */
     .details-table,
     .comment-row {
         grid-template-columns: 280px 20px 1fr;
