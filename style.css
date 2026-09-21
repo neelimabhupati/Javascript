@@ -137,7 +137,7 @@ h1 {
     padding-bottom: 20px;
 }
 
-/* Price & Like బటన్ ని ఒకే వరుసలో పక్కపక్కన ఉంచడానికి */
+/* Price & Like same line*/
 .price-row {
     display: flex;
     justify-content: space-between;
@@ -166,13 +166,6 @@ h1 {
     font-size: 26px;
     color: white;
 }
-
-/* margin/padding అడ్జస్ట్ చేయడనికి */
-/* .price-like-container .book-price {
-    padding: 10px 0; 
-    
-} */
-
 
 .people-choice {
     font-size: 26px;
@@ -230,21 +223,18 @@ hr {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    /* స్క్రోల్ బార్ కోసం ముఖ్యమైన లైన్లు */
+  /* scrollbar more than 150px */
     max-height: 150px;
-    /* 150px దాటితే స్క్రోల్ బార్ వస్తుంది (మీకు కావాల్సినంత పెంచుకోవచ్చు/తగ్గించుకోవచ్చు) */
     overflow-y: auto;
-    /* కంటెంట్ ఎక్కువైనప్పుడు స్క్రోల్ బార్ ని చూపిస్తుంది */
     padding-right: 10px;
-    /* స్క్రోల్ బార్ టెక్స్ట్ ని కవర్ చేయకుండా ఖాళీ */
     margin-bottom: 45px;
 }
 
-/* Even Alignment kosam details-table లాగే Grid Structure */
+/* Even Alignment  */
 .comment-row {
     display: grid;
     grid-template-columns: 320px 15px 1fr;
-    /* Details Table width లోనే సమానంగా ఉంటుంది */
+    /* Details Table width lone equal */
     row-gap: 8px;
     text-align: left;
     width: 100%;
@@ -268,8 +258,7 @@ hr {
     padding-left: 10px;
 }
 
-/* color: aliceblue;
-    cursor: pointer; */
+
 
 .text-inputclass {
     width: 90%;

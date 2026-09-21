@@ -15,7 +15,6 @@ function renderBooks() {
 
 }
 
-
 function peopleLike(index, element) {
 
     if (book[index].isLiked === undefined) {
