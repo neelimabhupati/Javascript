@@ -3,7 +3,7 @@ function getbookdetails(index) {
     <div class="book-info">
         <div class= "book-title"><strong>${book[index].name}</strong></div>
             <hr>
-                <img class= "book-image" src="${book[index].image}" alt=${book[index].name}>
+                <img class= "book-image" src="${book[index].image}" alt="${book[index].name}">
             <hr>
                 <div class="price-like-container">
                 <div class ="details-table">
