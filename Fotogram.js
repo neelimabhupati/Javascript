@@ -9,7 +9,10 @@ function renderPhotos() {
 
     // loop for photoList in db.js
     for (let i = 0; i < photoList.length; i++) {
-        container.innerHTML += `<button id= "photo${i}" class= "photo-card"   onClick= "openPhoto(${i})" style= "background-image: url('${photoList[i]}');"> </button>`;
+        container.innerHTML += 
+        `<button id= "photo${i}" class= "photo-card"   onClick= "openPhoto(${i})" aria-label="View ${photoList[i].title}">
+        <img src="${photoList[i].src}" alt="${photoList[i].alt}">
+        </button>`;
     }
 }
 
@@ -24,15 +27,17 @@ function openPhoto(index) {
     // dialoge.showModal();
     // dialoge.focus();
 
+    document.getElementById('close-btn').focus();
+
 }
 
 //To update current popup details function
 function updatedPopup() {
-    let imgPath = photoList[currentPhotoIndex];
-    let fileName = imgPath.split('/').pop();
+    let currentPhoto = photoList[currentPhotoIndex];
 
-    document.getElementById('popup_img').src = imgPath;
-    document.getElementById('photo_title').innerHTML = fileName;
+    document.getElementById('popup_img').src = currentPhoto.src;
+    document.getElementById('popup_img').alt = currentPhoto.alt;
+    document.getElementById('photo_title').innerHTML = currentPhoto.title;
     document.getElementById('photo-counter').innerText = `${currentPhotoIndex + 1} / ${photoList.length}`;
 }
 
@@ -60,18 +65,48 @@ function closePhoto() {
 }
 
 // Esc key press, then close the screen
-document.addEventListener('keydown', function (event) {
-
+function handleEscapeKey(event){
     if (event.key === 'Escape') {
         closePhoto();
     }
-});
+};
 
-
-// Dark overlay click → close
-document.getElementById('popup').addEventListener('click', function (event) {
-    // if click target is  "#popup" (this = overlay), then only we can close.
-    if (event.target === this) {
+// Function 2: Handle dark overlay click
+function handleOverlayClick(event) {
+    if (event.target === event.currentTarget) {
         closePhoto();
     }
-});
+}
+
+// Function 3: Handle Tab key focus trap inside popup
+function handleTabFocus(event) {
+    if (event.key !== 'Tab') return;
+
+    const focusables = Array.from(this.querySelectorAll('button, [tabindex]:not([tabindex="-1"])'));
+    if (focusables.length === 0) return;
+
+    const firstElement = focusables[0];
+    const lastElement = focusables[focusables.length - 1];
+
+    if (event.shiftKey) { // Shift + Tab (Reverse)
+        if (document.activeElement === firstElement) {
+            lastElement.focus();
+            event.preventDefault();
+        }
+    } else { // Normal Tab (Forward)
+        if (document.activeElement === lastElement) {
+            firstElement.focus();
+            event.preventDefault();
+        }
+    }
+}
+
+// --- Event Listeners Attachment ---
+
+// ESC Key Global Listener
+document.addEventListener('keydown', handleEscapeKey);
+
+// Popup Specific Listeners
+const popupElement = document.getElementById('popup');
+popupElement.addEventListener('click', handleOverlayClick);
+popupElement.addEventListener('keydown', handleTabFocus);
