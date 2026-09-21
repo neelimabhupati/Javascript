@@ -305,7 +305,7 @@ footer p {
 
     /* 1. Price & Heart Overlap Fix */
     .price-like-container {
-        width: 100%;
+        width: 80%;
         font-size: 16px;
         gap: 5px;
     }
@@ -320,7 +320,7 @@ footer p {
         /* Label కి తక్కువ స్పేస్ */
         font-size: 14px;
         row-gap: 6px;
-        width: 100%;
+        width: 80%;
     }
 
     /* 3. Comment Section & Wrap Fix */
@@ -400,7 +400,7 @@ footer p {
 
     /* Price & Like Container */
     .price-like-container {
-        width: 100%;
+        width: 80%;
         font-size: 20px;
     }
 
@@ -410,7 +410,7 @@ footer p {
         /* Label width clear ga సరిపోతుంది */
         font-size: 18px;
         row-gap: 8px;
-        width: 100%;
+        width: 80%;
     }
 
     /* Comment Section Grid */
@@ -479,7 +479,7 @@ footer p {
         /* 320px nunchi 180px ki marchamu */
         row-gap: 12px;
         text-align: left;
-        width: 100%;
+        width: 80%;
         /* 80% nunchi 100% ki marchamu alignment kosam */
         padding: 10px 0;
         font-size: 22px;
@@ -500,7 +500,7 @@ footer p {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
+        width: 80%;
         /* 80% nunchi 100% ki marchamu alignment miss avvakunda */
         font-size: 26px;
         color: white;
