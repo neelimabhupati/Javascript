@@ -194,7 +194,7 @@ h1 {
 .like-comment {
     cursor: pointer;
     color: white;
-    font-size: 40px;
+    font-size: 25px;
     user-select: none;
     transition: transform 0.2s, color 0.2s;
 }
@@ -204,7 +204,7 @@ h1 {
 }
 
 
-.like-comment.liked .heart-icon{
+.like-comment.liked .heart-icon {
     color: red;
 }
 
@@ -223,7 +223,7 @@ hr {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-  /* scrollbar more than 150px */
+    /* scrollbar more than 150px */
     max-height: 150px;
     overflow-y: auto;
     padding-right: 10px;
@@ -276,4 +276,302 @@ footer {
 footer p {
     color: aliceblue;
     font-size: 30px;
+}
+
+
+
+/* Mobile & Small Tablets (320px to 768px) */
+
+/* Mobile Devices (320px to 480px) */
+@media screen and (max-width: 480px) {
+
+    /* Main Container & Card Padding Fix */
+    main {
+        padding: 10px 5px;
+    }
+
+    .book-title{
+        font-size: 22px;
+    }
+    .book-info {
+        padding: 15px 10px;
+        margin-bottom: 25px;
+    }
+
+    .book-image {
+        width: 80%;
+        max-width: 180px;
+    }
+
+    /* 1. Price & Heart Overlap Fix */
+    .price-like-container {
+        width: 100%;
+        font-size: 16px;
+        gap: 5px;
+    }
+
+    .price-row {
+        flex-wrap: nowrap;
+    }
+
+    /* 2. Table Details Grid Alignment */
+    .details-table {
+        grid-template-columns: 100px 10px 1fr;
+        /* Label కి తక్కువ స్పేస్ */
+        font-size: 14px;
+        row-gap: 6px;
+        width: 100%;
+    }
+
+    /* 3. Comment Section & Wrap Fix */
+    .comment-row {
+        /* Mobile లో Label, Colon, Text ని Flex గా లేదా విడివిడిగా పెడితే క్లీన్‌గా ఉంటుంది */
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        font-size: 13px;
+        padding: 5px 0;
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+    }
+
+    .comment-colon {
+        display: none;
+        /* Mobile లో colon అవసరం లేదు */
+    }
+
+    .comment-user {
+        font-weight: bold;
+        color: #ffe;
+        word-break: break-all;
+        /* మరీ పెద్దగా ఉండే యూజర్ నేమ్స్ సరిపోవడానికి */
+    }
+
+    .comment-text {
+        padding-left: 0;
+        word-break: break-word;
+        white-space: normal;
+    }
+
+    /* Input Box Adjustments */
+    .add-comment-box {
+        gap: 5px;
+    }
+
+    .text-inputclass {
+        font-size: 13px;
+        height: 35px;
+        padding: 5px;
+    }
+
+    .like-comment {
+        font-size: 14px;
+    }
+
+    h1{
+        font-size: 25px;
+    }
+}
+
+/* Medium Devices: Large Phones (Landscape) & Small Tablets (481px to 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+    main {
+        padding: 15px 20px;
+    }
+
+    /* Book Container Adjustments */
+    .book-info {
+        padding: 25px 30px;
+        margin-bottom: 35px;
+        border-radius: 20px;
+    }
+
+    /* Image Sizing */
+    .book-image {
+        width: 50%;
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
+    .book-title {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    /* Price & Like Container */
+    .price-like-container {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    /* Details Table Alignment */
+    .details-table {
+        grid-template-columns: 160px 15px 1fr;
+        /* Label width clear ga సరిపోతుంది */
+        font-size: 18px;
+        row-gap: 8px;
+        width: 100%;
+    }
+
+    /* Comment Section Grid */
+    .comment-section {
+        max-height: 180px;
+    }
+
+    .comment-row {
+        display: grid;
+        grid-template-columns: 160px 15px 1fr;
+        /* Table alignment తో సమానంగా ఉంటుంది */
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .comment-user {
+        font-weight: 600;
+        word-break: break-word;
+    }
+
+    .comment-text {
+        word-break: break-word;
+    }
+
+    /* Add Comment Input */
+    .text-inputclass {
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .like-comment {
+        font-size: 20px;
+    }
+}
+
+/* ==========================================
+   1. LAPTOPS & TABLETS (768px to 1200px)
+   ========================================== */
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+
+    main {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .book-info {
+        padding: 30px 40px;
+        margin-bottom: 50px;
+    }
+
+    .book-image {
+        width: 40%;
+        max-width: 260px;
+        margin: 0 auto;
+    }
+
+    .book-title {
+        font-size: 34px;
+        text-align: center;
+    }
+
+    /* Details Table & Comment Alignments */
+    .details-table {
+        display: grid;
+        grid-template-columns: 180px 15px 1fr;
+        /* 320px nunchi 180px ki marchamu */
+        row-gap: 12px;
+        text-align: left;
+        width: 100%;
+        /* 80% nunchi 100% ki marchamu alignment kosam */
+        padding: 10px 0;
+        font-size: 22px;
+        color: white;
+    }
+
+    .comment-row {
+        display: grid;
+        grid-template-columns: 180px 15px 1fr;
+        /* Details Table to same alignment */
+        row-gap: 8px;
+        text-align: left;
+        width: 100%;
+        color: white;
+    }
+
+    .price-like-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        /* 80% nunchi 100% ki marchamu alignment miss avvakunda */
+        font-size: 26px;
+        color: white;
+    }
+
+    .comment-section {
+        max-height: 200px;
+        width: 100%;
+    }
+
+    .text-inputclass {
+        height: 42px;
+        font-size: 16px;
+    }
+}
+
+
+/* ==========================================
+   2. LARGE DESKTOPS & MONITORS (1400px and above)
+   ========================================== */
+@media screen and (min-width: 1400px) {
+
+    header {
+        padding: 20px calc((100% - 1300px) / 2);
+    }
+
+    main {
+        max-width: 1300px;
+        /* Big screen layout expansion */
+        padding: 30px 0;
+    }
+
+    .book-info {
+        padding: 40px 60px;
+        margin-bottom: 60px;
+    }
+
+    .book-image {
+        width: 30%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .book-title {
+        font-size: 40px;
+        text-align: left;
+    }
+
+    /* Details Table & Comment Alignments for Large Displays */
+    .details-table,
+    .comment-row {
+        grid-template-columns: 280px 20px 1fr;
+        font-size: 22px;
+        row-gap: 12px;
+    }
+
+    .price-like-container {
+        width: 80%;
+        font-size: 24px;
+    }
+
+    .comment-section {
+        max-height: 250px;
+    }
+
+    .text-inputclass {
+        height: 45px;
+        font-size: 18px;
+    }
+
+    footer p {
+        font-size: 24px;
+    }
 }

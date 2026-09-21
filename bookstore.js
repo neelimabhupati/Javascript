@@ -40,7 +40,7 @@ function peopleComment(index) {
     if (commentText.trim() !== "") {
         book[index].comments.push({ name: "User", comment: commentText.trim() });
         saveToLocalStorage();
-        getFromLocalStorage
+        
         renderBooks();
     }
 
@@ -61,6 +61,6 @@ function displayComments(index, Commindex) {
 }
 
 
-
+getFromLocalStorage();
 renderBooks();
 
