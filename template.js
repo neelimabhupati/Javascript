@@ -9,7 +9,7 @@ function getbookdetails(index) {
                 <div class ="details-table">
                 <div class="detail-label"><strong>Price:</strong></div>
                 <div class="detail-colon">:</div>
-                <div class="detail-value">${book[index].price} € </div>
+                <div class="detail-value">${book[index].price.toFixed(2)} € </div>
                 </div>
                 <div class= "like-comment" onclick="peopleLike(${index},this)">
                     <span class="heart-icon">❤</span> 
@@ -42,4 +42,16 @@ function getbookdetails(index) {
         </div>
     </div>
     `;
+}
+
+function saveToLocalStorage(){
+    let dataAsString = JSON.stringify(book);
+    localStorage.setItem("book",dataAsString);
+}
+
+function getFromLocalStorage(){
+    let storedData = localStorage.getItem("book");
+    if(storedData){
+        book = JSON.parse(storedData)
+    }
 }
