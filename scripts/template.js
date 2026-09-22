@@ -1,4 +1,4 @@
-function getbookdetails(index) {
+function getBookDetails(index) {
     return /*html*/`
     <div class="book-info">
         <div class= "book-title"><strong>${book[index].name}</strong></div>
@@ -44,14 +44,14 @@ function getbookdetails(index) {
     `;
 }
 
-function saveToLocalStorage(){
-    let dataAsString = JSON.stringify(book);
-    localStorage.setItem("book",dataAsString);
-}
+function displayComments(index, Commindex) {
 
-function getFromLocalStorage(){
-    let storedData = localStorage.getItem("book");
-    if(storedData){
-        book = JSON.parse(storedData)
-    }
+    const comment = book[index].comments[Commindex];
+    return /*html*/`
+    <div class = "comment-row">
+    <div class="comment-user"><strong>[${comment.name}]</strong></div>
+    <div class="comment-colon">:</div>
+    <div class="comment-text"> ${comment.comment}</div>
+    </div>
+    `;
 }

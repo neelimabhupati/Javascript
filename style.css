@@ -1,10 +1,4 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .Neelima-bookstore {
     display: flex;
     flex-direction: column;
@@ -207,7 +201,7 @@ hr {
     gap: 10px;
     width: 100%;
     /* scrollbar more than 150px */
-    max-height: 150px;
+    height: 300px;
     overflow-y: auto;
     padding-right: 10px;
     margin-bottom: 45px;
@@ -261,14 +255,14 @@ footer p {
 }
 
 /* Mobile Devices (320px to 480px) */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 509px) {
 
     main {
         padding: 10px 5px;
     }
 
     .book-title{
-        font-size: 22px;
+        font-size: 16px;
     }
     .book-info {
         padding: 15px 10px;
@@ -337,12 +331,16 @@ footer p {
     }
 
     h1{
-        font-size: 25px;
+        font-size: 22px;
+    }
+
+    footer p{
+        font-size: 22px;
     }
 }
 
 /* Medium Devices: Large Phones & Small Tablets (481px to 768px) */
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 510px) and (max-width: 768px) {
 
     main {
         padding: 15px 20px;

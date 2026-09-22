@@ -3,7 +3,7 @@ function renderBooks() {
     container.innerHTML = "";
 
     for (let index = 0; index < book.length; index++) {
-        container.innerHTML += getbookdetails(index);
+        container.innerHTML += getBookDetails(index);
 
         const commentsContainer = document.getElementById(`comment-display-${index}`);
 
@@ -40,27 +40,25 @@ function peopleComment(index) {
     if (commentText.trim() !== "") {
         book[index].comments.push({ name: "User", comment: commentText.trim() });
         saveToLocalStorage();
-        
+
         renderBooks();
     }
-
     inputComment.value = "";
-
 }
 
-function displayComments(index, Commindex) {
-
-    const comment = book[index].comments[Commindex];
-    return /*html*/`
-    <div class = "comment-row">
-    <div class="comment-user"><strong>[${comment.name}]</strong></div>
-    <div class="comment-colon">:</div>
-    <div class="comment-text"> ${comment.comment}</div>
-    </div>
-    `;
+function init() {
+    getFromLocalStorage();
+    renderBooks();
 }
 
+function saveToLocalStorage() {
+    let dataAsString = JSON.stringify(book);
+    localStorage.setItem("book", dataAsString);
+}
 
-getFromLocalStorage();
-renderBooks();
-
+function getFromLocalStorage() {
+    let storedData = localStorage.getItem("book");
+    if (storedData) {
+        book = JSON.parse(storedData)
+    }
+}
