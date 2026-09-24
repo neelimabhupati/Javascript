@@ -1,5 +1,6 @@
 let menuDetails_Array = [
     {
+        foodCategories_image: '/assets/images/starters_appetizers_animated.jpg',
         foodCategories: "Starters & Appetizers",
         items: [
             {
@@ -27,6 +28,7 @@ let menuDetails_Array = [
     },
 
     {
+        foodCategories_image: '/assets/images/biryani_animated.jpg',
         foodCategories: "Biryanis",
         items: [
             {
@@ -53,6 +55,7 @@ let menuDetails_Array = [
         ]
     },
     {
+        foodCategories_image: '/assets/images/desserts_animated.jpg',
         foodCategories: "Desserts",
         items: [
             {
