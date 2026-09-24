@@ -23,8 +23,10 @@ let menuDetails_Array = [
                 foodItem_description: "Pan-fried spicy prawns.",
                 add_To_cart: false,
             },
-        ],
+        ]
+    },
 
+    {
         foodCategories: "Biryanis",
         items: [
             {
@@ -48,7 +50,9 @@ let menuDetails_Array = [
                 foodItem_description: "Tasty veg fried rice.",
                 add_To_cart: false,
             },
-        ],
+        ]
+    },
+    {
         foodCategories: "Desserts",
         items: [
             {

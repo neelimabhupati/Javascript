@@ -131,3 +131,36 @@ footer p {
     letter-spacing: 0%;
 }
 
+/* foodcategory */
+
+/* .foodCategories {
+    background-color: #e7272d;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    color: aliceblue;
+} */
+
+.food_category {
+    background-color: #e7272d;
+    height: 120px;
+    width: 100%;
+    display: flex;
+    align-items: center;      /* Vertical alignment */
+    justify-content: center;  /* Horizontal alignment */
+    margin-top: 20px;
+}
+
+.food_category h2 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+.mainclass{
+    flex: 1;
+}

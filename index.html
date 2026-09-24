@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/icons/namaste.png">
     <title>Bestellen App</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/template.js"></script>
 
 </head>
 
-<body class="total_page_content">
+<body onload= "renderFoodlist()" class="total_page_content">
     <header class="header_full">
         <div class="header_left">
             <img src="./assets/icons/namaste.png" alt="Bestellen logo icon">
@@ -29,14 +31,15 @@
                 <img src="./assets/images/Biryani logo.jpg" alt="Biryani logo">
             </div>
 
-
-            <div id="food_container_id" class="food_container_id_class"></div>
+            
         </div>
 
         <div class="restaurant_info">
             <h1>Neelima's Cloud Kitchen</h1>
             <h2>The true homestyle Southern flavor</h2>
         </div>
+
+        <div id="food_container_id" class="food_container_id_class"></div>
     </main>
 
     <footer>
