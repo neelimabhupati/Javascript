@@ -1,0 +1,133 @@
+.total_page_content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+/* header */
+.header_full {
+    background-color: #e7272d;
+    height: 128px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.header_left {
+    display: flex;
+    flex-direction: row;
+    padding: 30px 120px;
+    gap: 20px;
+    align-items: center;
+}
+
+.header_left>img {
+    height: 65px;
+    width: 55px;
+    gap: 4px;
+    border-radius: 15px;
+}
+
+.header_right>img {
+    height: 65px;
+    width: 55px;
+    padding: 30px 120px;
+    gap: 4px;
+
+}
+
+.header_left>p {
+    color: aliceblue;
+    font-family: Palanquin Dark;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 28px;
+    line-height: 120%;
+    text-align: center;
+}
+
+header,
+main,
+footer {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero_section {
+    position: relative;
+    width: 100%;
+}
+
+.hero_background {
+    width: 100%;
+    height: 700px;
+    background-image: url(./assets/images/southindian\ food.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile_logo {
+    position: absolute;
+    bottom: -125px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.profile_logo img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0px 4px 8px rgba(18, 17, 17, 0.15);
+}
+
+.restaurant_info {
+    margin-top: 150px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333333;
+    /* Dark color text */
+    font-size: 28px;
+    margin-bottom: 5px;
+
+}
+
+.restaurant_info h1 {
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+    margin: 0;
+}
+
+.restaurant_info h2 {
+    color: #666666;
+    font-size: 25px;
+    font-weight: normal;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+footer {
+    background-color: #e7272d;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    color: aliceblue;
+    font-family: Palanquin;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
