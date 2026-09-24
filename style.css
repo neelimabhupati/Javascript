@@ -11,14 +11,16 @@
     flex: 1;
     /* max-width: 1200px; Food items & layout main content limit */
     width: 100%;
-    margin: 0 auto;    /* 1200px container ni 1440px center lo peduthundi */
+    margin: 0 auto;
+    /* 1200px container ni 1440px center lo peduthundi */
 }
 
-.content{
+.content {
     max-width: 715px;
     max-height: 140px;
 
 }
+
 /* .food_single_card{
    
     display: flex;
@@ -65,6 +67,7 @@
     box-shadow: 0px 4px 8px rgba(18, 17, 17, 0.15);
     z-index: 10;
 }
+
 /* header */
 .header_full {
     background-color: #e7272d;
@@ -184,13 +187,16 @@ footer {
     /* width: 100%; */
     margin-top: 100px;
     margin-bottom: 100px;
-    padding-left: 20%;
+    padding-left: 40px;
+    gap: 20px;
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
-.food_category img {
+
+
+/* .food_category img {
     position: absolute;
     width: 110px;
     height: 135px;
@@ -200,7 +206,13 @@ footer {
     box-shadow: 0px 4px 8px rgba(18, 17, 17, 0.15);
     top: -40px;
     left: 14%;
-    /* z-index: 10; */
+    
+} */
+
+.food_category img {
+    position: relative; /* absolute ni remove cheyandi */
+    top: 0;             /* -40px ni remove cheyandi */
+    margin-right: 20px; /* text overlap avvakunda space isthundi */
 }
 
 /* .food_category img:hover{
@@ -217,8 +229,27 @@ footer {
     text-align: center;
 }
 
+.card_content_box {
+    width: 100%;
+}
 
+.card_header {
+    display: flex;
+    justify-content: space-between;
+}
 
+.add_to_cart_btn{
+    background-color: rgb(253, 200, 179);
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 10%;
+    font-size: medium;
+}
+.food_price {
+    display: flex;
+    justify-content: end
+}
 
 footer {
     background-color: #e7272d;
@@ -236,12 +267,14 @@ footer p {
     letter-spacing: 0%;
 }
 
- .complete_food_container{
-        max-width: 1200px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-} 
+.complete_food_container {
+    max-width: 715px;
+    margin: 0 auto;    /* Horizontal centering */
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
 
 .food_title_price {
 
@@ -261,7 +294,8 @@ footer p {
 
 
 
-.food-image, .food_title_price{
+.food-image,
+.food_title_price {
     display: flex;
     align-items: center;
     flex-direction: row;

@@ -19,7 +19,7 @@ function getFoodDetails(index) {
 function displayFoodList(index, foodlistindex) {
     const foodlist = menuDetails_Array[index].items[foodlistindex];
     return /*html*/`
-    <div class = "food_single_card">^
+    <div class = "food_single_card">
     <!-- Image Container -->
         <div class="card_img_box">
             <img class= "food-image" src="${foodlist.foodItem_image}" alt="${foodlist.foodItem_name}">
@@ -29,7 +29,7 @@ function displayFoodList(index, foodlistindex) {
         <div class="card_content_box">
             <div class="card_header">
                 <span class="food_title"><strong>${foodlist.foodItem_name}</strong></span>
-                <span class="food_price">${foodlist.foodItem_price.toFixed(2)} €</span>
+                <span class="food_price"><strong>${foodlist.foodItem_price.toFixed(2)} €</strong></span>
             </div>
             <div class="card_description">
                 <p>${foodlist.foodItem_description}</p>

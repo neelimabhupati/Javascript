@@ -76,7 +76,7 @@ let menuDetails_Array = [
                 foodItem_image: '/assets/images/Rasagulla.jpg',
                 foodItem_name: "Rasagulla",
                 foodItem_price: 5.50,
-                foodItem_description: "Tasty veg fried rice.",
+                foodItem_description: "Tasty condensed milk sweet.",
                 add_To_cart:  "Add to cart",
             },
         ]
