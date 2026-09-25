@@ -1,5 +1,4 @@
 .total_page_content {
-    /* max-width: 1440px; Entire page screen layout Limit */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -9,10 +8,8 @@
 
 .mainclass {
     flex: 1;
-    /* max-width: 1200px; Food items & layout main content limit */
     width: 100%;
     margin: 0 auto;
-    /* 1200px container ni 1440px center lo peduthundi */
 }
 
 .content {
@@ -28,6 +25,7 @@
     align-items: center;
     max-width: 950px;
     width: 100%;
+    height: 250px;
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
@@ -36,22 +34,8 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
     margin-bottom: 20px;
+    
 }
-
-/* 
-
-.food_category_item_img img {
-    position: absolute;
-    bottom: -20px;
-    width: 100px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid white;
-    box-shadow: 0px 4px 8px rgba(18, 17, 17, 0.15);
-    z-index: 10;
-} */
-
 /* header */
 .header_full_width {
     background-color: #e7272d;
@@ -66,10 +50,8 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-
     margin: 0 auto;
-    /* ఇది కంటెంట్‌ను సెంటర్ కి తెస్తుంది */
-    width: 90%;
+    width: 100%;
 }
 
 .header_left {
@@ -100,7 +82,7 @@
     font-family: Palanquin Dark;
     font-weight: 700;
     font-style: Bold;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 120%;
     text-align: center;
 }
@@ -270,7 +252,7 @@ footer p {
 
 .food_single_card img {
 
-    height: 150px;
+    height: 230px;
     width: 220px;
     border-radius: 12px;
     object-fit: cover;
