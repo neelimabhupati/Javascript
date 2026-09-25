@@ -316,3 +316,10 @@ footer p {
     /* margin: 0; */
 
 }
+
+#cart-items{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    border-bottom: 1px solid #ddd;
+}

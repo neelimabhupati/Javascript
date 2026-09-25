@@ -42,10 +42,20 @@ function displayFoodList(index, foodlistindex) {
                 <p>${foodlist.foodItem_description}</p>
             </div>
             <div class="card_action">
-                <button class="add_to_cart_btn">${foodlist.add_To_cart}</button>
+                <button class="add_to_cart_btn" onclick = "addToCart(${index})">Add to Cart</button>
             </div>
         </section>
 
     `;
 }
+
+function addToCart(index){
+    
+    cartArray.push(menuDetails_Array[index].items.foodItem_name)
+    cartArray.push(menuDetails_Array[index].items.foodItem_price)
+
+    saveToLocalStorage();
+    renderCart();
+}
+
 
