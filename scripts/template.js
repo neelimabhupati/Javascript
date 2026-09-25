@@ -3,10 +3,17 @@ function getFoodDetails(index) {
     
     <div class = "food_info">
         
-        <div class = "food_category">
-        <img class = "food_category_item" src="${menuDetails_Array[index].foodCategories_image}" alt="${menuDetails_Array[index].foodCategories}">
-        <h2 class = "food_category_item">${menuDetails_Array[index].foodCategories} </h2>
+        <section class = "food_category">
+        <div class= "food_category_details">
+            <div class = "food_category_item_img" >
+                <img  src="${menuDetails_Array[index].foodCategories_image}" alt="${menuDetails_Array[index].foodCategories}">
+            </div>
+
+            <div class = "food_category_item_h2">
+                <h2>${menuDetails_Array[index].foodCategories} </h2>
+            </div>
         </div>
+        </section>
 
         <div id = "foodlist-display-${index}" class = "complete_food_container">
     
@@ -26,7 +33,7 @@ function displayFoodList(index, foodlistindex) {
         </div>
 
         <!-- Content Details Container -->
-        <div class="card_content_box">
+        <section class="card_content_box">
             <div class="card_header">
                 <span class="food_title"><strong>${foodlist.foodItem_name}</strong></span>
                 <span class="food_price"><strong>${foodlist.foodItem_price.toFixed(2)} €</strong></span>
@@ -37,18 +44,8 @@ function displayFoodList(index, foodlistindex) {
             <div class="card_action">
                 <button class="add_to_cart_btn">${foodlist.add_To_cart}</button>
             </div>
-        </div>
+        </section>
 
     `;
 }
 
-//  <div class = "food_title_price">
-//             <div class="food-title"><strong>${foodlist.foodItem_name}</strong></div>
-//             <div class="food-price"><strong>${foodlist.foodItem_price.toFixed(2)} € </strong> </div>
-//         </div>
-
-//         <div class = "food_descr_cart">
-//         <div class= "food-description">${foodlist.foodItem_description}</div>
-//         <div class="add-cart">${foodlist.add_To_cart}</div>
-//         </div>
-//     </div>
