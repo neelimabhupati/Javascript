@@ -23,7 +23,7 @@ function renderCart() {
     cartItemContainer.innerHTML = '';
 
     let total = 0;
-
+    let deliveryFee = 4.99;
     for (let index = 0; index < cartArray.length; index++) {
         let item = cartArray[index];
 
@@ -48,17 +48,25 @@ function renderCart() {
 
                     <div class="price-box">
                         <span class="item-total-price">${itemTotal.toFixed(2)} €</span>
+                    </div>
+
+                    
+
                 </div>
             </div>
-        </div>
             `;
         }
     }
+    let finalTotal = total + deliveryFee;
+    document.getElementById('cart-total').innerHTML = `
+         <div class="cart-summary">
+            <div>Subtotal : ${total.toFixed(2)} €</div>
+            <div>Delivery Fee : ${deliveryFee.toFixed(2)} €</div>
+            <hr>
+            <strong>Total: ${finalTotal.toFixed(2)} €</strong>
+        </div>
+        `;
 
-
-    if (totalElement) {
-        totalElement.innerHTML = `<strong> Total: ${total.toFixed(2)} €</strong>`;
-    }
 
     //  <button class="buy_now_btn" onclick="buyNow(${index})">Buy Now</button>
 

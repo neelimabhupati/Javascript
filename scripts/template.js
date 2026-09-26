@@ -44,6 +44,8 @@ function displayFoodList(index, foodlistindex) {
             <div class="card_action">
                 <button class="add_to_cart_btn" onclick = "addToCart(${index}, ${foodlistindex})">Add to Cart</button>
             </div>
+
+            
         </section>
 
     `;

@@ -2,10 +2,12 @@
 
 .total_page_content {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    max-width: 1440px;
     margin: 0 auto;
+    /* display: flex;
+    flex-direction: column;
+    min-height: 100vh; */
+    
 }
 
 .main_left_content{
@@ -49,7 +51,7 @@
     align-items: center;
     /* max-width: 750px; */
     width: 100%;
-    max-width: 100%;
+    max-width: 75%;
     height: auto;
     background-color: rgb(253 200 179 / 18%);
     border: 1px solid #e0e0e0;
@@ -65,22 +67,25 @@
 .header_full_width {
     background-color: #e7272d;
     height: 128px;
-    display: flex;
+    width: 100%;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    /* padding: 20px calc((100% - 1200px) / 2); */
-}
-
-.food_info{
-    width: 1000px;
+    justify-content: space-between; */
 }
 .header_content {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0 auto;
-    width: 100%;
+    max-width: 1440px;
+    height: 100%;
 }
+
+
+.food_info{
+    width: 1000px;
+}
+
 
 .header_left {
     display: flex;
@@ -100,7 +105,7 @@
 .header_right>img {
     height: 65px;
     width: 55px;
-    padding: 30px 120px;
+    /* padding: 30px 120px; */
     gap: 4px;
 
 }
@@ -121,6 +126,15 @@ footer {
     margin: 0 auto;
     width: 100%;
 }
+
+footer{
+    background-color: #e7272d;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 100px;
+    width: 100%;
+}
+
 
 .hero_section {
     position: relative;
@@ -216,6 +230,12 @@ footer {
     font-size: 20px;
 }
 
+.cart-summary {
+    text-align: right; /* ధరలన్నీ కుడివైపుకు వస్తాయి */
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
 .card_action {
     display: flex;
     justify-content: flex-end;
@@ -228,12 +248,7 @@ footer {
     font-size: 28px;
 }
 
-footer {
-    background-color: #e7272d;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 100px;
-}
+
 
 footer p {
     color: aliceblue;
@@ -292,14 +307,10 @@ footer p {
     justify-content: center;
 }
 
-.food_category {
+/* .food_category {
     position: relative;
     background-color: #e7272d;
     height: 100px;
-    
-    
-
-    /* Center positioning formula */
     width: 100vw;
     left: 50%;
     right: 50%;
@@ -308,16 +319,28 @@ footer p {
     margin-bottom: 50px;
     display: flex;
     align-items: center;
-    box-sizing: border-box;
+   
+} */
+
+.food_category {
+    position: relative;
+    background-color: #e7272d;
+    height: 100px;
+    /* Center positioning formula */
+   
+    display: flex;
+    align-items: center;
+    /* box-sizing: border-box; */
 }
 
 .food_category_details {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 1440px;
+    width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    padding: 0 20px;
     box-sizing: border-box;
 }
 

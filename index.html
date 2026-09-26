@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="./scripts/db.js"></script>
     <script src="./scripts/template.js"></script>
+    <link rel="stylesheet" href="./styles/standard.css">
 
 </head>
 
-<body onload="renderFoodlist()" class="total_page_content">
+<body onload="renderFoodlist()">
     <header class="header_full_width">
         <div class="header_content">
             <div class="header_left">
@@ -25,35 +26,36 @@
         </div>
     </header>
 
-    <main class="mainclass">
+    <div class="total_page_content">
+        <main class="mainclass">
 
-        <div class="hero_section">
-            <div class="hero_background"></div>
-            <div class="profile_logo">
-                <img src="./assets/images/Biryani logo.jpg" alt="Biryani logo">
+            <div class="hero_section">
+                <div class="hero_background"></div>
+                <div class="profile_logo">
+                    <img src="./assets/images/Biryani logo.jpg" alt="Biryani logo">
+                </div>
             </div>
-        </div>
-        <div class="restaurant_info">
-            <h1>Neelima's Cloud Kitchen</h1>
-            <h2>The true homestyle Southern flavor</h2>
-        </div>
-
-        <div class="main-flex-wrapper">
-
-            <div class="main_left_content">
-            <div id="food_container_id" class="food-container-id-class"></div>
+            <div class="restaurant_info">
+                <h1>Neelima's Cloud Kitchen</h1>
+                <h2>The true homestyle Southern flavor</h2>
             </div>
 
-            <div id="stricky-container-id" class="stricky-container-id-class">
-                <h3> Your Cart</h3>
-                <div id="cart-items"></div>
-                <div id="cart-total"></div>
+            <div class="main-flex-wrapper">
+
+                <div class="main_left_content">
+                    <div id="food_container_id" class="food-container-id-class"></div>
+                </div>
+
+                <div id="stricky-container-id" class="stricky-container-id-class">
+                    <h3> Your Cart</h3>
+                    <div id="cart-items"></div>
+                    <div id="cart-total"></div>
+                </div>
             </div>
-        </div>
 
 
-    </main>
-
+        </main>
+    </div>
     <footer>
         <p> 2026 &copy; The Neelima's cloud kitchen All Rights Reserved. Designed by Neelima Bhupati</p>
     </footer>
