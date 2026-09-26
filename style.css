@@ -1,3 +1,5 @@
+
+
 .total_page_content {
     width: 100%;
     display: flex;
@@ -6,10 +8,34 @@
     margin: 0 auto;
 }
 
+.main_left_content{
+    width: 1000px;
+}
+
+.main-flex-wrapper{
+  
+    display: flex;
+    justify-content: space-between; /* Left, Right కి వెల్లకుండా Center లో ఉంచుతుంది */
+    align-items: flex-start;
+    gap: 30px;               /* Food list మరియు Cart మధ్య మంచి Gap ఇస్తుంది */
+    max-width: 1440px;      
+    margin: 0 auto;         
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.food-container-id-class {
+    flex: 1;
+    /* max-width: 850px;         */
+    /* max-width: 1000px; */
+    width: 100%;
+}
+
 .mainclass {
     flex: 1;
     width: 100%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 /* .content {
@@ -21,18 +47,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    max-width: 950px;
+    /* max-width: 750px; */
     width: 100%;
-    height: 250px;
-    background-color: #ffffff;
+    height: auto;
+    background-color: rgb(253 200 179 / 18%);
     border: 1px solid #e0e0e0;
     border-radius: 12px;
     padding: 16px;
     gap: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
     margin-bottom: 20px;
-    
+    width: 930px;
 }
 /* header */
 .header_full_width {
@@ -44,6 +69,9 @@
     /* padding: 20px calc((100% - 1200px) / 2); */
 }
 
+.food_info{
+    width: 1000px;
+}
 .header_content {
     display: flex;
     align-items: center;
@@ -126,16 +154,20 @@ footer {
 }
 
 .restaurant_info {
-    margin-top: 150px;
+    margin-top: 140px;
     margin-bottom: 15px;
+
+    width: 100%;
+    /* display: flex; */
     text-align: center;
     color: #333333;
     /* Dark color text */
     font-size: 28px;
-    margin-bottom: 5px;
-    /* max-width: 1200px; */
+    margin-bottom: 30px;
+    /* max-width: 1200px;  */
 
 }
+
 
 .restaurant_info h1 {
     font-weight: 700;
@@ -212,7 +244,7 @@ footer p {
 }
 
 .complete_food_container {
-    max-width: 1000px;
+    /* max-width: 1000px; */
     margin: 0 auto;
     /* Horizontal centering */
     width: 100%;
@@ -249,6 +281,7 @@ footer p {
     width: 220px;
     border-radius: 12px;
     object-fit: cover;
+    
 }
 
 .food_category_details {
@@ -261,10 +294,16 @@ footer p {
     position: relative;
     background-color: #e7272d;
     height: 100px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    /* padding-left: 40px; */
-    /* gap: 20px; */
+    
+    
+
+    /* Center positioning formula */
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 50px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -274,13 +313,9 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
-    /* position: relative; */
-    /* padding-left: 25%; */
-    max-width: 1000px;
+    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
-    /* Center alignment */
-    padding: 0 20px;
     box-sizing: border-box;
 }
 
@@ -320,6 +355,127 @@ footer p {
 #cart-items{
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
+    margin: 5px 0;
     border-bottom: 1px solid #ddd;
+}
+
+/* Cart Layout Styling */
+.stricky-container-id-class {
+    /* max-height: 800px; */
+    display: flex;
+    flex-direction: column;
+    background-color: #d24646;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    /* color: #ccc; */
+    width: 500px; 
+    min-width: 380px;
+    max-height: calc(100vh - 40px);
+    top: 170px;
+    position: sticky;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+}
+
+.stricky-container-id-class h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+
+/* Prathi Cart Item Okka Straight Row Ga Undaniki */
+#cart-items {
+    max-height: 400px;        /* ఐటమ్స్ ఎక్కువైతే 400px వద్ద ఆగిపోతాయి */
+    overflow-y: auto;         /* ఎక్కువ ఐటమ్స్ వచ్చినప్పుడు Scrollbar ఇస్తుంది */
+    padding-right: 5px;       /* Scrollbar పై ఐటమ్స్ పడకుండా చిన్న గ్యాప్ */
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#cart-items::-webkit-scrollbar {
+    width: 4px;
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;                    /* Title & Controls madhya gap kosam */
+    background-color: #fff3e0;   /* Cream background as per figma */
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.cart-item-info{
+    text-align: left;
+    align-items: center;
+    gap: 6px;
+    font-size: 24px;
+}
+
+#cart-total {
+    margin-top: 10px;
+    border-top: 2px solid #333;
+    padding-top: 18px;
+    align-items: end;
+    text-align: right;
+    font-size: 25px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+}
+
+.cart-item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 118px;
+    
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+.qty-btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.qty-btn:hover {
+    background-color: #777;
+}
+
+.qty-count {
+    font-weight: bold;
+    min-width: 15px;
+    text-align: center;
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;                    /* Buttons madhya thakkuva spacing kosam */
+
 }

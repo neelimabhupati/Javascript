@@ -1,6 +1,6 @@
 let cartArray = [];
 
-function renderFoodlist(){
+function renderFoodlist() {
     let food_id = document.getElementById('food_container_id');
     food_id.innerHTML = "";
 
@@ -9,45 +9,114 @@ function renderFoodlist(){
 
         const foodListContainer = document.getElementById(`foodlist-display-${index}`);
 
-         for (let foodlistindex = 0; foodlistindex < menuDetails_Array[index].items.length; foodlistindex++) {
-             foodListContainer.innerHTML += displayFoodList(index, foodlistindex);
+        for (let foodlistindex = 0; foodlistindex < menuDetails_Array[index].items.length; foodlistindex++) {
+            foodListContainer.innerHTML += displayFoodList(index, foodlistindex);
         }
     }
 }
 
-function renderCart(){
-    let cartContainer = document.getElementById('stricky-container-id');
-    cartContainer.innerHTML = '';
+function renderCart() {
+    let cartItemContainer = document.getElementById('cart-items');
+    let totalElement = document.getElementById('cart-total');
+
+    if (!cartItemContainer || !totalElement) return;
+    cartItemContainer.innerHTML = '';
 
     let total = 0;
 
-    for (let index= 0; index < cartArray.length; index++){
+    for (let index = 0; index < cartArray.length; index++) {
         let item = cartArray[index];
 
-        // total += cartArray[index].price;
-        total += item.foodItem_price;
+        if (item && item.price !== undefined) {
+            let itemTotal = item.price * item.amount;
+            total += itemTotal;
 
-        cartContainer.innerHTML += `
-        <div class= "cart-item">
+            cartItemContainer.innerHTML += `
+            <div class="cart-item">
+                <div class="cart-item-info">
+                <span class="qty-count">${item.amount} x </span>
+                <span class="item-name">${item.name}</span>
+                
+                </div>
+                <div class="cart-item-controls">
 
-        <span>${item.name}</span>
-        <span>${item.price.toFixed(2)}</span>
+                    <div class="btn-group">
+                        <button class="qty-btn" onclick="decreaseItem(${index})">-</button>
+                        <span class="qty-count">${item.amount}</span>
+                        <button class="qty-btn" onclick="increaseItem(${index})">+</button>
+                    </div>
+
+                    <div class="price-box">
+                        <span class="item-total-price">${itemTotal.toFixed(2)} €</span>
+                </div>
+            </div>
         </div>
-
-        `;
+            `;
+        }
     }
 
-    document.getElementById('cart-total').innerHTML = `<strong> Total: ${total.toFixed(2)} €</strong>`;
+
+    if (totalElement) {
+        totalElement.innerHTML = `<strong> Total: ${total.toFixed(2)} €</strong>`;
+    }
+
+    //  <button class="buy_now_btn" onclick="buyNow(${index})">Buy Now</button>
+
 }
 
-function saveToLocalStorage(){
+function addToCart(index, foodlistindex) {
+
+    let selectedItem = menuDetails_Array[index].items[foodlistindex];
+
+    let existingIndex = cartArray.findIndex(item => item.name === selectedItem.foodItem_name)
+
+    if (existingIndex > -1) {
+        cartArray[existingIndex].amount += 1;
+    } else {
+        cartArray.push({
+            name: selectedItem.foodItem_name,
+            price: Number(selectedItem.foodItem_price),
+            amount: 1
+        });
+    }
+
+
+    // cartArray.push(menuDetails_Array[index].items.foodItem_name)
+    // cartArray.push(menuDetails_Array[index].items.foodItem_price)
+
+    saveToLocalStorage();
+    renderCart();
+}
+
+function increaseItem(cartIndex) {
+    cartArray[cartIndex].amount += 1;
+    saveToLocalStorage();
+    renderCart();
+}
+
+function decreaseItem(cartIndex) {
+    if (cartArray[cartIndex].amount > 1) {
+        cartArray[cartIndex].amount -= 1;
+    } else {
+        cartArray.splice(cartIndex, 1);
+    }
+
+    saveToLocalStorage();
+    renderCart();
+}
+
+function saveToLocalStorage() {
     localStorage.setItem("cartArray", JSON.stringify(cartArray));
 }
 
-function getFromLocalStorage(){
+function getFromLocalStorage() {
     let savedCart = localStorage.getItem("cartArray");
 
-    if(savedCart){
+    if (savedCart) {
         cartArray = JSON.parse(savedCart);
     }
 }
+
+getFromLocalStorage();
+renderFoodlist();
+renderCart();
