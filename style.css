@@ -9,7 +9,7 @@
 }
 
 .main_left_content{
-    width: 1000px;
+    width: 100%;    
 }
 
 .main-flex-wrapper{
@@ -20,21 +20,21 @@
     gap: 30px;               /* Food list మరియు Cart మధ్య మంచి Gap ఇస్తుంది */
     max-width: 1440px;      
     margin: 0 auto;         
-    width: 100%;
+    width: 95%;
     padding: 0 20px;
     box-sizing: border-box;
+    flex-direction: row;
 }
 
 .food-container-id-class {
-    flex: 1;
-    /* max-width: 850px;         */
-    /* max-width: 1000px; */
-    width: 100%;
+    flex: 3;
+    /* width: 100%; */
+    min-width: 0;
 }
 
 .mainclass {
     flex: 1;
-    width: 100%;
+    /* width: 100%; Neelima*/ 
     /* margin: 0 auto; */
 }
 
@@ -49,6 +49,7 @@
     align-items: center;
     /* max-width: 750px; */
     width: 100%;
+    max-width: 100%;
     height: auto;
     background-color: rgb(253 200 179 / 18%);
     border: 1px solid #e0e0e0;
@@ -57,7 +58,8 @@
     gap: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
-    width: 930px;
+    /* width: 930px; */
+    box-sizing: border-box;
 }
 /* header */
 .header_full_width {
@@ -376,6 +378,9 @@ footer p {
     position: sticky;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     border-radius: 30px;
+
+    flex: 1;
+    min-width: 450px;
 }
 
 .stricky-container-id-class h3{
