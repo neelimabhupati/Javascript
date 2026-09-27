@@ -1,32 +1,166 @@
-
+* {
+    font-family: 'Palanquin';
+    line-height: 1.2;
+}
 
 .total_page_content {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    /* display: flex;
-    flex-direction: column;
-    min-height: 100vh; */
-    
 }
 
-.main_left_content{
-    width: 100%;    
+.wrapper {
+    padding: 0 calc((100% - 1440px) / 2);
 }
 
-.main-flex-wrapper{
-  
+
+/* :root {
+    --color-white: #ffffff;
+    --color-dark: #03c95c;
+    --color-stars: #facaac;
+    --color-medium #e7c3ad: #e7c3ad;
+    --color-light: rgb(111, 224, 219);
+    --color-second: #081a00f3;
+} */
+
+header,
+footer {
+    /* color: var(--color-white); */
+    color: white;
+    /* background-image: linear-gradient(90deg, #f 25%, #42 75%); */
+    background-color: #e7272d;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+
+
+.header_content {
+    /* background-color: #e7272d; */
     display: flex;
-    justify-content: space-between; /* Left, Right కి వెల్లకుండా Center లో ఉంచుతుంది */
-    align-items: flex-start;
-    gap: 30px;               /* Food list మరియు Cart మధ్య మంచి Gap ఇస్తుంది */
-    max-width: 1440px;      
-    margin: 0 auto;         
-    width: 95%;
-    padding: 0 20px;
-    box-sizing: border-box;
-    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 128px;
 }
+
+.hero_background {
+    height: 700px;
+    background-image: url(./assets/images/southindian\ food.webp);
+    background-position: center;
+    background-size: cover;
+    box-shadow: 10px 14px 8px rgba(18, 17, 17, 0.15);
+}
+
+.profile_logo {
+    position: absolute;
+    bottom: -125px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: #00000086 2px 4px 8px;
+    border-radius: 50%;
+    border: 1px solid white;
+
+}
+
+.main-flex-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.food_category {
+    position: absolute;
+    left: 0;
+    /* background-color: var(--color-dark); */
+    background-color: #e7272d;
+    width: 100%;
+    height: 90px;
+    z-index: -1;
+}
+
+.food_category_details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    height: 60px;
+}
+
+.food_category_item_img {
+    position: absolute;
+    margin-right: 55px;
+    top: -30px;
+    width: 120px;
+    height: 135px;
+    flex-shrink: 0;
+    margin-left: 160px;
+    height: 90px;
+}
+
+.food_category_item_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid white;
+    box-shadow: 0px 4px 8px rgba(18, 17, 17, 0.15);
+    /* display: block; */
+}
+
+.food_category_item_h2 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.complete_food_container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top: 112px;
+    gap: 16px;
+    height: 970px;
+}
+
+.food_single_card {
+    background-color: rgb(253 200 179 / 18%);
+    display: flex;
+    margin: 0 120px;
+    border-radius: 12px;
+    padding: 15px;
+    gap: 16px;
+
+}
+
+.stricky-container-id-class {
+    background-color: #081a00f3;
+    color: #d24646;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    height: 900px;
+    width: 440px;
+    padding: 60px 40px;
+    position: sticky;
+    top: 120px;
+    border-radius: 30px 0 0 30px;
+}
+
+.stricky-container-id-class h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+
+
 
 .food-container-id-class {
     flex: 3;
@@ -36,56 +170,9 @@
 
 .mainclass {
     flex: 1;
-    /* width: 100%; Neelima*/ 
-    /* margin: 0 auto; */
 }
 
-/* .content {
-    max-width: 715px;
-    max-height: 140px;
-} */
-
-.food_single_card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* max-width: 750px; */
-    width: 100%;
-    max-width: 75%;
-    height: auto;
-    background-color: rgb(253 200 179 / 18%);
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 16px;
-    gap: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
-    /* width: 930px; */
-    box-sizing: border-box;
-}
 /* header */
-.header_full_width {
-    background-color: #e7272d;
-    height: 128px;
-    width: 100%;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-between; */
-}
-.header_content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    max-width: 1440px;
-    height: 100%;
-}
-
-
-.food_info{
-    width: 1000px;
-}
-
 
 .header_left {
     display: flex;
@@ -120,14 +207,7 @@
     text-align: center;
 }
 
-header,
-main,
 footer {
-    margin: 0 auto;
-    width: 100%;
-}
-
-footer{
     background-color: #e7272d;
     padding: 20px 0;
     text-align: center;
@@ -139,25 +219,6 @@ footer{
 .hero_section {
     position: relative;
     width: 100%;
-}
-
-.hero_background {
-    width: 100%;
-    height: 700px;
-    background-image: url(./assets/images/southindian\ food.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* border: 7px solid white; */
-    box-shadow: 10px 14px 8px rgba(18, 17, 17, 0.15);
-}
-
-.profile_logo {
-    position: absolute;
-    bottom: -125px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
 }
 
 .profile_logo img {
@@ -172,18 +233,12 @@ footer{
 .restaurant_info {
     margin-top: 140px;
     margin-bottom: 15px;
-
     width: 100%;
-    /* display: flex; */
     text-align: center;
     color: #333333;
-    /* Dark color text */
     font-size: 28px;
     margin-bottom: 30px;
-    /* max-width: 1200px;  */
-
 }
-
 
 .restaurant_info h1 {
     font-weight: 700;
@@ -231,7 +286,7 @@ footer{
 }
 
 .cart-summary {
-    text-align: right; /* ధరలన్నీ కుడివైపుకు వస్తాయి */
+    text-align: right;
     margin-top: 15px;
     padding-top: 10px;
 }
@@ -248,8 +303,6 @@ footer{
     font-size: 28px;
 }
 
-
-
 footer p {
     color: aliceblue;
     font-family: Palanquin;
@@ -258,20 +311,10 @@ footer p {
     font-size: 22px;
     line-height: 120%;
     letter-spacing: 0%;
-}
-
-.complete_food_container {
-    /* max-width: 1000px; */
-    margin: 0 auto;
-    /* Horizontal centering */
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
+    
 }
 
 .food_title_price {
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -283,7 +326,6 @@ footer p {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-
 }
 
 .food-image,
@@ -298,126 +340,21 @@ footer p {
     width: 220px;
     border-radius: 12px;
     object-fit: cover;
-    
-}
-
-.food_category_details {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* .food_category {
-    position: relative;
-    background-color: #e7272d;
-    height: 100px;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-bottom: 50px;
-    display: flex;
-    align-items: center;
-   
-} */
-
-.food_category {
-    position: relative;
-    background-color: #e7272d;
-    height: 100px;
-    /* Center positioning formula */
-   
-    display: flex;
-    align-items: center;
-    /* box-sizing: border-box; */
-}
-
-.food_category_details {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.food_category_item_img {
-    position: relative;
-    margin-right: 55px;
-    top: -30px;
-    /* left: 20%; */
-    width: 120px;
-    height: 135px;
-    /* z-index: 10; */
-    /* margin-right: 20px; */
-    flex-shrink: 0;
-}
-
-.food_category_item_img img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 7px solid white;
-    box-shadow: 0px 4px 8px rgba(18, 17, 17, 0.15);
-    /* display: block; */
-}
-
-.food_category_item_h2 {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 700;
-    margin: 0;
-    /* text-align: left; */
-    white-space: nowrap;
-    /* margin: 0; */
 
 }
 
-#cart-items{
+#cart-items {
     display: flex;
     justify-content: space-between;
     margin: 5px 0;
     border-bottom: 1px solid #ddd;
 }
 
-/* Cart Layout Styling */
-.stricky-container-id-class {
-    /* max-height: 800px; */
-    display: flex;
-    flex-direction: column;
-    background-color: #d24646;
-    gap: 12px;
-    padding: 16px;
-    border: 1px solid #ccc;
-    /* color: #ccc; */
-    width: 500px; 
-    min-width: 380px;
-    max-height: calc(100vh - 40px);
-    top: 170px;
-    position: sticky;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 30px;
-
-    flex: 1;
-    min-width: 450px;
-}
-
-.stricky-container-id-class h3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 26px;
-}
-
 /* Prathi Cart Item Okka Straight Row Ga Undaniki */
 #cart-items {
-    max-height: 400px;        /* ఐటమ్స్ ఎక్కువైతే 400px వద్ద ఆగిపోతాయి */
-    overflow-y: auto;         /* ఎక్కువ ఐటమ్స్ వచ్చినప్పుడు Scrollbar ఇస్తుంది */
-    padding-right: 5px;       /* Scrollbar పై ఐటమ్స్ పడకుండా చిన్న గ్యాప్ */
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
@@ -436,13 +373,13 @@ footer p {
 .cart-item {
     display: flex;
     flex-direction: column;
-    gap: 8px;                    /* Title & Controls madhya gap kosam */
-    background-color: #fff3e0;   /* Cream background as per figma */
+    gap: 8px;
+    background-color: #fff3e0;
     border-radius: 12px;
     padding: 12px;
 }
 
-.cart-item-info{
+.cart-item-info {
     text-align: left;
     align-items: center;
     gap: 6px;
@@ -466,16 +403,17 @@ footer p {
     border-bottom: 1px solid #444;
 }
 
-.cart-item{
+.cart-item {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
+
 .cart-item-controls {
     display: flex;
     align-items: center;
     gap: 118px;
-    
+
     padding: 10px;
     justify-content: space-evenly;
 }
@@ -504,6 +442,7 @@ footer p {
 .btn-group {
     display: flex;
     align-items: center;
-    gap: 4px;                    /* Buttons madhya thakkuva spacing kosam */
+    gap: 4px;
+    /* Buttons madhya thakkuva spacing kosam */
 
 }

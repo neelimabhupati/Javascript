@@ -1,8 +1,6 @@
 function getFoodDetails(index) {
     return /*html*/ `
     
-    <div class = "food_info">
-        
         <section class = "food_category">
         <div class= "food_category_details">
             <div class = "food_category_item_img" >
@@ -16,11 +14,10 @@ function getFoodDetails(index) {
         </section>
 
         <div id = "foodlist-display-${index}" class = "complete_food_container">
-    
+            
         </div>
        
-    </div>
-    `
+    `;
 }
 
 function displayFoodList(index, foodlistindex) {

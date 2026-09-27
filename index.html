@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/icons/namaste.png">
-    <title>Bestellen App</title>
+    <title>Neelima's Bestellen App</title>
     <link rel="stylesheet" href="style.css">
     <script src="./scripts/db.js"></script>
     <script src="./scripts/template.js"></script>
@@ -14,7 +14,7 @@
 </head>
 
 <body onload="renderFoodlist()">
-    <header class="header_full_width">
+    <header class="wrapper">
         <div class="header_content">
             <div class="header_left">
                 <img src="./assets/icons/namaste.png" alt="Bestellen logo icon">
@@ -26,9 +26,8 @@
         </div>
     </header>
 
-    <div class="total_page_content">
-        <main class="mainclass">
-
+    <main>
+        <section class="wrapper">
             <div class="hero_section">
                 <div class="hero_background"></div>
                 <div class="profile_logo">
@@ -39,23 +38,22 @@
                 <h1>Neelima's Cloud Kitchen</h1>
                 <h2>The true homestyle Southern flavor</h2>
             </div>
+        </section>
+        <div class="main-flex-wrapper wrapper">
 
-            <div class="main-flex-wrapper">
+            <section class="main_left_content ">
+                <div id="food_container_id" class="food-container-id-class "></div>
+            </section>
 
-                <div class="main_left_content">
-                    <div id="food_container_id" class="food-container-id-class"></div>
-                </div>
-
-                <div id="stricky-container-id" class="stricky-container-id-class">
-                    <h3> Your Cart</h3>
-                    <div id="cart-items"></div>
-                    <div id="cart-total"></div>
-                </div>
+            <div id="stricky-container-id" class="stricky-container-id-class">
+                <h3> Your Cart</h3>
+                <div id="cart-items"></div>
+                <div id="cart-total"></div>
             </div>
+        </div>
 
+    </main>
 
-        </main>
-    </div>
     <footer>
         <p> 2026 &copy; The Neelima's cloud kitchen All Rights Reserved. Designed by Neelima Bhupati</p>
     </footer>
