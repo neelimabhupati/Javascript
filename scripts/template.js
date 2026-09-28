@@ -2,14 +2,10 @@ function getFoodDetails(index) {
     return /*html*/ `
     
         <section class = "food_category">
-        <div class= "food_category_details">
-            <div class = "food_category_item_img" >
+        <div class= "food_category_details wrapper" >
                 <img  src="${menuDetails_Array[index].foodCategories_image}" alt="${menuDetails_Array[index].foodCategories}">
-            </div>
-
-            <div class = "food_category_item_h2">
                 <h2>${menuDetails_Array[index].foodCategories} </h2>
-            </div>
+
         </div>
         </section>
 

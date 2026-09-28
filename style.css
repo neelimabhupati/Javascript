@@ -83,40 +83,33 @@ header {
     height: 90px;
     z-index: -1;
 }
-
 .food_category_details {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: row;
     gap: 40px;
     height: 60px;
+    padding-right: 150px; 
 }
 
-.food_category_item_img {
-    position: absolute;
-    margin-right: 55px;
+.food_category_details h2 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.food_category_details img {
     top: -30px;
-    width: 120px;
-    height: 135px;
     flex-shrink: 0;
-    margin-left: 160px;
-    height: 90px;
-}
-
-.food_category_item_img img {
-    width: 100%;
-    height: 100%;
+    height: 120px;
+    width: 120px;
     border-radius: 50%;
     object-fit: cover;
     border: 7px solid white;
     box-shadow: 0px 4px 8px rgba(18, 17, 17, 0.15);
-    /* display: block; */
-}
-
-.food_category_item_h2 {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 700;
 }
 
 .complete_food_container {
@@ -159,8 +152,6 @@ header {
     align-items: center;
     font-size: 26px;
 }
-
-
 
 .food-container-id-class {
     flex: 3;
@@ -206,15 +197,6 @@ header {
     line-height: 120%;
     text-align: center;
 }
-
-footer {
-    background-color: #e7272d;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 100px;
-    width: 100%;
-}
-
 
 .hero_section {
     position: relative;
@@ -301,17 +283,6 @@ footer {
     display: flex;
     justify-content: end;
     font-size: 28px;
-}
-
-footer p {
-    color: aliceblue;
-    font-family: Palanquin;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 22px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    
 }
 
 .food_title_price {
@@ -444,5 +415,24 @@ footer p {
     align-items: center;
     gap: 4px;
     /* Buttons madhya thakkuva spacing kosam */
+}
 
+footer {
+    background-color: #e7272d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    height: 120px;
+}
+
+footer p {
+    color: aliceblue;
+    font-family: Palanquin;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    
 }
