@@ -47,8 +47,10 @@
                 <div id="food_container_id" class="food-container-id-class "></div>
             </section>
 
-            <div id="stricky-container-id" class="stricky-container-id-class">
+            <div id="stricky-container-id" class="stricky-container-id-class d-none">
                 <h3> Your Cart</h3>
+                <button class="close-cart-btn" onclick="closeCart()">X</button>
+                <!-- <button class="close-btn-last" onclick="closeOrderDialog()"> X </button> -->
                 <div id="cart-items"></div>
                 <div id="cart-total"></div>
 
@@ -72,7 +74,7 @@
     </footer>
 
 
-    <footer class="footer-mobile">
+    <footer id="footer-mobile" class="footer-mobile">
         <button class="footer-btn" onclick="">
             <img src="./assets/icons/home.png" alt="home icon">
         </button>
@@ -82,8 +84,10 @@
         <button class="footer-btn" onclick="">
             <img src="./assets/icons/takeout_dining_2.png" alt="takeout icon">
         </button>
-        <button class="footer-btn" onclick="renderCart()">
+        <button id= "footer-btn" class="footer-btn" onclick="renderCart()">
             <img src="./assets/icons/shopping_cart.png" alt="cart icon">
+
+            <span id="mobile-cart-badge" class="cart-badge d-none">0</span>
         </button>
     </footer>
 

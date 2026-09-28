@@ -13,6 +13,15 @@
     padding: 0 calc((100% - 1440px) / 2);
 }
 
+.d-none {
+    display: none !important;
+}
+
+
+
+/* .d-none {
+    display: none;
+} */
 
 /* :root {
     --color-white: #ffffff;
@@ -132,6 +141,7 @@ header {
 }
 
 .stricky-container-id-class {
+    
     background-color: #081a00f3;
     color: #d24646;
     display: flex;
@@ -269,6 +279,8 @@ header {
 }
 
 .cart-summary {
+    position: relative;
+    padding-top: 20px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -277,6 +289,27 @@ header {
     gap: 8px;
     /* ఇది వరుసల మధ్య గ్యాప్ ని పెంచుతుంది */
     margin-top: 20px;
+}
+
+/* X బటన్ స్టైల్ */
+.close-cart-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding-right: 20px;
+    padding-top: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    align-items: flex-start;
+}
+
+.close-cart-btn:hover {
+    color: red;
+    /* మౌస్ పెట్టినప్పుడు ఎరుపు రంగు */
 }
 
 .summary-row {
@@ -511,6 +544,77 @@ footer p {
 /* Media queries */
 
 @media (max-width: 767px) {
+
+    #stricky-container-id {
+        position: absolute;
+        top: 500px;
+        display: flex;
+        /* position: fixed; */
+            
+        right: 0;
+
+         bottom: 0;       /* స్క్రీన్ కింద అతుక్కుని ఉంటుంది */
+        
+        width: 100%;     /* మొత్తం వెడల్పు */
+        z-index: 9999;   /* బ్యాక్‌గ్రౌండ్ పైన రావడానికి */
+
+
+        width: 320px;
+        z-index: 999;
+        background-color: rgb(12, 11, 11);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        height: 700px;
+    }
+
+    .cart-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        padding: 0px;
+    }
+
+    .cart-item-info {
+        text-align: left;
+        align-items: center;
+        gap: 6px;
+        font-size: 20px;
+    }
+
+    #cart-total {
+
+        font-size: 20px;
+    }
+
+    .cart-badge-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .cart-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background-color: #25d366;
+        /* Green badge color */
+        color: white;
+        font-size: 11px;
+        font-weight: bold;
+        border-radius: 50%;
+        padding: 2px 5px;
+        min-width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* JavaScript ద్వారా d-none క్లాస్ జోడించినప్పుడు కార్ట్ దాగుతుంది */
+    .stricky-container-id-class.d-none {
+        display: none !important;
+        
+    }
+
     .footer-desktop {
         display: none;
     }
@@ -642,20 +746,111 @@ footer p {
     .stricky-container-id-class {
         display: none;
     }
-}
 
-/* Table */
-@media (min-width: 768px) {
-    .footer-mobile {
-        display: none;
+    .stricky-container-id-class h3 {
+        font-size: 22px;
 
+    }
+
+    .summary-row {
+        gap: 50px;
+    }
+
+    .main-flex-wrapper {
+        position: relative;
+    }
+
+    #stricky-container-id{
+        position: sticky;
     }
 }
 
-/* --- Desktop (1024px+) --- */
-@media (min-width: 1024px) {
+/* Table */
+/* Tablet & Desktop Layout */
+/* Tablet Layout */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .food_single_card {
+        margin: 0;
+    }
+
+    .food_title {
+        font-size: 20px;
+    }
+
+    .food_price {
+        font-size: 20px;
+    }
+
+    .card_description {
+        padding-top: 20px;
+
+    }
+
+    .card_action {
+        padding-top: 40px;
+
+    }
+
+    .card_content_box {
+        width: 100%;
+        gap: 30px
+    }
+
+    .food_single_card {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .wrapper {
+        padding: 0 15px;
+    }
+
+    .main-flex-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    /* Left side Menu list */
+    .main_left_content {
+        width: 62%;
+    }
+
+    /* Right side Sticky Cart */
     .stricky-container-id-class {
-        width: 1200px;
-        margin: 0 auto;
+        width: 35%;
+        position: sticky;
+        top: 20px;
+        display: block !important;
+        /* Tablet లో కార్ట్ కనిపించాలి */
+    }
+
+    /* Hero Background Image Full Fit */
+    .hero_background {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+
+    .stricky-container-id-class {
+        width: 350px;
+        
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .basket {
+        padding: 40px 20px;
+        width: 350px;
+    }
+
+    .food_single_card {
+
+        margin: 0px 20px;
+        width: 100%;
     }
 }
