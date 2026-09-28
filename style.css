@@ -83,6 +83,7 @@ header {
     height: 90px;
     z-index: -1;
 }
+
 .food_category_details {
     position: relative;
     display: flex;
@@ -91,7 +92,7 @@ header {
     flex-direction: row;
     gap: 40px;
     height: 60px;
-    padding-right: 150px; 
+    padding-right: 150px;
 }
 
 .food_category_details h2 {
@@ -151,6 +152,7 @@ header {
     justify-content: center;
     align-items: center;
     font-size: 26px;
+    color: white;
 }
 
 .food-container-id-class {
@@ -268,9 +270,20 @@ header {
 }
 
 .cart-summary {
-    text-align: right;
-    margin-top: 15px;
-    padding-top: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+    /* బాక్స్ లోపల కొంచెం ఖాళీ (Breathing room) */
+    gap: 8px;
+    /* ఇది వరుసల మధ్య గ్యాప్ ని పెంచుతుంది */
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 105px;
 }
 
 .card_action {
@@ -315,15 +328,8 @@ header {
 }
 
 #cart-items {
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-/* Prathi Cart Item Okka Straight Row Ga Undaniki */
-#cart-items {
-    max-height: 400px;
+    max-height: 350px;
+    flex: 1;
     overflow-y: auto;
     padding-right: 5px;
     margin-bottom: 15px;
@@ -358,20 +364,11 @@ header {
 }
 
 #cart-total {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     border-top: 2px solid #333;
-    padding-top: 18px;
-    align-items: end;
-    text-align: right;
+    align-items: start;
+    text-align: center;
     font-size: 25px;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #444;
 }
 
 .cart-item {
@@ -434,5 +431,72 @@ footer p {
     font-size: 22px;
     line-height: 120%;
     letter-spacing: 0%;
-    
+
+}
+
+.buy-now-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff9900;
+    /* మీ బ్రాండ్ కలర్ */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.order-message {
+    text-align: center;
+    color: green;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.d-none {
+    display: none;
+}
+
+.order-dialog {
+    color: white;
+    height: 240px;
+    width: 350px;
+    border: none;
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: rgba(54, 53, 52, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: auto;
+
+    position: relative; /* ఇది చాలా ముఖ్యం! */
+    padding-top: 40px;
+}
+
+.close-btn-last {
+    position: absolute;
+    top: 20px;    /* పై నుండి దూరం */
+    right: 25px;  /* కుడి నుండి దూరం */
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    color:white;
+}
+
+.close-btn:hover {
+    color: red; /* మౌస్ పెట్టినప్పుడు ఎరుపు రంగు */
+}
+
+.order-dialog img {
+    width: 100px;
+    height: 80px;
+    /* angle: -180 deg; */
+    opacity: 1;
+}
+
+.order-dialog::backdrop {
+    background-color: rgba(94, 18, 18, 0.5);
 }

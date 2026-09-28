@@ -59,11 +59,22 @@ function renderCart() {
     }
     let finalTotal = total + deliveryFee;
     document.getElementById('cart-total').innerHTML = `
-         <div class="cart-summary">
-            <div>Subtotal : ${total.toFixed(2)} €</div>
-            <div>Delivery Fee : ${deliveryFee.toFixed(2)} €</div>
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span>${total.toFixed(2)} €</span>
+            </div>
+            <div class="summary-row">
+                <span>Delivery Fee:</span>
+                <span> ${deliveryFee.toFixed(2)}€</span>
+            </div>
+
             <hr>
-            <strong>Total: ${finalTotal.toFixed(2)} €</strong>
+            <div class="summary-row">
+                <span>Total:</span>
+                <span> <strong>${finalTotal.toFixed(2)} €</strong></span>
+            </div>
+            
         </div>
         `;
 
@@ -87,10 +98,6 @@ function addToCart(index, foodlistindex) {
             amount: 1
         });
     }
-
-
-    // cartArray.push(menuDetails_Array[index].items.foodItem_name)
-    // cartArray.push(menuDetails_Array[index].items.foodItem_price)
 
     saveToLocalStorage();
     renderCart();
@@ -123,6 +130,29 @@ function getFromLocalStorage() {
     if (savedCart) {
         cartArray = JSON.parse(savedCart);
     }
+}
+
+function placeOrder() {
+
+    if (cartArray.length === 0) return;
+    cartArray = [];
+    saveToLocalStorage();
+    renderCart();
+    let oderDialog = document.getElementById('order-confirmed-dialog');
+    oderDialog.showModal();
+
+}
+
+function closeOrderDialog() {
+    let orderDialog = document.getElementById('order-confirmed-dialog');
+    orderDialog.close();
+
+    orderDialog.addEventListener('click', (event) => {
+        // మనం క్లిక్ చేసినది డైలాగ్ బాక్స్ అయితేనే క్లోజ్ చేయి (లోపలి కంటెంట్ క్లిక్ చేస్తే క్లోజ్ అవ్వదు)
+        if (event.target === orderDialog) {
+            orderDialog.close();
+        }
+    });
 }
 
 getFromLocalStorage();

@@ -49,6 +49,17 @@
                 <h3> Your Cart</h3>
                 <div id="cart-items"></div>
                 <div id="cart-total"></div>
+
+                <button id="buy-now-btn" class="buy-now-btn" onclick="placeOrder()"> Buy Now</button>
+                <!-- <div id="oder-message" class="oder-message d-none">Oder Confirmed!</div>
+                <h4>Your food is on the way!</h4> -->
+
+                <dialog id="order-confirmed-dialog" class="order-dialog">
+                    <img src="./assets/images/Oderconfirmed.jpg" alt="Order Confirmed">
+                    <h2>Order Confirmed!</h2>
+                    <p>Your food is on the way!</p>
+                    <button class="close-btn-last"  onclick="closeOrderDialog()"> X </button>
+                </dialog>
             </div>
         </div>
 
