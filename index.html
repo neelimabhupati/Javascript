@@ -14,7 +14,7 @@
 </head>
 
 <body onload="renderFoodlist()">
-    <header class="wrapper">
+    <header class="header-desktop wrapper">
         <div class="header_content">
             <div class="header_left">
                 <img src="./assets/icons/namaste.png" alt="Bestellen logo icon">
@@ -25,6 +25,8 @@
             </div>
         </div>
     </header>
+
+
 
     <main>
         <section class="wrapper">
@@ -58,15 +60,31 @@
                     <img src="./assets/images/Oderconfirmed.jpg" alt="Order Confirmed">
                     <h2>Order Confirmed!</h2>
                     <p>Your food is on the way!</p>
-                    <button class="close-btn-last"  onclick="closeOrderDialog()"> X </button>
+                    <button class="close-btn-last" onclick="closeOrderDialog()"> X </button>
                 </dialog>
             </div>
         </div>
 
     </main>
 
-    <footer class="wrapper">
+    <footer class="footer-desktop wrapper">
         <p> 2026 &copy; The Neelima's cloud kitchen All Rights Reserved. Designed by Neelima Bhupati</p>
+    </footer>
+
+
+    <footer class="footer-mobile">
+        <button class="footer-btn" onclick="">
+            <img src="./assets/icons/home.png" alt="home icon">
+        </button>
+        <button class="footer-btn" onclick="">
+            <img src="./assets/icons/person.png" alt="person icon">
+        </button>
+        <button class="footer-btn" onclick="">
+            <img src="./assets/icons/takeout_dining_2.png" alt="takeout icon">
+        </button>
+        <button class="footer-btn" onclick="renderCart()">
+            <img src="./assets/icons/shopping_cart.png" alt="cart icon">
+        </button>
     </footer>
 
     <script src="script.js"></script>

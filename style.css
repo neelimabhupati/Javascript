@@ -129,7 +129,6 @@ header {
     border-radius: 12px;
     padding: 15px;
     gap: 16px;
-
 }
 
 .stricky-container-id-class {
@@ -470,24 +469,28 @@ footer p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: auto;
 
-    position: relative; /* ఇది చాలా ముఖ్యం! */
+    position: relative;
+    /* ఇది చాలా ముఖ్యం! */
     padding-top: 40px;
 }
 
 .close-btn-last {
     position: absolute;
-    top: 20px;    /* పై నుండి దూరం */
-    right: 25px;  /* కుడి నుండి దూరం */
+    top: 20px;
+    /* పై నుండి దూరం */
+    right: 25px;
+    /* కుడి నుండి దూరం */
     background: none;
     border: none;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-    color:white;
+    color: white;
 }
 
 .close-btn:hover {
-    color: red; /* మౌస్ పెట్టినప్పుడు ఎరుపు రంగు */
+    color: red;
+    /* మౌస్ పెట్టినప్పుడు ఎరుపు రంగు */
 }
 
 .order-dialog img {
@@ -499,4 +502,160 @@ footer p {
 
 .order-dialog::backdrop {
     background-color: rgba(94, 18, 18, 0.5);
+}
+
+.footer-mobile {
+    display: none;
+}
+
+/* Media queries */
+
+@media (max-width: 767px) {
+    .footer-desktop {
+        display: none;
+    }
+
+    .footer-mobile {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .footer-btn {
+        background: none;
+        border: none;
+    }
+
+    .footer-btn:hover {
+        transform: scale(1.2);
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .header_content {
+        padding: 0 20px;
+        height: 90px;
+    }
+
+    .header_right {
+        display: none;
+    }
+
+    .header_left {
+        padding: 0px;
+    }
+
+    .header_left>p {
+        font-size: 20px;
+        line-height: 120%;
+        text-align: center;
+    }
+
+    .header_left>img {
+        height: 45px;
+        width: 35px;
+        gap: 4px;
+        border-radius: 15px;
+    }
+
+    .profile_logo img {
+        width: 150px;
+        height: 150px;
+        border: 2px solid white;
+
+    }
+
+    .hero_background {
+        height: 500px;
+        border-radius: 30px;
+    }
+
+    .restaurant_info h1 {
+        font-size: 25px;
+    }
+
+    .restaurant_info h2 {
+        font-size: 18px;
+    }
+
+    .wrapper {
+        /* మొబైల్ లో కేవలం 15px లేదా 20px ప్యాడింగ్ ఇవ్వండి */
+        padding: 10px;
+    }
+
+    .food_category_details {
+        left: 10px;
+    }
+
+    .food_category_details img {
+
+        height: 85px;
+        width: 85px;
+    }
+
+    .food_category_details h2 {
+        font-size: 23px;
+        margin-top: 10px;
+    }
+
+    .profile_logo {
+        position: absolute;
+        bottom: -80px;
+    }
+
+    .food_category {
+        position: absolute;
+
+
+        height: 70px;
+    }
+
+    .food_single_card {
+        flex-direction: column;
+        margin: 0 30px;
+    }
+
+    .food_single_card img {
+        height: 110px;
+    }
+
+    .food_title,
+    .food_price {
+        font-size: 19px;
+        width: 100%;
+    }
+
+    .card_description {
+        font-size: 17px;
+    }
+
+    .add_to_cart_btn {
+        width: 100px;
+        height: 25px;
+    }
+
+    .card_content_box {
+        gap: 5px;
+        line-height: 20px;
+    }
+
+    .stricky-container-id-class {
+        display: none;
+    }
+}
+
+/* Table */
+@media (min-width: 768px) {
+    .footer-mobile {
+        display: none;
+
+    }
+}
+
+/* --- Desktop (1024px+) --- */
+@media (min-width: 1024px) {
+    .stricky-container-id-class {
+        width: 1200px;
+        margin: 0 auto;
+    }
 }
