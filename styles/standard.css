@@ -12,3 +12,15 @@
 a{
     text-decoration: none;
 }
+
+:root {
+    --main-font: 'Palanquin', 'Palanquin Dark';
+    --font-weight-normal:400;
+    --font-weight-medium: 500;
+    --font-weight-extramedium:600;
+    --font-weight-bold: 700;
+    --font-style-bold:Bold;
+    --font-style-semibold:Semibold;
+    --font-style-medium: Medium;
+
+}

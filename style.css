@@ -17,21 +17,6 @@
     display: none !important;
 }
 
-
-
-/* .d-none {
-    display: none;
-} */
-
-/* :root {
-    --color-white: #ffffff;
-    --color-dark: #03c95c;
-    --color-stars: #facaac;
-    --color-medium #e7c3ad: #e7c3ad;
-    --color-light: rgb(111, 224, 219);
-    --color-second: #081a00f3;
-} */
-
 header,
 footer {
     /* color: var(--color-white); */
@@ -105,10 +90,21 @@ header {
 }
 
 .food_category_details h2 {
-    color: #ffffff;
-    font-size: 32px;
+    font-family: Palanquin;
     font-weight: 700;
+    font-style: Bold;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #ffffff;
+    transition: all 0.6s ease;
     margin-top: 20px;
+}
+
+.food_category_details h2:hover {
+    transform: scale(1.2);
+    opacity: 1;
+    cursor: pointer;
 }
 
 .food_category_details img {
@@ -138,10 +134,11 @@ header {
     border-radius: 12px;
     padding: 15px;
     gap: 16px;
+    padding-bottom: 50px;
 }
 
 .stricky-container-id-class {
-    
+
     background-color: #081a00f3;
     color: #d24646;
     display: flex;
@@ -199,6 +196,13 @@ header {
 
 }
 
+.header_right>img:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+    cursor: pointer;
+    color: #433442;
+}
+
 .header_left>p {
     color: aliceblue;
     font-family: Palanquin Dark;
@@ -207,7 +211,15 @@ header {
     font-size: 32px;
     line-height: 120%;
     text-align: center;
+    transition: all 0.5s ease;
 }
+
+/* .header_left>p:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+    cursor: pointer;
+    
+} */
 
 .hero_section {
     position: relative;
@@ -234,6 +246,7 @@ header {
 }
 
 .restaurant_info h1 {
+    font-family: Palanquin Dark;
     font-weight: 700;
     font-style: Bold;
     font-size: 48px;
@@ -244,11 +257,17 @@ header {
 }
 
 .restaurant_info h2 {
-    color: #666666;
+
+    font-family: Palanquin;
+    font-weight: 700;
+    font-style: Bold;
     font-size: 25px;
-    font-weight: normal;
-    margin-top: 4px;
-    margin-bottom: 0;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    color: rgba(54, 53, 52, 1);
+
 }
 
 .card_content_box {
@@ -257,25 +276,49 @@ header {
 }
 
 .food_title {
+    font-family: Palanquin;
+    font-weight: 600;
+    font-style: SemiBold;
+    line-height: 100%;
+    letter-spacing: 0%;
     font-size: 30px;
 }
 
 .card_description {
+    font-family: Palanquin;
+    font-weight: 500;
+    font-style: Medium;
+    line-height: 120%;
+    letter-spacing: 0%;
     font-size: 25px;
 }
 
 .card_header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .add_to_cart_btn {
     background-color: rgb(253, 200, 179);
+
+    font-family: Palanquin;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: 0%;
+
     width: 120px;
     height: 30px;
     border: none;
     border-radius: 10%;
     font-size: 20px;
+}
+
+.add_to_cart_btn:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: #de1f1f;
 }
 
 .cart-summary {
@@ -325,6 +368,13 @@ header {
 }
 
 .food_price {
+    font-family: Palanquin;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
     display: flex;
     justify-content: end;
     font-size: 28px;
@@ -550,13 +600,16 @@ footer p {
         top: 500px;
         display: flex;
         /* position: fixed; */
-            
+
         right: 0;
 
-         bottom: 0;       /* స్క్రీన్ కింద అతుక్కుని ఉంటుంది */
-        
-        width: 100%;     /* మొత్తం వెడల్పు */
-        z-index: 9999;   /* బ్యాక్‌గ్రౌండ్ పైన రావడానికి */
+        bottom: 0;
+        /* స్క్రీన్ కింద అతుక్కుని ఉంటుంది */
+
+        width: 100%;
+        /* మొత్తం వెడల్పు */
+        z-index: 9999;
+        /* బ్యాక్‌గ్రౌండ్ పైన రావడానికి */
 
 
         width: 320px;
@@ -612,7 +665,7 @@ footer p {
     /* JavaScript ద్వారా d-none క్లాస్ జోడించినప్పుడు కార్ట్ దాగుతుంది */
     .stricky-container-id-class.d-none {
         display: none !important;
-        
+
     }
 
     .footer-desktop {
@@ -709,9 +762,8 @@ footer p {
 
     .food_category {
         position: absolute;
-
-
         height: 70px;
+        padding-bottom: 100px;
     }
 
     .food_single_card {
@@ -760,7 +812,7 @@ footer p {
         position: relative;
     }
 
-    #stricky-container-id{
+    #stricky-container-id {
         position: sticky;
     }
 }
@@ -793,8 +845,19 @@ footer p {
     }
 
     .card_content_box {
+        display: flex;
+        flex-direction: column;
+        /* Elements okatidaniki kinda okati raavali */
+        /* gap: 15px; */
+        /* Title, Description, Button madhya space kosam */
         width: 100%;
-        gap: 30px
+        gap: 30px;
+        width: 100%;
+    }
+
+    .card_content_box>* {
+        flex-shrink: 0;
+        /* Prevents children from shrinking awkwardly */
     }
 
     .food_single_card {
@@ -837,7 +900,7 @@ footer p {
 
     .stricky-container-id-class {
         width: 350px;
-        
+
     }
 }
 

@@ -16,19 +16,12 @@ function renderFoodlist() {
 }
 
 function renderCart() {
-    // 1. మొదట పాపప్ ని ఓపెన్ చేయండి (d-none క్లాస్ రిమూవ్ చేయండి)
-    console.log("RenderCart ఫంక్షన్ కాల్ అయ్యింది!"); // ఇది ఫంక్షన్ స్టార్ట్ అయ్యిందని చెప్తుంది
-
-
     let cartPopup = document.getElementById('stricky-container-id');
     if (cartPopup) {
-        cartPopup.classList.remove('d-none'); // ఇది పాపప్ ని చూపిస్తుంది
-        console.log("RenderCart ఫంక్షన్ కాల్ అయ్యింది!"); // ఇది ఫంక్షన్ స్టార్ట్ అయ్యిందని చెప్తుంది
-
+        cartPopup.classList.remove('d-none');
     }
 
     let cartItemContainer = document.getElementById('cart-items');
-
     let totalElement = document.getElementById('cart-total');
 
     if (!cartItemContainer || !totalElement) return;
@@ -88,10 +81,6 @@ function renderCart() {
             
         </div>
         `;
-
-
-    //  <button class="buy_now_btn" onclick="buyNow(${index})">Buy Now</button>
-
 }
 
 function addToCart(index, foodlistindex) {
@@ -110,13 +99,12 @@ function addToCart(index, foodlistindex) {
         });
     }
 
-    // 2. ఒకవేళ మొబైల్ ఫుటర్ లో కౌంట్ బ్యాడ్జ్ ఉంటే దాన్ని కూడా అప్‌డేట్ చేస్తుంది
     if (typeof updateCartBadge === "function") {
         updateCartBadge();
     }
+
     saveToLocalStorage();
     renderCart();
-
 }
 
 // Mobile footer paina badge (count) update chese function
@@ -137,7 +125,7 @@ function updateCartBadge() {
 
 // User Footer Mobile Cart Icon ni press chesinappudu matrame idi run avvali
 function openCartPopup() {
-    renderCart(); // UI render chestundi
+    renderCart();
     let cartPopup = document.getElementById('stricky-container-id');
     if (cartPopup) {
         cartPopup.classList.remove('d-none'); // Popup open chestundi
@@ -190,7 +178,6 @@ function closeOrderDialog() {
     orderDialog.close();
 
     orderDialog.addEventListener('click', (event) => {
-        // మనం క్లిక్ చేసినది డైలాగ్ బాక్స్ అయితేనే క్లోజ్ చేయి (లోపలి కంటెంట్ క్లిక్ చేస్తే క్లోజ్ అవ్వదు)
         if (event.target === orderDialog) {
             orderDialog.close();
         }
@@ -199,10 +186,13 @@ function closeOrderDialog() {
 
 function closeCart() {
     let cartPopup = document.getElementById('stricky-container-id'); // మీ కార్ట్ కంటైనర్ ID
-    cartPopup.classList.add('d-none'); // ఇది క్లోజ్ చేస్తుంది
+    cartPopup.classList.add('d-none');
 }
 
-getFromLocalStorage();
-renderFoodlist();
-updateCartBadge();
-renderCart();
+function inIt() {
+    getFromLocalStorage();
+    renderFoodlist();
+    updateCartBadge();
+    renderCart();
+}
+
