@@ -10,3 +10,16 @@ body{
    
     background-color:blue !important;
 }
+
+
+.question-footer{
+    border-top: 1px solid  rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: space-between;
+    line-height: center;
+    padding-top: 12px;
+}
+
+.quiz-card{
+    width: 30rem;
+}
