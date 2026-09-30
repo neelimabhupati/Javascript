@@ -66,6 +66,7 @@ header {
 .main-flex-wrapper {
     display: flex;
     justify-content: space-between;
+    padding-top: 90px;
 }
 
 .food_category {
@@ -122,19 +123,22 @@ header {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding-top: 112px;
-    gap: 16px;
-    height: 970px;
+    padding-top: 162px;
+    gap: 56px;
+    height: 1070px;
+    padding-bottom: 122px;
+    width: 100%;
+    padding-left: 40px;
 }
 
 .food_single_card {
     background-color: rgb(253 200 179 / 18%);
     display: flex;
-    margin: 0 120px;
+    margin: 0;
     border-radius: 12px;
     padding: 15px;
     gap: 16px;
-    padding-bottom: 50px;
+
 }
 
 .stricky-container-id-class {
@@ -151,6 +155,8 @@ header {
     position: sticky;
     top: 120px;
     border-radius: 30px 0 0 30px;
+
+
 }
 
 .stricky-container-id-class h3 {
@@ -270,10 +276,16 @@ header {
 
 }
 
+
 .card_content_box {
     width: 100%;
     padding: 10px 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 40px;
 }
+
 
 .food_title {
     font-family: Palanquin;
@@ -297,6 +309,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
 }
 
 .add_to_cart_btn {
@@ -365,6 +380,8 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex-direction: row;
+    width: 100%;
 }
 
 .food_price {
@@ -595,6 +612,10 @@ footer p {
 
 @media (max-width: 767px) {
 
+    .complete_food_container {
+        gap: 16px;
+    }
+
     #stricky-container-id {
         position: absolute;
         top: 500px;
@@ -610,8 +631,6 @@ footer p {
         /* మొత్తం వెడల్పు */
         z-index: 9999;
         /* బ్యాక్‌గ్రౌండ్ పైన రావడానికి */
-
-
         width: 320px;
         z-index: 999;
         background-color: rgb(12, 11, 11);
@@ -663,9 +682,8 @@ footer p {
     }
 
     /* JavaScript ద్వారా d-none క్లాస్ జోడించినప్పుడు కార్ట్ దాగుతుంది */
-    .stricky-container-id-class.d-none {
+    .stricky-container-id-class {
         display: none !important;
-
     }
 
     .footer-desktop {
@@ -767,8 +785,10 @@ footer p {
     }
 
     .food_single_card {
+
         flex-direction: column;
         margin: 0 30px;
+        /* padding-bottom: 70px; */
     }
 
     .food_single_card img {
@@ -783,16 +803,23 @@ footer p {
 
     .card_description {
         font-size: 17px;
+        width: 100%;
+        min-width: 0;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
     }
 
     .add_to_cart_btn {
         width: 100px;
         height: 25px;
+        font-size: 15px;
+        font-weight: bold;
     }
 
     .card_content_box {
         gap: 5px;
         line-height: 20px;
+        max-width: 550px;
     }
 
     .stricky-container-id-class {
@@ -810,7 +837,9 @@ footer p {
 
     .main-flex-wrapper {
         position: relative;
+        display: block;
     }
+    
 
     #stricky-container-id {
         position: sticky;
@@ -820,14 +849,23 @@ footer p {
 /* Table */
 /* Tablet & Desktop Layout */
 /* Tablet Layout */
-@media (min-width: 768px) and (max-width: 1024px) {
+
+
+/* @media (min-width: 768px) and (max-width: 1160px) {
 
     .food_single_card {
-        margin: 0;
+        width: 100%;
+        height: auto;
+       
+        display: flex;
+        flex-direction: row;
+       
+        align-items: center;
     }
 
     .food_title {
         font-size: 20px;
+        max-width: 150px;
     }
 
     .food_price {
@@ -836,6 +874,7 @@ footer p {
 
     .card_description {
         padding-top: 20px;
+        font-size: 20px;
 
     }
 
@@ -847,9 +886,8 @@ footer p {
     .card_content_box {
         display: flex;
         flex-direction: column;
-        /* Elements okatidaniki kinda okati raavali */
-        /* gap: 15px; */
-        /* Title, Description, Button madhya space kosam */
+       
+       
         width: 100%;
         gap: 30px;
         width: 100%;
@@ -857,7 +895,7 @@ footer p {
 
     .card_content_box>* {
         flex-shrink: 0;
-        /* Prevents children from shrinking awkwardly */
+       
     }
 
     .food_single_card {
@@ -873,24 +911,25 @@ footer p {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        min-width: 0;
         gap: 15px;
     }
 
-    /* Left side Menu list */
+   
     .main_left_content {
         width: 62%;
     }
 
-    /* Right side Sticky Cart */
+
     .stricky-container-id-class {
         width: 35%;
         position: sticky;
         top: 20px;
         display: block !important;
-        /* Tablet లో కార్ట్ కనిపించాలి */
+      
     }
 
-    /* Hero Background Image Full Fit */
+   
     .hero_background {
         width: 100%;
         background-size: cover;
@@ -902,10 +941,16 @@ footer p {
         width: 350px;
 
     }
-}
+
+    .complete_food_container {
+
+        padding-top: 110px;
+        margin-left: 30px;
+    }
+} */
 
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
     .basket {
         padding: 40px 20px;
         width: 350px;
@@ -916,4 +961,4 @@ footer p {
         margin: 0px 20px;
         width: 100%;
     }
-}
+} */

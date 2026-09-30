@@ -28,8 +28,8 @@ function displayFoodList(index, foodlistindex) {
         <!-- Content Details Container -->
         <section class="card_content_box">
             <div class="card_header">
-                <span class="food_title"><strong>${foodlist.foodItem_name}</strong></span>
-                <span class="food_price"><strong>${foodlist.foodItem_price.toFixed(2)} €</strong></span>
+                <div class="food_title"><strong>${foodlist.foodItem_name}</strong></div>
+                <div class="food_price"><strong>${foodlist.foodItem_price.toFixed(2)} €</strong></div>
             </div>
             <div class="card_description">
                 <p>${foodlist.foodItem_description}</p>

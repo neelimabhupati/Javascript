@@ -17,6 +17,7 @@ function renderFoodlist() {
 
 function renderCart() {
     let cartPopup = document.getElementById('stricky-container-id');
+    
     if (cartPopup) {
         cartPopup.classList.remove('d-none');
     }
@@ -126,10 +127,11 @@ function updateCartBadge() {
 // User Footer Mobile Cart Icon ni press chesinappudu matrame idi run avvali
 function openCartPopup() {
     renderCart();
-    let cartPopup = document.getElementById('stricky-container-id');
-    if (cartPopup) {
-        cartPopup.classList.remove('d-none'); // Popup open chestundi
+     let cartPopup = document.getElementById('stricky-container-id');
+        if (cartPopup) {
+        cartPopup.classList.remove('d-none');
     }
+
 }
 
 
