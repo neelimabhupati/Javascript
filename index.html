@@ -30,40 +30,54 @@
     <div class="container">
 
         <div class="card quiz-card">
-            <img src="./img/alphabets.jpg" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title" id= "questiontext">Frage</h5>
+            <img src="./img/alphabets.jpg" id= "header-image"class="card-img-top">
 
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')" >
-                    <div class="card-body" id= "answer_1">
+            <div class="card-body" id="endScreen" style="display:none;">
+                <div class="text-center final-headline" >Quiz beendet!</div>
+
+                <div class="text-center">
+                    Du hast <b id="amount-of-right-questions"></b>
+                      Fragen von 
+                     <b id= "amount-of-questions"></b> 
+                      richtig beantwortet.
+                </div>
+            </div>
+
+
+            <div class="card-body" id="questionBody">
+                <h5 class="card-title" id="questiontext">Frage</h5>
+
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
+                    <div class="card-body" id="answer_1">
                         Antwort
                     </div>
                 </div>
 
                 <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
-                    <div class="card-body" id= "answer_2">
+                    <div class="card-body" id="answer_2">
                         Antwort
                     </div>
                 </div>
 
                 <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
-                    <div class="card-body" id= "answer_3">
+                    <div class="card-body" id="answer_3">
                         Antwort
                     </div>
                 </div>
 
                 <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
-                    <div class="card-body" id= "answer_4">
+                    <div class="card-body" id="answer_4">
                         Antwort
                     </div>
                 </div>
 
                 <div class="question-footer" id="all-questions">
                     <span>
-                        <b>1</b> von <b>5</b> Frage
+                        <b id="question-number"> 1</b> von <b>7</b> Frage
                     </span>
 
-                    <button type="button" class="btn btn-primary">Nächste Frage</button>
+                    <button type="button" class="btn btn-primary" id="next-button" disabled
+                        onclick="nextQuestion()">Nächste Frage</button>
 
                 </div>
 
