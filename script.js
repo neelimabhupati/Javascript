@@ -49,9 +49,10 @@ let questions = [
   }
 ];
 
-let rightQuestion=0;
+let rightQuestion = 0;
 let currentQuestion = 0;
-
+let AUDIO_SUCCESS = new Audio('./audio/success.mp3');
+let AUDIO_FAIL = new Audio('./audio/fail.mp3');
 
 function init() {
   // document.getElementById('all-questions').innerHTML = questions.length;
@@ -63,11 +64,19 @@ function showQuestion() {
   if (currentQuestion >= questions.length) {
     //Todo show end screen
     document.getElementById('endScreen').style = '';
-    document.getElementById('questionBody').style ='display:none';
-    document.getElementById('amount-of-questions').innerHTML= questions.length;
-    document.getElementById('amount-of-right-questions').innerHTML= rightQuestion;
-    document.getElementById('header-image').src= './img/Tophy.avif';
+    document.getElementById('questionBody').style = 'display:none';
+    document.getElementById('amount-of-questions').innerHTML = questions.length;
+    document.getElementById('amount-of-right-questions').innerHTML = rightQuestion;
+    document.getElementById('header-image').src = './img/Tophy.avif';
   } else {
+    let percent = (currentQuestion + 1) / (questions.length);
+    percent = Math.round(percent * 100);
+
+
+    document.getElementById('progress-bar').innerHTML = `${percent}%`;
+    document.getElementById('progress-bar').style.width = `${percent}%`;
+
+
     let question = questions[currentQuestion];
 
     document.getElementById('question-number').innerHTML = currentQuestion + 1;
@@ -81,7 +90,7 @@ function showQuestion() {
 }
 
 function answer(selection) {
-  
+
   let question = questions[currentQuestion];
   // console.log("selected answer: ", selection);
 
@@ -93,12 +102,13 @@ function answer(selection) {
   if (selectedQuestionNumber == question['right_answer']) {
     console.log('Richtige Antwort');
     document.getElementById(selection).parentNode.classList.add('bg-success');
+    AUDIO_SUCCESS.play();
     rightQuestion++;
   } else {
     console.log('Falsche Antwort');
     document.getElementById(selection).parentNode.classList.add('bg-danger');
     document.getElementById(idOfRightAnswe).parentNode.classList.add('bg-success');
-
+    AUDIO_FAIL.play();
   }
 
   document.getElementById('next-button').disabled = false;
@@ -123,3 +133,14 @@ function resetAnswerButtons() {
   document.getElementById('answer_4').parentNode.classList.remove('bg-success');
   document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
 }
+
+function restartGame() {
+  document.getElementById('header-image').src = './img/alphabets.jpg';
+  document.getElementById('questionBody').style = '';
+  document.getElementById('endScreen').style = 'display:none';
+
+  rightQuestion = 0;
+  currentQuestion = 0;
+
+  init();
+  }
