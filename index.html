@@ -13,7 +13,7 @@
     <script src="./script.js"></script>
 </head>
 
-<body>
+<body onload="init()">
 
     <header class="flex-between-center">
         <div class="logo-container flex-center">
@@ -25,6 +25,13 @@
             <input type="text" id="searchInput" data-id="search-input" placeholder="Search Pokemon...">
         </div>
     </header>
+
+    <main >
+        <div id="character-container" ></div>
+    </main>
+
+
+
 
     <footer class="flex-center">
         <div class="footer-content flex-column-center">
