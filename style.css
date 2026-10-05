@@ -1,0 +1,118 @@
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Layout Utility Classes */
+.flex-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 100px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HEADER STYLES */
+header {
+    height: 80px;
+    padding: 0 40px;
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-container {
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.logo-container h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+
+/* SEARCH BAR STYLES */
+.search-container input {
+    width: 420px;
+    height: 70px;
+    padding: 0 24px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    outline: none;
+    font-size: 24px;
+    color: #000000;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-container input:focus {
+    border-color: #3182CE;
+    box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.3);
+}
+
+/* FOOTER STYLES */
+footer {
+    margin-top: auto; /* Keeps footer pinned to the bottom */
+    padding: 24px 0;
+    background-color: var(--bg-header);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row; /* Horizontal alignment for images and text */
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footer-leftlogo {
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-content p {
+    font-size: 30px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

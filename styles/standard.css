@@ -1,0 +1,17 @@
+/* Color & Theme Variables */
+:root {
+    --bg-main: #2795ee;
+    --bg-header: #320cf9;;
+    --border-color: #1A3143;
+    --text-primary: #FFFFFF;
+    --text-secondary: #8A9BA8;
+    --accent-blue: #1E384D;
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
