@@ -91,10 +91,17 @@ footer {
     gap: 16px;
 }
 
-.footer-leftlogo {
-    height: 150px;
+.footer-logo {
+    height: 60px;
     width: auto;
     object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: translateY(-35px);
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); */
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.5));
 }
 
 .footer-content p {
@@ -131,10 +138,10 @@ footer {
 }
 
 /* Hover-Effekt für die Karten */
-.character-card:hover {
+/* .character-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
+} */
 
 /* Header innerhalb der Karte (ID & Name) */
 .card-header {
@@ -146,7 +153,7 @@ footer {
     color: #FFFFFF;
     font-size: 16px;
     font-weight: 600;
-    padding: 0px 30px ;
+    padding: 0px 30px;
 }
 
 .card-header h3 {
@@ -170,8 +177,12 @@ footer {
     width: 150px;
     height: 150px;
     object-fit: contain;
-   filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.6));
-    
+    filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.6));
+
+}
+
+.card-img-wrapper img:hover {
+    transform: translateY(-15px);
 }
 
 /* Type icons container */
@@ -188,8 +199,10 @@ footer {
     height: 35px;
     border-radius: 50%;
     display: inline-block;
-    background-size: cover;       /* Image container motham full cover avvadaaniki */
-    background-position: center;  /* Image center lo undadaaniki */
+    background-size: cover;
+    /* Image container motham full cover avvadaaniki */
+    background-position: center;
+    /* Image center lo undadaaniki */
     background-repeat: no-repeat;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
