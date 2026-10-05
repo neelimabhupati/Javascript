@@ -246,18 +246,3 @@ footer {
         gap: 10px;
     }
 }
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        height: auto;
-        padding: 16px;
-        gap: 16px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
