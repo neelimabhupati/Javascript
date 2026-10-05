@@ -26,12 +26,33 @@
         </div>
     </header>
 
-    <main >
-        <div id="character-container" ></div>
+    <main data-id="content">
+        <div id="character-container"></div>
+
+        <dialog data-id="dialog">
+            <div data-id="overlay-pokemon-name">
+                <button data-id="close-dialog-button" aria-label="Close details">
+                    Close
+                </button>
+
+                <h2 data-id="dialog-name"></h2>
+                <img data-id="dialog-image" alt="">
+
+                <p data-id="dialog-types"></p>
+                <p data-id="dialog-hp"></p>
+                <p data-id="dialog-attack"></p>
+                <p data-id="dialog-defense"></p>
+
+                <button data-id="prev-button" aria-label="Previous Pokémon">
+                    Previous
+                </button>
+                <button data-id="next-button" aria-label="Next Pokémon">
+                    Next
+                </button>
+            </div>
+        </dialog>
+        
     </main>
-
-
-
 
     <footer class="flex-center">
         <div class="footer-content flex-column-center">

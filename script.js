@@ -37,19 +37,20 @@ function renderCharacters(characters) {
         let imageUrl = char.sprites.other['official-artwork'].front_default;
 
         container.innerHTML += `
-            <div class="character-card">
+            <button class="character-card" data-id="${id}"
+                aria-label="Open ${name} details">
                 <div class="card-header">
                     <span> ID: ${id}</span>
                     <h3 style="text-transform: capitalize;">${name}</h3>
                 </div>
                 <div class="card-img-wrapper bg-${primaryType}" >
-                    <img src="${imageUrl}" alt="${name}">
+                    <img data-id="card-image" src="${imageUrl}" alt="${name}">
                 </div>
 
                 <div class="card-types">
                 ${typesHtml}
                 </div>
-            </div>
+            </button>
         `;
     });
 }
