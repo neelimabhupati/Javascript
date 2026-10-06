@@ -33,7 +33,7 @@ function renderCharacters(characters) {
 
     container.innerHTML = ''; // Clear container
 
-    characters.forEach((char,index) => {
+    characters.forEach((char, index) => {
         let typesHtml = getTypesHtml(char.types);
         let primaryType = char.types[0].type.name;
         let name = char.name;
@@ -67,6 +67,10 @@ function openPokemonDialog(index) {
     document.getElementById('dialogName').textContent = pokemon.name;
     document.getElementById('dialogImage').src = pokemon.sprites.other['official-artwork'].front_default;
 
+    renderPokemonDetails(pokemon);
+
+    // 4. ప్రతీసారి మోడల్ ఓపెన్ చేసినప్పుడు మొదట 'main' ట్యాబ్ యాక్టివ్‌గా ఉండటానికి
+    switchTab('tab-main', 'btn-main');
 
     if (dialog) {
         dialog.showModal();
@@ -106,7 +110,7 @@ function clickBackgroundClose() {
     const dialogElement = document.getElementById('pokemonDialog');
 
     if (dialogElement) {
-        dialogElement.addEventListener('click', function(event) {
+        dialogElement.addEventListener('click', function (event) {
             // Click chesindi exact ga dialog background paina aithe close chestham
             if (event.target === dialogElement) {
                 dialogElement.close();
@@ -115,11 +119,58 @@ function clickBackgroundClose() {
     }
 }
 
+function switchTab(activeTabId, activeBtnId) {
+    const allContents = document.getElementsByClassName('tab-content');
+    for (let i = 0; i < allContents.length; i++) {
+        allContents[i].style.display = 'none';
+    }
+
+    // 2. Anni buttons nunchi 'active' highlight class teeseyadam
+    const allButtons = document.getElementsByClassName('tab-btn');
+    for (let i = 0; i < allButtons.length; i++) {
+        allButtons[i].classList.remove('active');
+    }
+
+    // 3. Click chesina tab ni matrame show cheyadam
+    document.getElementById(activeTabId).style.display = 'block';
+
+    // 4. Click chesina button ki 'active' class add cheyadam
+    document.getElementById(activeBtnId).classList.add('active');
+}
+
+function renderPokemonDetails(pokemon) {
+    // 1. Main Tab Inner Text Data fill cheyadam
+    document.getElementById('pokeHeight').textContent = (pokemon.height / 10) + " m";
+    document.getElementById('pokeWeight').textContent = (pokemon.weight / 10) + " kg";
+    document.getElementById('pokeExp').textContent = pokemon.base_experience;
+
+    // Abilities list ni comma separated string ga marchadam
+    let abilityNames = pokemon.abilities.map(a => a.ability.name).join(', ');
+    document.getElementById('pokeAbilities').textContent = abilityNames;
+
+
+    // 2. Stats Tab Dynamic Content Build cheyadam
+    let statsHtml = '';
+    for (let i = 0; i < pokemon.stats.length; i++) {
+        let stat = pokemon.stats[i];
+        statsHtml += `
+            <div class="stat-row">
+                <span class="stat-title">${stat.stat.name}</span>
+                <div class="stat-bar-bg">
+                    <div class="stat-bar-fill" style="width: ${Math.min(stat.base_stat, 100)}%;"></div>
+                </div>
+            </div>
+        `;
+    }
+    document.getElementById('statsContainer').innerHTML = statsHtml;
+
+}
 
 // 3. Initialise the task
 async function init() {
     pokemonList = await fetchCharacters();
     renderCharacters(pokemonList);
+
     clickBackgroundClose();
 }
 

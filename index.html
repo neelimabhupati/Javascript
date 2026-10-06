@@ -34,11 +34,6 @@
                 <h2 id="dialogName"></h2>
                 <img id="dialogImage" alt="Pokemon Image">
 
-                <button id="prevBtn" onclick="showPrevPokemon()">Previous</button>
-                <button id="nextBtn" onclick="showNextPokemon()">Next</button>
-                <button id="closeBtn" onclick="closePokemonDialog()">Close</button>
-
-
                 <!-- 1. Tabs Header Navigation -->
                 <div class="tab-buttons">
                     <button id="btn-main" class="tab-btn active"
@@ -65,10 +60,15 @@
 
                     <!-- Evolution Chain Tab Content -->
                     <div id="tab-evoChain" class="tab-content">
-                        <div id="evoContainer">Evolution details here...</div>
+                        <div id="evoContainer" class="evo-chain-container">
+                            Evolution details here...
+                        </div>
                     </div>
                 </div>
 
+                <button id="prevBtn" onclick="showPrevPokemon()">Previous</button>
+                <button id="nextBtn" onclick="showNextPokemon()">Next</button>
+                <button id="closeBtn" onclick="closePokemonDialog()">Close</button>
             </div>
         </dialog>
 

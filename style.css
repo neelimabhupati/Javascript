@@ -332,6 +332,62 @@ footer {
 
 
 /* ***********************multiple Tab in popup*************************/
+/* 1. Tabs Button Container Layout */
+.tab-buttons {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #2a2a3a;
+    margin-bottom: 15px;
+}
+
+/* 2. Base Tab Button Style */
+.tab-btn {
+    background: none;
+    border: none;
+    color: #888888;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    border-bottom: 2px solid transparent; /* Highlight lekunnappudu invisible border */
+    transition: all 0.3s ease;
+}
+
+/* 3. Active Tab Highlight Style */
+.tab-btn.active {
+    color: #ffffff;
+    border-bottom: 2px solid #ff5350; /* Red underline indicator */
+}
+
+/* 4. Stats Row & Progress Bar Styles */
+.stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.stat-title {
+    text-transform: capitalize;
+    color: #cccccc;
+    width: 35%;
+}
+
+.stat-bar-bg {
+    width: 60%;
+    background-color: #2a2a3a;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    background-color: #ff5350;
+    border-radius: 4px;
+}
+
+
 
 
 /* RESPONSIVE DESIGN */
