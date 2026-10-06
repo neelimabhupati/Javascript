@@ -1,3 +1,7 @@
+let pokemonList = []; // Global variable
+const dialog = document.getElementById('pokemonDialog');
+let currentIndex = 0;
+
 // 1. Fetching only 5 Pokemon details
 async function fetchCharacters() {
     let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=11');
@@ -29,7 +33,7 @@ function renderCharacters(characters) {
 
     container.innerHTML = ''; // Clear container
 
-    characters.forEach((char) => {
+    characters.forEach((char,index) => {
         let typesHtml = getTypesHtml(char.types);
         let primaryType = char.types[0].type.name;
         let name = char.name;
@@ -37,8 +41,8 @@ function renderCharacters(characters) {
         let imageUrl = char.sprites.other['official-artwork'].front_default;
 
         container.innerHTML += `
-            <button class="character-card" data-id="${id}"
-                aria-label="Open ${name} details">
+            <div class="character-card" data-id="${id}" 
+                aria-label="Open ${name} details" onclick="openPokemonDialog(${index})">
                 <div class="card-header">
                     <span> ID: ${id}</span>
                     <h3 style="text-transform: capitalize;">${name}</h3>
@@ -50,16 +54,72 @@ function renderCharacters(characters) {
                 <div class="card-types">
                 ${typesHtml}
                 </div>
-            </button>
+            </div>
         `;
     });
 }
 
-// 3. Initialise the task
-async function init() {
-    let characters = await fetchCharacters();
-    renderCharacters(characters);
+function openPokemonDialog(index) {
+    currentIndex = index;
+    let pokemon = pokemonList[index];
+
+    // getElementById తో Name & Image మార్చడం
+    document.getElementById('dialogName').textContent = pokemon.name;
+    document.getElementById('dialogImage').src = pokemon.sprites.other['official-artwork'].front_default;
+
+
+    if (dialog) {
+        dialog.showModal();
+    } else {
+        console.error("not found pokomon id in html!");
+    }
 }
 
-// App execution
-init();
+function closePokemonDialog() {
+    const dialog = document.getElementById('pokemonDialog');
+    if (dialog) {
+        dialog.close();
+    }
+}
+
+// 👈 3. Next Button కోసం ఫంక్షన్
+function showNextPokemon() {
+    if (currentIndex < pokemonList.length - 1) {
+        openPokemonDialog(currentIndex + 1);
+    } else {
+        openPokemonDialog(0); // చివరి పోకీమాన్ దాటితే మళ్లీ మొదటి దానికి వస్తుంది
+    }
+}
+
+// 👈 4. Previous Button కోసం ఫంక్షన్
+function showPrevPokemon() {
+    if (currentIndex > 0) {
+        openPokemonDialog(currentIndex - 1);
+    } else {
+        openPokemonDialog(pokemonList.length - 1); // మొదటి దాంట్లో ఉన్నప్పుడు నొక్కితే చివరి దానికి వెళ్తుంది
+    }
+}
+
+
+
+function clickBackgroundClose() {
+    const dialogElement = document.getElementById('pokemonDialog');
+
+    if (dialogElement) {
+        dialogElement.addEventListener('click', function(event) {
+            // Click chesindi exact ga dialog background paina aithe close chestham
+            if (event.target === dialogElement) {
+                dialogElement.close();
+            }
+        });
+    }
+}
+
+
+// 3. Initialise the task
+async function init() {
+    pokemonList = await fetchCharacters();
+    renderCharacters(pokemonList);
+    clickBackgroundClose();
+}
+

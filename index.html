@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+
 </head>
 
 <body onload="init()">
@@ -29,26 +29,46 @@
     <main data-id="content">
         <div id="character-container"></div>
 
-        <dialog data-id="dialog">
-            <div data-id="overlay-pokemon-name">
-                <button data-id="close-dialog-button" aria-label="Close details">
-                    Close
-                </button>
+        <dialog id="pokemonDialog">
+            <div>
+                <h2 id="dialogName"></h2>
+                <img id="dialogImage" alt="Pokemon Image">
 
-                <h2 data-id="dialog-name"></h2>
-                <img data-id="dialog-image" alt="">
+                <button id="prevBtn" onclick="showPrevPokemon()">Previous</button>
+                <button id="nextBtn" onclick="showNextPokemon()">Next</button>
+                <button id="closeBtn" onclick="closePokemonDialog()">Close</button>
 
-                <p data-id="dialog-types"></p>
-                <p data-id="dialog-hp"></p>
-                <p data-id="dialog-attack"></p>
-                <p data-id="dialog-defense"></p>
 
-                <button data-id="prev-button" aria-label="Previous Pokémon">
-                    Previous
-                </button>
-                <button data-id="next-button" aria-label="Next Pokémon">
-                    Next
-                </button>
+                <!-- 1. Tabs Header Navigation -->
+                <div class="tab-buttons">
+                    <button id="btn-main" class="tab-btn active"
+                        onclick="switchTab('tab-main', 'btn-main')">main</button>
+                    <button id="btn-stats" class="tab-btn" onclick="switchTab('tab-stats', 'btn-stats')">stats</button>
+                    <button id="btn-evo" class="tab-btn" onclick="switchTab('tab-evoChain', 'btn-evo')">evo
+                        chain</button>
+                </div>
+
+                <!-- 2. Tabs Content Sections -->
+                <div class="tab-content-container">
+                    <!-- Main Tab Content -->
+                    <div id="tab-main" class="tab-content">
+                        <p>Height: <span id="pokeHeight"></span></p>
+                        <p>Weight: <span id="pokeWeight"></span></p>
+                        <p>Base Experience: <span id="pokeExp"></span></p>
+                        <p>Abilities: <span id="pokeAbilities"></span></p>
+                    </div>
+
+                    <!-- Stats Tab Content -->
+                    <div id="tab-stats" class="tab-content">
+                        <div id="statsContainer"></div>
+                    </div>
+
+                    <!-- Evolution Chain Tab Content -->
+                    <div id="tab-evoChain" class="tab-content">
+                        <div id="evoContainer">Evolution details here...</div>
+                    </div>
+                </div>
+
             </div>
         </dialog>
 
@@ -62,7 +82,7 @@
 
         </div>
     </footer>
-
+    <script src="./script.js"></script>
 </body>
 
 </html>

@@ -245,6 +245,95 @@ footer {
 }
 
 
+/***********************Popup*********************************/
+/* Browser native dialog backdrop overlay */
+#pokemonDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px); /* Background ni blur చేస్తుంది */
+}
+
+/* Dialog container styling */
+#pokemonDialog {
+    border: none;
+    border-radius: 16px;
+    padding: 24px;
+    background-color: #090997; /* Dark theme background */
+    color: #ffffff;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin: auto; /* Screen center lo ఉంచడానికి */
+    text-align: center;
+}
+
+/* Header & Name Styling */
+#dialogName {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    color: #ffcb05; /* Pokemon Yellow Color */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Wrapper & Image */
+#dialogImage {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 20px auto;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease;
+}
+
+#dialogImage:hover {
+    transform: scale(1.08); /* Hover చేసినప్పుడు చిన్న Animation */
+}
+
+/* Close Button Styling */
+#closeBtn {
+    background-color: #ff5350; /* PokeBall Red */
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    float: right; /* Top right corner లో కూర్చోడానికి */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#closeBtn:hover {
+    background-color: #e03a37;
+    transform: scale(1.05);
+}
+
+/* Prev & Next Navigation Buttons Styling */
+#prevBtn, #nextBtn {
+    background-color: #2a2a3a;
+    color: #ffffff;
+    border: 1px solid #44445a;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px 5px 0 5px;
+    transition: all 0.2s ease;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+    background-color: #3a3a50;
+    border-color: #ffcb05;
+    color: #ffcb05;
+}
+
+
+/* ***********************multiple Tab in popup*************************/
+
+
 /* RESPONSIVE DESIGN */
 @media (max-width: 600px) {
     header {
