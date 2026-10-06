@@ -79,6 +79,63 @@ function openPokemonDialog(index) {
     }
 }
 
+// Evolution Chain ని Fetch చేసి స్క్రీన్ మీద రెంత్ చేసే ఫంక్షన్
+async function renderEvolutionChain(pokemon) {
+    const evoContainer = document.getElementById('evoContainer');
+    evoContainer.innerHTML = 'Loading evolution...';
+
+    try {
+        // 1. Pokémon Species API ద్వారా evolution_chain URL ని తెచ్చుకుంటున్నాం
+        let speciesResponse = await fetch(pokemon.species.url);
+        let speciesData = await speciesResponse.json();
+
+        // 2. Evolution Chain API ని Fetch చేస్తున్నాం
+        let evoResponse = await fetch(speciesData.evolution_chain.url);
+        let evoData = await evoResponse.json();
+
+        // 3. Chain లో ఉన్న అన్ని పోకీమాన్ పేర్లను ఒక array లోకి తీసుకుంటున్నాం
+        let evoChainNames = [];
+        let currentChain = evoData.chain;
+
+        while (currentChain) {
+            evoChainNames.push(currentChain.species.name);
+            currentChain = currentChain.evolves_to[0]; // తదుపరి Evolution కి వెళ్లడం
+        }
+
+        // 4. ప్రతీ పోకీమాన్ యొక్క Official Image & Name ని తీసుకొచ్చి HTML తయారు చేయడం
+        let evoHtml = '';
+        for (let i = 0; i < evoChainNames.length; i++) {
+            let pokeName = evoChainNames[i];
+            
+            // Image URL (ID ఆధారంగా official-artwork)
+            // PokéAPI image endpoint
+            let pokeDetails = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`);
+            let pokeData = await pokeDetails.json();
+            let imgUrl = pokeData.sprites.other['official-artwork'].front_default;
+
+            evoHtml += `
+                <div class="evo-item">
+                    <img src="${imgUrl}" alt="${pokeName}">
+                    <p style="text-transform: capitalize;">${pokeName}</p>
+                </div>
+            `;
+
+            // చివరి పోకీమాన్ కాకపోతే మధ్యలో '>>' బాణం గుర్తు పెట్టడం
+            if (i < evoChainNames.length - 1) {
+                evoHtml += `<div class="evo-arrow">≫</div>`;
+            }
+        }
+
+        evoContainer.innerHTML = evoHtml;
+
+    } catch (error) {
+        console.error("Evolution data తెచ్చేటప్పుడు ఎర్రర్ వచ్చింది:", error);
+        evoContainer.innerHTML = 'Evolution details unavailable';
+    }
+}
+
+
+
 function closePokemonDialog() {
     const dialog = document.getElementById('pokemonDialog');
     if (dialog) {
@@ -139,6 +196,13 @@ function switchTab(activeTabId, activeBtnId) {
 }
 
 function renderPokemonDetails(pokemon) {
+
+    if (!pokemon) {
+        console.error("Pokemon data is undefined!");
+        return;
+    }
+
+
     // 1. Main Tab Inner Text Data fill cheyadam
     document.getElementById('pokeHeight').textContent = (pokemon.height / 10) + " m";
     document.getElementById('pokeWeight').textContent = (pokemon.weight / 10) + " kg";
@@ -164,10 +228,60 @@ function renderPokemonDetails(pokemon) {
     }
     document.getElementById('statsContainer').innerHTML = statsHtml;
 
+    // 3. 👈 Evolution Chain ని ఇక్కడ కాల్ చేయాలి
+    renderEvolutionChain(pokemon);
+}
+
+// Sequence ni track cheయడానికి global variable
+let currentOffset = 0;
+
+// Line ga (Sequence lo) Pokemon fetch chese function
+async function fetchSequentialPokemon(count) {
+    try {
+        // Line ga next batch ni fetch చేయడం (limit = count, offset = currentOffset)
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${count}&offset=${currentOffset}`);
+        let data = await response.json();
+
+        // ప్రతీ Pokémon వివరాలను తెచ్చుకుని pokemonList లోకి పంపడం
+        for (let i = 0; i < data.results.length; i++) {
+            let detailRes = await fetch(data.results[i].url);
+            let detailData = await detailRes.json();
+            pokemonList.push(detailData);
+        }
+
+        // తదుపరి batch కోసం offset ని పెంచడం
+        currentOffset += count;
+
+        // UI లో cards ని render చేయడం
+        renderCharacters(pokemonList);
+
+    } catch (error) {
+        console.error("Error fetching sequential pokemon:", error);
+    }
+}
+
+// Button click handler
+async function loadMorePokemon() {
+    let amountInput = document.getElementById('loadAmountInput');
+    let amount = parseInt(amountInput.value);
+
+    console.log("Before Fetch - Offset:", currentOffset, "List Length:", pokemonList.length);
+
+    if (amount > 0) {
+        await fetchSequentialPokemon(amount);
+    }
+
+    console.log("After Fetch - Offset:", currentOffset, "List Length:", pokemonList.length);
 }
 
 // 3. Initialise the task
 async function init() {
+
+    pokemonList = []; // Clean start
+    currentOffset = 0; // Clear offset
+
+    let initialCount = parseInt(document.getElementById('loadAmountInput').value) || 5;
+
     pokemonList = await fetchCharacters();
     renderCharacters(pokemonList);
 

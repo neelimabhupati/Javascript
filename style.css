@@ -388,6 +388,89 @@ footer {
 }
 
 
+/* *******************************Evolution Chain*********************************/
+
+/* Evolution Chain Flexbox Layout */
+.evo-chain-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.evo-item {
+    text-align: center;
+}
+
+.evo-item img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.evo-item p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.evo-arrow {
+    font-size: 1.5rem;
+    color: #888888;
+    font-weight: bold;
+}
+
+
+/* Load More Container Styling */
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0 50px 0;
+}
+
+/* Number Input Box Style */
+#loadAmountInput {
+    width: 75px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #2a2a3a;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+}
+
+#loadAmountInput:focus {
+    border-color: #ff5350;
+}
+
+/* Load More Button Style */
+#loadMoreBtn {
+    background-color: #ff5350;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#loadMoreBtn:hover {
+    background-color: #e04340;
+    transform: translateY(-2px);
+}
+
+#loadMoreBtn:active {
+    transform: translateY(0);
+}
+
 
 
 /* RESPONSIVE DESIGN */

@@ -31,6 +31,8 @@
 
         <dialog id="pokemonDialog">
             <div>
+                <button id="closeBtn" onclick="closePokemonDialog()">Close</button>
+
                 <h2 id="dialogName"></h2>
                 <img id="dialogImage" alt="Pokemon Image">
 
@@ -68,10 +70,13 @@
 
                 <button id="prevBtn" onclick="showPrevPokemon()">Previous</button>
                 <button id="nextBtn" onclick="showNextPokemon()">Next</button>
-                <button id="closeBtn" onclick="closePokemonDialog()">Close</button>
+
             </div>
         </dialog>
-
+        <div class="load-more-container">
+            <input type="number" id="loadAmountInput" value="5" min="1" max="50">
+            <button id="loadMoreBtn" onclick="loadMorePokemon()">Load More</button>
+        </div>
     </main>
 
     <footer class="flex-center">
