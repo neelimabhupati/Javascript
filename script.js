@@ -30,35 +30,38 @@ function getTypesHtml(types) {
 // 2. Display the 5 Pokemon cards on HTML
 function renderCharacters(characters) {
     let container = document.getElementById('character-container');
-    // let typesHtml = getTypesHtml(char.types);
-    if (!container) return;
-
+    if (!container)
+        return;
     container.innerHTML = ''; // Clear container
-
     characters.forEach((char, index) => {
-        let typesHtml = getTypesHtml(char.types);
-        let primaryType = char.types[0].type.name;
-        let name = char.name;
-        let id = char.id;
-        let imageUrl = char.sprites.other['official-artwork'].front_default;
-
-        container.innerHTML += `
-            <div class="character-card" data-id="${id}" 
-                aria-label="Open ${name} details" onclick="openPokemonDialog(${index})">
-                <div class="card-header">
-                    <span> ID: ${id}</span>
-                    <h3 style="text-transform: capitalize;">${name}</h3>
-                </div>
-                <div class="card-img-wrapper bg-${primaryType}" >
-                    <img data-id="card-image" src="${imageUrl}" alt="${name}">
-                </div>
-
-                <div class="card-types">
-                ${typesHtml}
-                </div>
-            </div>
-        `;
+        container.innerHTML += createCharacterCardHTML(char, index);
     });
+}
+
+function createCharacterCardHTML(char, index) {
+
+    let typesHtml = getTypesHtml(char.types);
+    let primaryType = char.types[0].type.name;
+    let name = char.name;
+    let id = char.id;
+    let imageUrl = char.sprites.other['official-artwork'].front_default;
+
+    return `
+                <div class="character-card" data-id="${id}" 
+                    aria-label="Open ${name} details" onclick="openPokemonDialog(${index})">
+                    <div class="card-header">
+                        <span> ID: ${id}</span>
+                        <h3 style="text-transform: capitalize;">${name}</h3>
+                    </div>
+                    <div class="card-img-wrapper bg-${primaryType}" >
+                        <img data-id="card-image" src="${imageUrl}" alt="${name}">
+                    </div>
+
+                    <div class="card-types">
+                    ${typesHtml}
+                    </div>
+                </div>
+            `;
 }
 
 function openPokemonDialog(index) {
@@ -94,46 +97,44 @@ async function renderEvolutionChain(pokemon) {
         // 2. Evolution Chain API ని Fetch చేస్తున్నాం
         let evoResponse = await fetch(speciesData.evolution_chain.url);
         let evoData = await evoResponse.json();
+        let evoChainNames = extractEvoNames(evoData.chain);
 
-        // 3. Chain లో ఉన్న అన్ని పోకీమాన్ పేర్లను ఒక array లోకి తీసుకుంటున్నాం
-        let evoChainNames = [];
-        let currentChain = evoData.chain;
+        let evoHtmlArray = await Promise.all(
+            evoChainNames.map((name, i) => createEvoItemHTML(name, i === evoChainNames.length - 1))
+        );
 
-        while (currentChain) {
-            evoChainNames.push(currentChain.species.name);
-            currentChain = currentChain.evolves_to[0]; // తదుపరి Evolution కి వెళ్లడం
-        }
-
-        // 4. ప్రతీ పోకీమాన్ యొక్క Official Image & Name ని తీసుకొచ్చి HTML తయారు చేయడం
-        let evoHtml = '';
-        for (let i = 0; i < evoChainNames.length; i++) {
-            let pokeName = evoChainNames[i];
-
-            // Image URL (ID ఆధారంగా official-artwork)
-            // PokéAPI image endpoint
-            let pokeDetails = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`);
-            let pokeData = await pokeDetails.json();
-            let imgUrl = pokeData.sprites.other['official-artwork'].front_default;
-
-            evoHtml += `
-                <div class="evo-item">
-                    <img src="${imgUrl}" alt="${pokeName}">
-                    <p style="text-transform: capitalize;">${pokeName}</p>
-                </div>
-            `;
-
-            // చివరి పోకీమాన్ కాకపోతే మధ్యలో '>>' బాణం గుర్తు పెట్టడం
-            if (i < evoChainNames.length - 1) {
-                evoHtml += `<div class="evo-arrow">≫</div>`;
-            }
-        }
-
-        evoContainer.innerHTML = evoHtml;
+        evoContainer.innerHTML = evoHtmlArray.join('');
 
     } catch (error) {
-        console.error("Evolution data తెచ్చేటప్పుడు ఎర్రర్ వచ్చింది:", error);
+        console.error("Evolution data error", error);
         evoContainer.innerHTML = 'Evolution details unavailable';
     }
+}
+
+function extractEvoNames(chain) {
+    let evoChainNames = [];
+    let currentChain = chain;
+    while (currentChain) {
+        evoChainNames.push(currentChain.species.name);
+        currentChain = currentChain.evolves_to[0];
+    }
+    return evoChainNames;
+}
+
+async function createEvoItemHTML(pokeName, isLast) {
+    let pokeDetails = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`);
+    let pokeResonse = await pokeDetails.json();
+    let imgUrl = pokeResonse.sprites.other['official-artwork'].front_default;
+
+    let arrow = isLast ? '' : `<div class="evo-arrow">≫</div>`;
+
+    return `
+        <div class="evo-item">
+            <img src="${imgUrl}" alt="${pokeName}">
+            <p style="text-transform: capitalize;">${pokeName}</p>
+        </div>
+        ${arrow}
+    `;
 }
 
 function closePokemonDialog() {
@@ -312,9 +313,9 @@ async function searchPokemon() {
                 throw new Error("Data Not found");
 
             let pokemonData = await response.json();
-           
+
             renderCharacters([pokemonData]);
-             showSearchUI(); // API dwara card dhorikina Home button chupistham
+            showSearchUI(); // API dwara card dhorikina Home button chupistham
         } catch (error) {
             let container = document.getElementById('character-container');
             container.innerHTML = `<p class="no-results">No Pokémon found for "${query}"</p>`;
