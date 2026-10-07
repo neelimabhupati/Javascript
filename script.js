@@ -200,7 +200,12 @@ function renderPokemonDetails(pokemon) {
         console.error("Pokemon data is undefined!");
         return;
     }
+    renderMainDetails(pokemon);
+    document.getElementById('statsContainer').innerHTML = generateStatsHTML(pokemon.stats);
+    renderEvolutionChain(pokemon);
+}
 
+function renderMainDetails(pokemon) {
     // 1. Main Tab Inner Text Data fill cheyadam
     document.getElementById('pokeHeight').textContent = (pokemon.height / 10) + " m";
     document.getElementById('pokeWeight').textContent = (pokemon.weight / 10) + " kg";
@@ -209,28 +214,18 @@ function renderPokemonDetails(pokemon) {
     // Abilities list ni comma separated string ga marchadam
     let abilityNames = pokemon.abilities.map(a => a.ability.name).join(', ');
     document.getElementById('pokeAbilities').textContent = abilityNames;
+}
 
-
-    // 2. Stats Tab Dynamic Content Build cheyadam
-    let statsHtml = '';
-    for (let i = 0; i < pokemon.stats.length; i++) {
-        let stat = pokemon.stats[i];
-        statsHtml += `
+function generateStatsHTML(stats) {
+    return stats.map(stat =>`
             <div class="stat-row">
                 <span class="stat-title">${stat.stat.name}</span>
                 <div class="stat-bar-bg">
                     <div class="stat-bar-fill" style="width: ${Math.min(stat.base_stat, 100)}%;"></div>
                 </div>
             </div>
-        `;
-    }
-    document.getElementById('statsContainer').innerHTML = statsHtml;
-
-    // 3.  Evolution Chain ని ఇక్కడ కాల్ చేయాలి
-    renderEvolutionChain(pokemon);
+        `).join('');
 }
-
-
 
 // Line ga (Sequence lo) Pokemon fetch chese function
 async function fetchSequentialPokemon(count) {
@@ -256,6 +251,8 @@ async function fetchSequentialPokemon(count) {
         console.error("Error fetching sequential pokemon:", error);
     }
 }
+
+
 
 // Button click handler
 async function loadMorePokemon() {
