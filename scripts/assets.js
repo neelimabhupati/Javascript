@@ -3,7 +3,6 @@ const SOUND_EFFECTS = {
     // openModal: './assets/sounds/open.mp3'
 };
 
-
 const TYPE_COLORS = {
     normal: '#A8A878',
     fighting: '#C03028',

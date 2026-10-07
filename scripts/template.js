@@ -1,5 +1,4 @@
 function createCharacterCardHTML(char, index) {
-
     let typesHtml = getTypesHtml(char.types);
     let primaryType = char.types[0].type.name;
     let name = char.name;
@@ -7,9 +6,7 @@ function createCharacterCardHTML(char, index) {
     let imageUrl = char.sprites.other['official-artwork'].front_default;
 
     console.log("primarytypes:", primaryType);
-    // let cardBgColor = TYPE_COLORS[primaryType] || '#A8A878';
 
-    // Type color key exact match avvalaniki lowerCase lo theskovandi
     let cardBgColor = TYPE_COLORS[primaryType.toLowerCase()] || '#78C850';
     return `
                 <div class="character-card" data-id="${id}" 
@@ -57,7 +54,7 @@ async function createEvoItemHTML(pokeName, isLast) {
     `;
 }
 
-// Types list నుండి HTML badges తయారు చేసే హెల్పర్ ఫంక్షన్
+// from Types list prepare HTML badges
 function getTypesHtml(types) {
     return types.map(t => {
         let typeName = t.type.name;
