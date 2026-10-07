@@ -1,8 +1,17 @@
 let pokemonList = []; // Global variable
 const dialog = document.getElementById('pokemonDialog');
 let currentIndex = 0;
-// Sequence ni track cheయడానికి global variable
 let currentOffset = 0;
+
+// Initialise the main task
+async function init() {
+    pokemonList = [];  // Clean start
+    currentOffset = 0; // Reset offset to 0
+    // Input box లో ఎంత నంబర్ ఉంటే (ఉదాహరణకు 11 లేదా 5) అన్ని కార్డ్స్ వరుసగా లోడ్ అవుతాయి
+    let initialCount = parseInt(document.getElementById('loadAmountInput').value) || 11;
+    await fetchSequentialPokemon(initialCount);
+    clickBackgroundClose();
+}
 
 // 1. Fetching only 5 Pokemon details
 async function fetchCharacters() {
@@ -18,15 +27,6 @@ async function fetchCharacters() {
     return details;
 }
 
-// Types list నుండి HTML badges తయారు చేసే హెల్పర్ ఫంక్షన్
-function getTypesHtml(types) {
-    return types.map(t => {
-        let typeName = t.type.name;
-        return `<span class="type-badge bg-${typeName}"></span>`;
-    }).join('');
-}
-
-
 // 2. Display the 5 Pokemon cards on HTML
 function renderCharacters(characters) {
     let container = document.getElementById('character-container');
@@ -36,32 +36,6 @@ function renderCharacters(characters) {
     characters.forEach((char, index) => {
         container.innerHTML += createCharacterCardHTML(char, index);
     });
-}
-
-function createCharacterCardHTML(char, index) {
-
-    let typesHtml = getTypesHtml(char.types);
-    let primaryType = char.types[0].type.name;
-    let name = char.name;
-    let id = char.id;
-    let imageUrl = char.sprites.other['official-artwork'].front_default;
-
-    return `
-                <div class="character-card" data-id="${id}" 
-                    aria-label="Open ${name} details" onclick="openPokemonDialog(${index})">
-                    <div class="card-header">
-                        <span> ID: ${id}</span>
-                        <h3 style="text-transform: capitalize;">${name}</h3>
-                    </div>
-                    <div class="card-img-wrapper bg-${primaryType}" >
-                        <img data-id="card-image" src="${imageUrl}" alt="${name}">
-                    </div>
-
-                    <div class="card-types">
-                    ${typesHtml}
-                    </div>
-                </div>
-            `;
 }
 
 function openPokemonDialog(index) {
@@ -97,6 +71,7 @@ async function renderEvolutionChain(pokemon) {
         let evoResponse = await fetch(speciesData.evolution_chain.url);
         let evoData = await evoResponse.json();
         let evoChainNames = extractEvoNames(evoData.chain);
+        
         let evoHtmlArray = await Promise.all(
             evoChainNames.map((name, i) => createEvoItemHTML(name, i === evoChainNames.length - 1))
         );
@@ -115,22 +90,6 @@ function extractEvoNames(chain) {
         currentChain = currentChain.evolves_to[0];
     }
     return evoChainNames;
-}
-
-async function createEvoItemHTML(pokeName, isLast) {
-    let pokeDetails = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`);
-    let pokeResonse = await pokeDetails.json();
-    let imgUrl = pokeResonse.sprites.other['official-artwork'].front_default;
-
-    let arrow = isLast ? '' : `<div class="evo-arrow">≫</div>`;
-
-    return `
-        <div class="evo-item">
-            <img src="${imgUrl}" alt="${pokeName}">
-            <p style="text-transform: capitalize;">${pokeName}</p>
-        </div>
-        ${arrow}
-    `;
 }
 
 function closePokemonDialog() {
@@ -212,16 +171,7 @@ function renderMainDetails(pokemon) {
     document.getElementById('pokeAbilities').textContent = abilityNames;
 }
 
-function generateStatsHTML(stats) {
-    return stats.map(stat => `
-            <div class="stat-row">
-                <span class="stat-title">${stat.stat.name}</span>
-                <div class="stat-bar-bg">
-                    <div class="stat-bar-fill" style="width: ${Math.min(stat.base_stat, 100)}%;"></div>
-                </div>
-            </div>
-        `).join('');
-}
+
 
 // Line ga (Sequence lo) Pokemon fetch chese function
 async function fetchSequentialPokemon(count) {
@@ -230,6 +180,7 @@ async function fetchSequentialPokemon(count) {
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${count}&offset=${currentOffset}`);
         let data = await response.json();
 
+        console.log("API Data:", data);
         // ప్రతీ Pokémon వివరాలను తెచ్చుకుని pokemonList లోకి పంపడం
         for (let i = 0; i < data.results.length; i++) {
             let detailRes = await fetch(data.results[i].url);
@@ -248,8 +199,6 @@ async function fetchSequentialPokemon(count) {
     }
 }
 
-
-
 // Button click handler
 async function loadMorePokemon() {
     let amountInput = document.getElementById('loadAmountInput');
@@ -260,7 +209,6 @@ async function loadMorePokemon() {
     if (amount > 0) {
         await fetchSequentialPokemon(amount);
     }
-
     console.log("After Fetch - Offset:", currentOffset, "List Length:", pokemonList.length);
 }
 
@@ -287,7 +235,6 @@ async function searchPokemon() {
     } else {
         // 4. Local list lo lekapothe direct API nunchi fetch cheyadam
         fetchAndRenderFromAPI(query);
-
     }
 }
 
@@ -316,8 +263,6 @@ async function fetchAndRenderFromAPI(query) {
     } catch (error) {
         let container = document.getElementById('character-container');
         container.innerHTML = `<p class="no-results">No Pokémon found for "${query}"</p>`;
-
-        // Result దొరకనప్పుడు: Input field & Load More దాచి, Home Page Button ని చూపించడం
         showSearchUI();
     }
 }
@@ -327,7 +272,6 @@ function resetHome() {
     if (searchInput) {
         searchInput.value = '';
     }
-
     let loadMoreBtn = document.getElementById('loadMoreBtn');
     let loadAmountInput = document.getElementById('loadAmountInput');
     let homeBtn = document.getElementById('homeBtn');
@@ -339,19 +283,4 @@ function resetHome() {
 
     // Original pokemonList ని రెంత్ చేయడం
     renderCharacters(pokemonList);
-
-}
-
-
-// 3. Initialise the task
-async function init() {
-    pokemonList = [];  // Clean start
-    currentOffset = 0; // Reset offset to 0
-
-    // Input box లో ఎంత నంబర్ ఉంటే (ఉదాహరణకు 11 లేదా 5) అన్ని కార్డ్స్ వరుసగా లోడ్ అవుతాయి
-    let initialCount = parseInt(document.getElementById('loadAmountInput').value) || 11;
-
-    await fetchSequentialPokemon(initialCount);
-
-    clickBackgroundClose();
 }
