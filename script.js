@@ -26,6 +26,7 @@ function getTypesHtml(types) {
     }).join('');
 }
 
+
 // 2. Display the 5 Pokemon cards on HTML
 function renderCharacters(characters) {
     let container = document.getElementById('character-container');
