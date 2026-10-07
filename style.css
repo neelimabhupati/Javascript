@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 100px;
+    padding: 40px;
 }
 
 .flex-center {
@@ -570,7 +570,7 @@ footer {
 }
 
 /* Breakpoint ని 600px నుండి 768px కి మార్చండి */
-@media (min-width:601px) and (max-width: 930px) {
+@media (min-width:601px) and (max-width: 1023px) {
     header {
         flex-direction: column;
         height: auto;
@@ -605,9 +605,8 @@ footer {
         justify-content: center;
     }
 
-    
-
     .footer-content p {
         font-size: 36px;
     }
 }
+
