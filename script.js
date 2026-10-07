@@ -93,18 +93,14 @@ async function renderEvolutionChain(pokemon) {
         // 1. Pokémon Species API ద్వారా evolution_chain URL ని తెచ్చుకుంటున్నాం
         let speciesResponse = await fetch(pokemon.species.url);
         let speciesData = await speciesResponse.json();
-
         // 2. Evolution Chain API ని Fetch చేస్తున్నాం
         let evoResponse = await fetch(speciesData.evolution_chain.url);
         let evoData = await evoResponse.json();
         let evoChainNames = extractEvoNames(evoData.chain);
-
         let evoHtmlArray = await Promise.all(
             evoChainNames.map((name, i) => createEvoItemHTML(name, i === evoChainNames.length - 1))
         );
-
         evoContainer.innerHTML = evoHtmlArray.join('');
-
     } catch (error) {
         console.error("Evolution data error", error);
         evoContainer.innerHTML = 'Evolution details unavailable';
@@ -217,7 +213,7 @@ function renderMainDetails(pokemon) {
 }
 
 function generateStatsHTML(stats) {
-    return stats.map(stat =>`
+    return stats.map(stat => `
             <div class="stat-row">
                 <span class="stat-title">${stat.stat.name}</span>
                 <div class="stat-bar-bg">
@@ -277,20 +273,6 @@ async function searchPokemon() {
         renderCharacters(pokemonList);
         return;
     }
-
-    // Elements ni mundhe get-element-by-id dwara techukovali
-    let loadMoreBtn = document.getElementById('loadMoreBtn');
-    let loadAmountInput = document.getElementById('loadAmountInput');
-    let homeBtn = document.getElementById('homeBtn');
-
-
-    // Helper function: Search State lo loadMoreBtn/Input hide chesi Home Page button chupistham
-    function showSearchUI() {
-        if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-        if (loadAmountInput) loadAmountInput.style.display = 'none';
-        if (homeBtn) homeBtn.style.display = 'inline-block';
-    }
-
     // 2. Minimum 3 letters unte match ayye Pokemon ni filter chestham
     let filteredList = pokemonList.filter(pokemon => {
         let nameMatch = pokemon.name.toLowerCase().includes(query);
@@ -304,22 +286,39 @@ async function searchPokemon() {
         renderCharacters(filteredList);
     } else {
         // 4. Local list lo lekapothe direct API nunchi fetch cheyadam
-        try {
-            let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
-            if (!response.ok)
-                throw new Error("Data Not found");
+        fetchAndRenderFromAPI(query);
 
-            let pokemonData = await response.json();
+    }
+}
 
-            renderCharacters([pokemonData]);
-            showSearchUI(); // API dwara card dhorikina Home button chupistham
-        } catch (error) {
-            let container = document.getElementById('character-container');
-            container.innerHTML = `<p class="no-results">No Pokémon found for "${query}"</p>`;
+// Helper function: Search State lo loadMoreBtn/Input hide chesi Home Page button chupistham
+function showSearchUI() {
+    // Elements ni mundhe get-element-by-id dwara techukovali
+    let loadMoreBtn = document.getElementById('loadMoreBtn');
+    let loadAmountInput = document.getElementById('loadAmountInput');
+    let homeBtn = document.getElementById('homeBtn');
 
-            // Result దొరకనప్పుడు: Input field & Load More దాచి, Home Page Button ని చూపించడం
-            showSearchUI();
-        }
+    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    if (loadAmountInput) loadAmountInput.style.display = 'none';
+    if (homeBtn) homeBtn.style.display = 'inline-block';
+}
+
+async function fetchAndRenderFromAPI(query) {
+    try {
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
+        if (!response.ok)
+            throw new Error("Data Not found");
+
+        let pokemonData = await response.json();
+
+        renderCharacters([pokemonData]);
+        showSearchUI(); // API dwara card dhorikina Home button chupistham
+    } catch (error) {
+        let container = document.getElementById('character-container');
+        container.innerHTML = `<p class="no-results">No Pokémon found for "${query}"</p>`;
+
+        // Result దొరకనప్పుడు: Input field & Load More దాచి, Home Page Button ని చూపించడం
+        showSearchUI();
     }
 }
 
