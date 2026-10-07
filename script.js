@@ -143,7 +143,7 @@ function closePokemonDialog() {
     }
 }
 
-// 👈 3. Next Button కోసం ఫంక్షన్
+// 3. Next Button కోసం ఫంక్షన్
 function showNextPokemon() {
     if (currentIndex < pokemonList.length - 1) {
         openPokemonDialog(currentIndex + 1);
@@ -152,7 +152,7 @@ function showNextPokemon() {
     }
 }
 
-// 👈 4. Previous Button కోసం ఫంక్షన్
+//  4. Previous Button కోసం ఫంక్షన్
 function showPrevPokemon() {
     if (currentIndex > 0) {
         openPokemonDialog(currentIndex - 1);
@@ -228,7 +228,7 @@ function renderPokemonDetails(pokemon) {
     }
     document.getElementById('statsContainer').innerHTML = statsHtml;
 
-    // 3. 👈 Evolution Chain ని ఇక్కడ కాల్ చేయాలి
+    // 3.  Evolution Chain ని ఇక్కడ కాల్ చేయాలి
     renderEvolutionChain(pokemon);
 }
 
@@ -275,16 +275,28 @@ async function loadMorePokemon() {
 }
 
 // 3. Initialise the task
+// async function init() {
+
+//     pokemonList = []; // Clean start
+//     currentOffset = 0; // Clear offset
+
+//     let initialCount = parseInt(document.getElementById('loadAmountInput').value) || 12;
+
+//     pokemonList = await fetchCharacters();
+//     renderCharacters(pokemonList);
+
+//     clickBackgroundClose();
+// }
+
+// 3. Initialise the task
 async function init() {
+    pokemonList = [];  // Clean start
+    currentOffset = 0; // Reset offset to 0
 
-    pokemonList = []; // Clean start
-    currentOffset = 0; // Clear offset
+    // Input box లో ఎంత నంబర్ ఉంటే (ఉదాహరణకు 11 లేదా 5) అన్ని కార్డ్స్ వరుసగా లోడ్ అవుతాయి
+    let initialCount = parseInt(document.getElementById('loadAmountInput').value) || 11;
 
-    let initialCount = parseInt(document.getElementById('loadAmountInput').value) || 5;
-
-    pokemonList = await fetchCharacters();
-    renderCharacters(pokemonList);
+    await fetchSequentialPokemon(initialCount);
 
     clickBackgroundClose();
 }
-
