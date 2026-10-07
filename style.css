@@ -53,17 +53,40 @@ header {
     letter-spacing: 0.5px;
 }
 
+.search-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+#searchBtn,#homeBtn {
+    background-color: #ff5350; /* PokeBall Red */
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    float: right; /* Top right corner లో కూర్చోడానికి */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#searchBtn:hover,#homeBtn:hover {
+    background-color: #e03a37;
+    transform: scale(1.05);
+}
 
 /* SEARCH BAR STYLES */
 .search-container input {
-    width: 420px;
-    height: 70px;
-    padding: 0 24px;
+    
+    padding: 8px 18px;
+    font-size: 20px;
     background-color: #FFFFFF;
     border: 1px solid #CCCCCC;
     border-radius: 6px;
     outline: none;
-    font-size: 24px;
     color: #000000;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }

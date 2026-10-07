@@ -22,7 +22,8 @@
         </div>
 
         <div class="search-container flex-center">
-            <input type="text" id="searchInput" data-id="search-input" placeholder="Search Pokemon...">
+            <input type="text" id="searchInput" data-id="search-input" placeholder="Search Pokemon(min 3 char)...">
+            <button id="searchBtn" onclick="searchPokemon()"> Search </button>
         </div>
     </header>
 
@@ -76,6 +77,9 @@
         <div class="load-more-container">
             <input type="number" id="loadAmountInput" value="11" min="1" max="50">
             <button id="loadMoreBtn" onclick="loadMorePokemon()">Load More</button>
+
+            <!-- Home Page Button (పోకీమాన్ దొరకనప్పుడు మాత్రమే కనిపిస్తుంది) -->
+            <button id="homeBtn" onclick="resetHome()" style="display: none;">Home Page</button>
         </div>
     </main>
 

@@ -1,6 +1,8 @@
 let pokemonList = []; // Global variable
 const dialog = document.getElementById('pokemonDialog');
 let currentIndex = 0;
+// Sequence ni track cheయడానికి global variable
+let currentOffset = 0;
 
 // 1. Fetching only 5 Pokemon details
 async function fetchCharacters() {
@@ -23,7 +25,6 @@ function getTypesHtml(types) {
         return `<span class="type-badge bg-${typeName}"></span>`;
     }).join('');
 }
-
 
 // 2. Display the 5 Pokemon cards on HTML
 function renderCharacters(characters) {
@@ -106,7 +107,7 @@ async function renderEvolutionChain(pokemon) {
         let evoHtml = '';
         for (let i = 0; i < evoChainNames.length; i++) {
             let pokeName = evoChainNames[i];
-            
+
             // Image URL (ID ఆధారంగా official-artwork)
             // PokéAPI image endpoint
             let pokeDetails = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`);
@@ -134,8 +135,6 @@ async function renderEvolutionChain(pokemon) {
     }
 }
 
-
-
 function closePokemonDialog() {
     const dialog = document.getElementById('pokemonDialog');
     if (dialog) {
@@ -160,8 +159,6 @@ function showPrevPokemon() {
         openPokemonDialog(pokemonList.length - 1); // మొదటి దాంట్లో ఉన్నప్పుడు నొక్కితే చివరి దానికి వెళ్తుంది
     }
 }
-
-
 
 function clickBackgroundClose() {
     const dialogElement = document.getElementById('pokemonDialog');
@@ -202,7 +199,6 @@ function renderPokemonDetails(pokemon) {
         return;
     }
 
-
     // 1. Main Tab Inner Text Data fill cheyadam
     document.getElementById('pokeHeight').textContent = (pokemon.height / 10) + " m";
     document.getElementById('pokeWeight').textContent = (pokemon.weight / 10) + " kg";
@@ -232,8 +228,7 @@ function renderPokemonDetails(pokemon) {
     renderEvolutionChain(pokemon);
 }
 
-// Sequence ni track cheయడానికి global variable
-let currentOffset = 0;
+
 
 // Line ga (Sequence lo) Pokemon fetch chese function
 async function fetchSequentialPokemon(count) {
@@ -274,19 +269,81 @@ async function loadMorePokemon() {
     console.log("After Fetch - Offset:", currentOffset, "List Length:", pokemonList.length);
 }
 
-// 3. Initialise the task
-// async function init() {
+async function searchPokemon() {
+    let searchInput = document.getElementById('searchInput');
+    let query = searchInput.value.trim().toLowerCase();
 
-//     pokemonList = []; // Clean start
-//     currentOffset = 0; // Clear offset
+    // 1. Query khaleega unna leda 3 letters kante thakkuva unna, complete list ni chupistham
+    if (query.length < 3) {
+        renderCharacters(pokemonList);
+        return;
+    }
 
-//     let initialCount = parseInt(document.getElementById('loadAmountInput').value) || 12;
+    // Elements ni mundhe get-element-by-id dwara techukovali
+    let loadMoreBtn = document.getElementById('loadMoreBtn');
+    let loadAmountInput = document.getElementById('loadAmountInput');
+    let homeBtn = document.getElementById('homeBtn');
 
-//     pokemonList = await fetchCharacters();
-//     renderCharacters(pokemonList);
 
-//     clickBackgroundClose();
-// }
+    // Helper function: Search State lo loadMoreBtn/Input hide chesi Home Page button chupistham
+    function showSearchUI() {
+        if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+        if (loadAmountInput) loadAmountInput.style.display = 'none';
+        if (homeBtn) homeBtn.style.display = 'inline-block';
+    }
+
+    // 2. Minimum 3 letters unte match ayye Pokemon ni filter chestham
+    let filteredList = pokemonList.filter(pokemon => {
+        let nameMatch = pokemon.name.toLowerCase().includes(query);
+        let idMatch = pokemon.id.toString() === query;
+        return nameMatch || idMatch;
+    });
+
+    // 3. Local list lo matches unte rendering
+    if (filteredList.length > 0) {
+        showSearchUI();
+        renderCharacters(filteredList);
+    } else {
+        // 4. Local list lo lekapothe direct API nunchi fetch cheyadam
+        try {
+            let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
+            if (!response.ok)
+                throw new Error("Data Not found");
+
+            let pokemonData = await response.json();
+           
+            renderCharacters([pokemonData]);
+             showSearchUI(); // API dwara card dhorikina Home button chupistham
+        } catch (error) {
+            let container = document.getElementById('character-container');
+            container.innerHTML = `<p class="no-results">No Pokémon found for "${query}"</p>`;
+
+            // Result దొరకనప్పుడు: Input field & Load More దాచి, Home Page Button ని చూపించడం
+            showSearchUI();
+        }
+    }
+}
+
+function resetHome() {
+    let searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+
+    let loadMoreBtn = document.getElementById('loadMoreBtn');
+    let loadAmountInput = document.getElementById('loadAmountInput');
+    let homeBtn = document.getElementById('homeBtn');
+
+    // UI Input / Load More లని మళ్లీ చూపించి Home Button ని దాచడం
+    if (loadMoreBtn) loadMoreBtn.style.display = 'inline-block';
+    if (loadAmountInput) loadAmountInput.style.display = 'inline-block';
+    if (homeBtn) homeBtn.style.display = 'none';
+
+    // Original pokemonList ని రెంత్ చేయడం
+    renderCharacters(pokemonList);
+
+}
+
 
 // 3. Initialise the task
 async function init() {
